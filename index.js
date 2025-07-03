@@ -62,7 +62,7 @@ function toggleFreeComics() {
 }
 function toggleSection(idToShow) {
     const sectionIds = ["TVShowsDIV", "MoviesDIV", "AnimeDIV", "PDFsDIV"];
-    const FrontText = document.querySelector(".FrontText");
+    const frontParagraph = document.querySelector(".Frnt2");
     let anyVisible = false;
 
     // Remove 'active' class from all buttons
@@ -87,5 +87,7 @@ function toggleSection(idToShow) {
         }
     });
     // Show or hide .FrontText based on visibility of any section
-    Frnt2.style.display = anyVisible ? "none" : "block";
+    if (frontParagraph) 
+        frontParagraph.style.display = anyVisible ? "none" : "block";
+    
 }
