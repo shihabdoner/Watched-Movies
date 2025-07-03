@@ -87,5 +87,5 @@ function toggleSection(idToShow) {
         }
     });
     // Show or hide .FrontText based on visibility of any section
-    FrontText.style.display = anyVisible ? "none" : "block";
+    Frnt2.style.display = anyVisible ? "none" : "block";
 }
