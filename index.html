@@ -1,57 +1,71 @@
 <!DOCTYPE html>
 <html>
-    <head>
-<title>Cow</title>
-<style>
-body{ background-color: black;
-    font-family: 'Courier New', Courier, monospace;
 
-}
-h1{background-color: #1f1e1c;
-   color: blue;
+<head>
+    <link rel="stylesheet" href="index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Code:ital,wght@0,200..700;1,200..700&display=swap"
+        rel="stylesheet">
+    <title>Cow</title>
 
-}
-ol{ font: size 200px;
-;
+</head>
 
-}
-li{ background-color: #1f1e1c;
-   text-shadow: -0.05px 0 white, 0 0.05px white, 0.05px 0 white, 0 -0.05px white;
-}
-</style>
-    </head>
-    <body>
-        <h1>Things that I have watched</h1>
+<body>
+    <h1 class="Fronttext"> Here are some things I remember</h1>
+    <button onclick="toggleSeries()"
+        style="background-color:whitesmoke; color: black; border: black ; border-radius: 10%; font-family: 'Cascadia Code', Courier, monospace;">Series</button>
+    <button onclick="toggleMovies()"
+        style="background-color:whitesmoke; color: black; border: black ; border-radius: 10%; font-family: 'Cascadia Code', Courier, monospace;">Movies
+    </button>
+    <button onclick="toggleAnime()"
+        style="background-color:whitesmoke; color: black; border: black ; border-radius: 10%; font-family: 'Cascadia Code', Courier, monospace;">Anime
+    </button>
+
+    <div id="SeriesDIV" style="display:none;">
+        <h1 class="Blues">Series</h1>
         <ol>
-            <li style="color:    #05f072;">Game of thrones</li>
+            <li style="color: #05f072;">Game of Thrones</li>
             <li>Queens Gambit</li>
-            <li style="color: #05f072;">Solo leveling</li>
+            <li style="color: #05f072;">Breaking Bad</li>
+            <li style="color: #05f072;">Better Call Saul</li>
+            <li>Peaky Blinders</li>
+        </ol>
+    </div>
+
+    <div id="MoviesDIV" style="display: list-item;">
+        <h1 class="Blues">Movies</h1>
+        <ol>
+            <li style="color: #05f072;">Céline (1992)</li>
             <li>Persuation</li>
             <li>The map of tiny perfect thing</li>
             <li>Spiderman:no way home</li>
             <li style="color: #05f072;">Private Life</li>
             <li>Enola holmes</li>
             <li>Enola Holmes 2</li>
-            <li>Saltburn</li>
+            <li style="color: red;">Saltburn</li>
             <li>Eighth grade</li>
             <li>Chemical hearts</li>
-            <li>Fifty shades of gray</li>
-            <li>Fifty shades darker</li>
+            <li style="text-decoration: line-through gray dotted;">Fifty shades of gray</li>
+            <li style="text-decoration: line-through gray dotted;">Fifty shades darker</li>
             <li>Through my window</li>
             <li>Along for the ride</li>
-            <li>The next 365 days</li>
+            <li style="text-decoration: line-through gray dotted;">The next 365 days</li>
             <li>Do revenge</li>
-            <li>My fault</li>
-            <li>Your Fault</li>
+            <li style="text-decoration: line-through gray dotted;">My fault</li>
+            <li style="text-decoration: line-through gray dotted;">Your Fault</li>
             <li>When we first met</li>
-            <li>fifty shades freed</li>
-            <li>Love and other drugs</li>
+            <li style="text-decoration: line-through gray dotted;">Fifty shades freed</li>
+            <li style="text-decoration: line-through gray dotted;">Love and other drugs</li>
             <li>Uncharted</li>
-            <li>Little women</li>
+            <li style="color: #05f072;">Little women</li>
             <li>Aloha</li>
-            <li>Purple hearts</li>
+            <li style="text-decoration: line-through gray dotted;">Purple hearts</li>
             <li>Interstellar</li>
-            <li>The intern</li>
+            <li>The Intern</li>
             <li>The dark knight rises</li>
             <li>American psycho</li>
             <li>The dark knight</li>
@@ -59,11 +73,11 @@ li{ background-color: #1f1e1c;
             <li>Thor</li>
             <li>Thor the dark world</li>
             <li>The avengers</li>
-            <li>Avengers age of ultron</li>
+            <li style="color: #05f072;">Avengers age of ultron</li>
             <li>Doctor strange</li>
             <li>Thor ragnarok</li>
-            <li>Avenger infinity war</li>
-            <li>Avengers endgame</li>
+            <li style="color: #05f072;">Avenger infinity war</li>
+            <li style="color: #05f072;">Avengers endgame</li>
             <li>Thor love and thunder</li>
             <li>Transformers one</li>
             <li>Transformers the rise of the beasts</li>
@@ -75,17 +89,17 @@ li{ background-color: #1f1e1c;
             <li>Bumblebee</li>
             <li>Captain Marvel</li>
             <li>Captain America the first avenger</li>
-            <li>Ironman 1</li>
-            <li>Ironeman 2</li>
-            <li>Ironman 3</li>
-            <li>Captain America civil war</li>
+            <li style="color: #05f072;">Ironman 1</li>
+            <li style="color: #05f072;">Ironeman 2</li>
+            <li style="color: #05f072;">Ironman 3</li>
+            <li style="color: #05f072;">Captain America civil war</li>
             <li>Captain america the winter soldier</li>
             <li>Ant man and the wasp</li>
             <li>Black widow</li>
-            <li>Spiderman homecoming</li>
+            <li style="color: #05f072;">Spiderman homecoming</li>
             <li>Doctor strange in the multiverse of madness</li>
             <li>Eternals></li>
-            <li>Spiderman Far from home</li>
+            <li style="color: #05f072;">Spiderman Far from home</li>
             <li>The marvels</li>
             <li>Guardians of the galaxy vol.1</li>
             <li>Guardians of the galaxy vol.2</li>
@@ -103,7 +117,7 @@ li{ background-color: #1f1e1c;
             <li>Despicable me 2</li>
             <li>Despicable me 3</li>
             <li>Despicable me 4</li>
-            <li>Big Hero 6</li>
+            <li style="color: #05f072;">Big Hero 6</li>
             <li>The Croods</li>
             <li>Hotel Transylvania</li>
             <li>Hotel Transylvania 2</li>
@@ -114,12 +128,12 @@ li{ background-color: #1f1e1c;
             <li>Shrek 2</li>
             <li>Shrek the third</li>
             <li>Shrek forever after</li>
-            <li>After</li>
-            <li>After we collided</li>
-            <li>After we fell</li>
-            <li>After ever happy</li>
-            <li>After everything</li>
-            <li>The other Zoey</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">After</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">After we collided</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">After we fell</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">After ever happy</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">After everything</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">The other Zoey</li>
             <li>Moxie</li>
             <li>The batman</li>
             <li>Justice league: Dark Apokolips War</li>
@@ -182,19 +196,19 @@ li{ background-color: #1f1e1c;
             <li>Batman vs Teenage Mutants Ninja turtles</li>
             <li>Merry Little Batman</li>
             <li>Scooby Doo! and Batman: The Brave and The Bold</li>
-            <li>Gabriel's Inferno Part 1</li>
-            <li>Gabriel's Inferno Part 2</li>
-            <li>Gabriel's Rapture Part 1</li>
-            <li>Gabriel's Rapture Part 2</li>
-            <li>Gabriel's Rapture Part 3</li>
-            <li>Gabriel's Redemption Part 1</li>
-            <li>Gabriel's Redemption Part 2</li>
-            <li>Gabriel's Redemption Part 3</li>
-            <li>Twilight</li>
-            <li>The Twilight Saga: New Moon</li>
-            <li>The Twilight Saga: Eclipse</li>
-            <li>The Twilight Saga: Breaking Down Part 1</li>
-            <li>The Twilight Saga: Breaking Down Part 2</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">Gabriel's Inferno Part 1</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">Gabriel's Inferno Part 2</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">Gabriel's Rapture Part 1</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">Gabriel's Rapture Part 2</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">Gabriel's Rapture Part 3</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">Gabriel's Redemption Part 1</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">Gabriel's Redemption Part 2</li>
+            <li style="color: #05f072; text-decoration: line-through gray dotted;">Gabriel's Redemption Part 3</li>
+            <li style="color: #05f072;">Twilight</li>
+            <li style="color: #05f072;">The Twilight Saga: New Moon</li>
+            <li style="color: #05f072;">The Twilight Saga: Eclipse</li>
+            <li style="color: #05f072;">The Twilight Saga: Breaking Down Part 1</li>
+            <li style="color: #05f072;">The Twilight Saga: Breaking Down Part 2</li>
             <li>Harry Potter and the Philosopher's Stone</li>
             <li>Harry Potter and the Chamber of Secrets</li>
             <li>Harry Potter and the Prison of Azkaban</li>
@@ -212,26 +226,26 @@ li{ background-color: #1f1e1c;
             <li>Atonement</li>
             <li>Pride and Prejudice</li>
             <li>Begin Again</li>
-            <li>Poor Things</li>
+            <li style="color: red;">Poor Things</li>
             <li>La La Land</li>
-            <li>Easy A</li>
+            <li style="color: #05f072;">Easy A</li>
             <li>The Amezing Spiderman</li>
             <li>The Amezing Spiderman 2</li>
             <li>Spider-Man</li>
             <li>Spider-Man 2</li>
             <li>Spider-Man 3</li>
             <li>We live in time</li>
-            <li>The Social Network</li>
+            <li style="color: #05f072;">The Social Network</li>
             <li>Friends With Benifits</li>
-            <li>Frances Ha</li>
-            <li>Mistress America</li>
+            <li style="color: #05f072;">Frances Ha</li>
+            <li style="color: #05f072;">Mistress America</li>
             <li>Lady Bird</li>
             <li>The Outurn</li>
-            <li>Brooklyn</li>
+            <li style="color: #05f072;">Brooklyn</li>
             <li>20th Century Women</li>
-            <li>Cha Cha Real Smooth</li>
-            <li>The Worst Person in the World</li>
-            <li>Columbus</li>
+            <li style="color: #05f072;">Cha Cha Real Smooth</li>
+            <li style="color: #05f072;">The Worst Person in the World</li>
+            <li style="color: #05f072;">Columbus</li>
             <li>Short Term 12</li>
             <li>Before Sunrise</li>
             <li>Before Sunset</li>
@@ -240,25 +254,166 @@ li{ background-color: #1f1e1c;
             <li>Submarine</li>
             <li>Licorice Pizza</li>
             <li>Super Dark Times</li>
-            <li>The Room Next Door</li>
+            <li style="color: #05f072;">The Room Next Door</li>
             <li>I still Believe</li>
             <li>The last summer</li>
             <li>Hello, Goodbye and Everything in Between</li>
-            <li>Chemical Hearts</li>
-            <li>Through My Window</li>
-            <li>Through My WIndow: Across the Sea</li>
-            <li>Through my Window: Looking at You</li>
-            <li>The Kissing Booth</li>
-            <li>The Kissing Booth 2</li>
-            <li>The Kissing Booth 3</li>
+            <li style="text-decoration: line-through gray dotted;">Chemical Hearts</li>
+            <li style="text-decoration: line-through gray dotted;">Through My Window</li>
+            <li style="text-decoration: line-through gray dotted;">Through My WIndow: Across the Sea</li>
+            <li style="text-decoration: line-through gray dotted;">Through my Window: Looking at You</li>
+            <li style="text-decoration: line-through gray dotted;">The Kissing Booth</li>
+            <li style="text-decoration: line-through gray dotted;">The Kissing Booth 2</li>
+            <li style="text-decoration: line-through gray dotted;">The Kissing Booth 3</li>
             <li>Sierra Burgess Is a Loser</li>
             <li>Tallgirl</li>
             <li>Tallgirl 2</li>
-            <li  style="color: #05f072;">Céline (1992)</li>
-            <li  style="color: #05f072;"> Breaking Bad</li>
-            <li  style="color: #05f072;"> Better Cal Saul</li>
-            <li> </li>
-        </ol>
+            <li>The Adam Project</li>
+            <li>Pokémon Detective Pikachu</li>
+            <li>Ghosted </li>
+            <li>Turbo </li>
+            <li>Deadpool 1</li>
+            <li>Deadpool 2</li>
+            <li>Deadpool 3</li>
+            <li>Jumanji: Welcome to the Jungle</li>
+            <li>Jumanji: The Next Level</li>
+            <li>Black Adam</li>
+            <li>Rampage </li>
+            <li>Shazam!</li>
+            <li>Shazam! 2</li>
+            <li>Tangled</li>
+            <li>Alvin and the Chipmunks</li>
+            <li style="color: #05f072;">It Chapter 1</li>
+            <li>It Chapter Two</li>
+            <li>Ava</li>
+            <li>Ad Astra</li>
+            <li>Extinction</li>
+            <li>The Electric State</li>
+            <li>Atlas</li>
+            <li style="color: #05f072;">The In Between</li>
+            <li>Venom 2018</li>
+            <li>Venom: Let There Be Carnage</li>
+            <li>Venom: The Last Dance</li>
+            <li>The Karate Kid</li>
+            <li style="color: #05f072;">Drunken Master 1978</li>
+            <li>Rush Hour 1</li>
+            <li>Rush Hour 2</li>
+            <li>Rush Hour 3</li>
+            <li></li>
 
-    </body>
+
+        </ol>
+    </div>
+    <div id="AnimeDIV" style="display:none;">
+        <h1 class="Blues">
+            Anime (<span style="color: #4a0182; font-size: 50%;">in general with associated movies</span>)
+        </h1>
+
+        <ol>
+
+            <li style="color: #05f072;">Solo leveling</li>
+            <li>One Punch-Man </li>
+            <li>Naruto</li>
+            <li>Naruto: Shippuden</li>
+            <li>Boruto: Naruto Next Generations</li>
+            <li style="color: #05f072;">Attack on Titan</li>
+            <li style="color: #05f072;">Frieren: Beyond Journey's End</li>
+            <li> The Apothecary Diaries </li>
+            <li style="color: #05f072;"> Mushoku Tensei Jobless Reincarnation </li>
+            <li style="color: #05f072;">Castlevania</li>
+            <li>Demon Slayer: Kimetsu no Yaiba</li>
+            <li>Chainsaw Man</li>
+            <li>Jujutsu Kaisen</li>
+            <li>Classroom of the Elite</li>
+            <li>Hyōka</li>
+            <li style="color: #05f072;">Rascal Does Not Dream Of Bunny Girl Senpai</li>
+            <li>Another</li>
+            <li> Fullmetal Alchemist: Brotherhood </li>
+            <li style="color: #05f072;">Death Note</li>
+            <li>Lazarus </li>
+            <li style="color: #05f072;">Mob Psycho 100</li>
+            <li style="color: #05f072;">Tokyo Ghoul</li>
+            <li>Spy x Family</li>
+            <li>To Your Eternity</li>
+            <li>Dragon Ball</li>
+            <li style="color: #05f072;">Dandadan</li>
+            <li>Dorohedoro</li>
+            <li></li>
+        </ol>
+        <h1>
+            Anime (<span style="color: #bd0f1b; font-size: 50%;">Movies</span>)
+        </h1>
+        <ol>
+            <li style="color: #05f072;">Howl's Moving Castle</li>
+            <li style="color: #05f072;">Spirited Away</li>
+            <li style="color: #05f072;">Princess Mononoke</li>
+            <li style="color: #05f072;">The Wind Rises</li>
+            <li style="color: #05f072;">Ponyo</li>
+            <li style="color: #05f072;">My Neighbor Totoro</li>
+            <li style="color: #05f072;">When Marnie Was There</li>
+            <li style="color: #05f072;">Arrietty</li>
+            <li style="color: #05f072;">Grave of the Fireflies</li>
+            <li style="color: #05f072;">Kiki's Delivery Service</li>
+            <li style="color: #05f072;">Castle in the Sky</li>
+            <li style="color: #05f072;">Whisper of the Heart</li>
+            <li style="color: #05f072;">Ocean Waves</li>
+            <li style="color: #05f072;">From Up on Poppy Hill</li>
+            <li style="color: #05f072;">Tales from Earthsea</li>
+            <li style="color: #05f072;">Nausicaä of the Valley of the Wind</li>
+            <li style="color: #05f072;">Only Yesterday</li>
+            <li style="color: #05f072;">Porco Rosso</li>
+            <li style="color: #05f072;">The Boy and the Heron</li>
+            <li>A Whisker Away</li>
+            <li>Your Name.</li>
+            <li>Weathering with You</li>
+            <li>Suzume no Tojimari</li>
+            <li>I Want to Eat Your Pancreas</li>
+            <li style="color: #05f072;">Look Back </li>
+            <li style="color: #05f072;">Ghost Cat Anzu</li>
+
+        </ol>
+        <h2>Watching</h2>
+        <ol>
+            <li>Vinland Saga</li>
+            <li>The Rising of the Shield Hero</li>
+            <li>Hunte x Hunter</li>
+            <li>March Comes In like a Lion</li>
+            <li>Steins;Gate 0</li>
+
+
+        </ol>
+        <h2>Next in cue</h2>
+        <ol>
+            <li>Gintama</li>
+            <li>Monster</li>
+            <li>My Hero Academia</li>
+            <li>Black Clover</li>
+            <li>JoJo's Bizarre Adventure</li>
+            <li>Overlord</li>
+            <li>One Piece</li>
+            <li>Tokyo Revenge</li>
+            <li>Bleach</li>
+            <li>Kizumonogatari</li>
+
+        </ol>
+    </div>
+    <script>
+        function toggleSeries() {
+            var seriesDiv = document.getElementById("SeriesDIV");
+            seriesDiv.style.display = (seriesDiv.style.display === "none") ? "block" : "none";
+        }
+
+        function toggleMovies() {
+            var moviesDiv = document.getElementById("MoviesDIV");
+            moviesDiv.style.display = (moviesDiv.style.display === "none") ? "block" : "none";
+        }
+        function toggleAnime() {
+            var moviesDiv = document.getElementById("AnimeDIV");
+            moviesDiv.style.display = (moviesDiv.style.display === "none") ? "block" : "none";
+        }
+    </script>
+
+
+</body>
+
 </html>
