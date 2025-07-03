@@ -42,8 +42,8 @@ function toggleAnimeinMovies() {
         toggleButton.classList.remove("active");
     }
 }
-function togglePDFs() {
-    var moviesDiv = document.getElementById("PDFsDIV");
+function toggleDocuments() {
+    var moviesDiv = document.getElementById("DocumentsDIV");
     moviesDiv.style.display = (moviesDiv.style.display === "none") ? "block" : "none";
 }
 
@@ -61,7 +61,7 @@ function toggleFreeComics() {
     }
 }
 function toggleSection(idToShow) {
-    const sectionIds = ["TVShowsDIV", "MoviesDIV", "AnimeDIV", "PDFsDIV"];
+    const sectionIds = ["TVShowsDIV", "MoviesDIV", "AnimeDIV", "DocumentsDIV"];
     const frontParagraph = document.querySelector(".Frnt2");
     let anyVisible = false;
 
