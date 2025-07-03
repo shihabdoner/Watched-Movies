@@ -22,6 +22,12 @@ button {
   font-style: normal;
 }
 
+.exo-2-<uniquifier> {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+}
 .cascadia-code {
   font-family: "Cascadia Code", sans-serif;
   font-optical-sizing: auto;
@@ -34,7 +40,11 @@ body {
   font-family: 'Courier New', Courier, monospace;
 
 }
+.Frnt2
+{
+  font-family: "Exo 2", sans-serif;
 
+}
 h1 {
   background-color: #1f1e1c;
 }
