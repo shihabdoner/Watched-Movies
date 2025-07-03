@@ -22,12 +22,7 @@ button {
   font-style: normal;
 }
 
-.exo-2-<uniquifier> {
-  font-family: "Exo 2", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
+
 .cascadia-code {
   font-family: "Cascadia Code", sans-serif;
   font-optical-sizing: auto;
