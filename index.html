@@ -22,7 +22,7 @@
         <button onclick="toggleSection('TVShowsDIV')">TVShows</button>
         <button onclick="toggleSection('MoviesDIV')">Movies</button>
         <button onclick="toggleSection('AnimeDIV')">Anime</button>
-        <button onclick="toggleSection('PDFsDIV')">PDFs</button>
+        <button onclick="toggleSection('DocumentsDIV')">Documents</button>
 
         <div id="TVShowsDIV" style="display:none;">
             <h1 class="Blues">Series</h1>
@@ -442,13 +442,28 @@
                 </ol>
             </div>
         </div>
-        <div id="PDFsDIV" style="display:none;" class="preview-box">
+        <div id="DocumentsDIV" style="display:none;" class="preview-box">
             <h2>Website Preview</h2>
 
             <button onclick="toggleFreeComics()">Free Comics</button>
             <div id="FreecomicsDIV" style="display:none;">
-                <h3>Bla bla bla</h3>
-                <iframe src="https://marlomogensen.itch.io/spikes" title="Website Preview"></iframe>
+   <div style="display: flex; gap: 20px; align-items: flex-start;">
+  <div style="width: 150px; text-align: center;">
+    <a href="https://marlomogensen.itch.io/spikes" target="_blank" rel="noopener noreferrer" style="cursor: pointer; display: block;">
+      <img src="https://img.itch.zone/aW1nLzY3OTczODAuanBn/original/lpZtyh.jpg" alt="Spikes" style="width: 150px; display: block; margin: 0 auto;">
+      <div style="color: whitesmoke; font-weight: bold; margin-top: 5px;">Spikes</div>
+    </a>
+  </div>
+
+  <div style="width: 150px; text-align: center;">
+    <a href="https://pollyguo.itch.io/gawains-girlfriend" target="_blank" rel="noopener noreferrer" style="cursor: pointer; display: block;">
+      <img src="https://img.itch.zone/aW1hZ2UvMjA2OTU3Lzk2OTgwNS5wbmc=/original/%2B%2FuxKt.png" alt="Gawain's Girlfriend and the Green Knight" style="width: 150px; display: block; margin: 0 auto;">
+      <div style="color: whitesmoke; font-weight: bold; margin-top: 5px;">Gawain's Girlfriend and the Green Knight</div>
+    </a>
+  </div>
+</div>
+
+
 
             </div>
 
