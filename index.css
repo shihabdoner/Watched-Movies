@@ -5,7 +5,7 @@ button.active {
   border: 1px solid #09ff00;
   margin-bottom: 1%;
   /* Add space below the active button */
-} 
+}
 
 
 button {
@@ -35,11 +35,12 @@ body {
   font-family: 'Courier New', Courier, monospace;
 
 }
-.Frnt2
-{
+
+.Frnt2 {
   font-family: "Exo 2", sans-serif;
 
 }
+
 h1 {
   background-color: #1f1e1c;
 }
@@ -70,3 +71,58 @@ h2 {
   color: greenyellow;
 
 }
+
+.toggle-btn {
+  background-color: whitesmoke;
+  color: black;
+  border: 1px solid black;
+  border-radius: 10%;
+  font-family: 'Cascadia Code', Courier, monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:active {
+  background-color: #016e30;
+  color: white;
+  border: 1px solid #09ff00;
+}
+
+.toggle-btn.active {
+  background-color: #016e30;
+  color: white;
+  border: 1px solid #09ff00;
+}
+
+.slide-content {
+  overflow: hidden;
+  max-height: 0;
+  transition: max-height 0.5s ease;
+  margin-top: 10px;
+  padding: 0 20px;
+  border-radius: 4px;
+}
+.slide-content > button {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+
+.slide-content.open {
+  /* No need to change padding dynamically */
+}
+
+.inner-slide {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+  
+}
+
+.inner-slide.open {
+  opacity: 1;
+  /* max-height is controlled by JS dynamically */
+}
+
+
