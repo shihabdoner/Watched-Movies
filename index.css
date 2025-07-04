@@ -22,6 +22,16 @@ button {
   font-style: normal;
 }
 
+.exo-2 {
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+}
+
+.merienda {
+  font-family: "Merienda", cursive;
+  font-optical-sizing: auto;
+}
 
 .cascadia-code {
   font-family: "Cascadia Code", sans-serif;
@@ -32,44 +42,72 @@ button {
 
 body {
   background-color: black;
-  font-family: 'Courier New', Courier, monospace;
+  font-family: 'Cascadia Code', Courier, monospace;
 
 }
 
-.Frnt2 {
+#White {
+  color: black;
+  background-color: #021b02;
   font-family: "Exo 2", sans-serif;
+  border: 3px solid rgb(8, 236, 15); /* Combine border properties into one line */
+  padding: 3%; /* Optional: adds space inside the border */
+}
 
+#White li {
+  color: black;
+  background-color: #4a944a3f;
+  font-family: "Exo 2", sans-serif;
+  border: 2px solid black; /* Visible border for each li item */
+  border-style:dashed ;
+  margin-bottom: 5px; /* Optional: spacing between items */
+  padding: 3px;
+}
+
+.Frnt2 {
+  color: #ffffff;
+  font-family: "Exo 2", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  background-color: #000000;
+  font-size: 200%;
+}
+.Fronttext {
+  font-family: "Press Start 2P", system-ui;
+  color: #008000;
+  background-color: #000000;
 }
 
 h1 {
   background-color: #1f1e1c;
+  font-family: "Exo 2", sans-serif;
 }
+h2 {
+  color: greenyellow;
 
-.Blues {
-  color: blue;
-  font-style: italic;
 }
-
-.Fronttext {
-  font-family: 'Press Start 2P';
-  color: green;
-}
-
-
 ol {
-  font: size 200px;
-
-
+  background-color: #1f1e1c;
+  padding: 20px; /* Padding for the whole list */
+  list-style-position: inside; /* Optional: keeps bullets inside padding */
+  border: 2px solid rgb(140, 140, 140);
+  margin-bottom: 5px; /* Optional: spacing between items */
 }
 
 li {
   background-color: #1f1e1c;
+  color: rgb(0, 0, 0);
+  padding: 0.01%; /* This will expand the li */
+  margin-bottom: 10px; /* Adds spacing between items */
+  border: 0.8px solid #2b2b2b; /* Makes padding visible */
   text-shadow: -0.02px 0 #2b2b2b, 0 0.02px #2b2b2b, 0.02px 0 #2b2b2b, 0 -0.02px #2b2b2b;
 }
 
-h2 {
-  color: greenyellow;
 
+
+.Blues {
+  color: blue;
+  font-style: italic;
 }
 
 .toggle-btn {
@@ -95,8 +133,8 @@ h2 {
 }
 
 .slide-content {
-  overflow: hidden;
-  max-height: 0;
+  overflow:auto;
+  max-height: 100000000;
   transition: max-height 0.5s ease;
   margin-top: 10px;
   padding: 0 20px;
@@ -142,7 +180,7 @@ input[type="text"] {
   background: #333333;
   margin-bottom: 5%;
 }
-
+
 
 ul#itemList {
   margin-top: 20px;
