@@ -102,7 +102,8 @@ h2 {
   padding: 0 20px;
   border-radius: 4px;
 }
-.slide-content > button {
+
+.slide-content>button {
   display: inline-block;
   margin-right: 10px;
   margin-bottom: 10px;
@@ -117,7 +118,7 @@ h2 {
   overflow: hidden;
   max-height: 0;
   opacity: 0;
-  
+
 }
 
 .inner-slide.open {
@@ -125,4 +126,50 @@ h2 {
   /* max-height is controlled by JS dynamically */
 }
 
+.example {
+  margin: auto;
+  max-width: 30%;
+  color: black;
+  font-family: "Exo 2", 'Courier New', Courier, monospace;
 
+}
+
+input[type="text"] {
+  padding: 10px;
+  font-size: 17px;
+  border: 1px solid #09ff00;
+  width: 80%;
+  background: #333333;
+}
+
+button:hover {
+  background: #09ff00;
+}
+
+ul#itemList {
+  margin-top: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+ul#itemList li {
+  padding: 5px;
+  border-bottom: 1px solid #09ff00;
+}
+
+.highlighted-word {
+  background-color: yellow;
+  font-weight: bold;
+  color: black;
+}
+
+.suggestion:hover {
+  background: #333333;
+}
+
+.suggestion {
+  padding: 1%;
+  size: 10px;
+  border-bottom: 1px solid #201e1e;
+  background: #016e30;
+}
