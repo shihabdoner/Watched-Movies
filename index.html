@@ -2,7 +2,7 @@
 <html>
 
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="index.css">
     <script src="index.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,6 +19,14 @@
 
 <body>
     <h1 class="Fronttext"> Here are some things I remember</h1>
+    <form class="example" onsubmit="return false;">
+        <input type="text" placeholder="Search.." id="searchInput" onkeyup="filterList()">
+        <div id="suggestionBox"
+            style="background:rgb(12, 70, 11);  max-height:200px; overflow:auto; position:relative; z-index:10;">
+        </div>
+
+    </form>
+
     <div>
         <button onclick="toggleSection('TVShowsDIV')">TVShows</button>
         <button onclick="toggleSection('MoviesDIV')">Movies</button>
@@ -27,9 +35,9 @@
 
         <div id="TVShowsDIV" style="display:none;">
             <h1 class="Blues">TV Shows</h1>
-            <button class="toggle-btn" onclick="toggleSlide(this)">Watched</button>
+            <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchedDIV">Watched</button>
 
-            <div class="slide-content">
+            <div lass="slide-content" id="WatchedDIV">
                 <h2>Watched</h2>
                 <ol>
                     <li style="color: #05f072;">Game of Thrones</li>
@@ -43,19 +51,19 @@
                     <li style="color: #02b0fa;">Gotham</li>
                 </ol>
             </div>
-            <button class="toggle-btn" onclick="toggleSlide(this)">Watching</button>
+            <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchingDIV">Watching</button>
 
-            <div class="slide-content">
+            <div class="slide-content" id="WatchingDIV">
                 <h2>Watching</h2>
                 <ol>
                     <li style="color: #05f072;">Better Call Saul</li>
                     <li style="color: #02b0fa;">CW Supergirl </li>
-                    
+
                 </ol>
             </div>
-            <button class="toggle-btn" onclick="toggleSlide(this)">Naxt in cue</button>
+            <button class="toggle-btn" onclick="toggleSlide(this)" data-target="NextInCueDIV">Naxt in cue</button>
 
-            <div class="slide-content">
+            <div class="slide-content" id="NextInCueDIV">
                 <h2>Next in cue</h2>
                 <ol>
                     <li style="color: #02b0fa;">CW Flash </li>
@@ -68,9 +76,9 @@
 
         <div id="MoviesDIV" style="display: none;">
             <h1 class="Blues">Movies</h1>
-            <button class="toggle-btn" onclick="toggleSlide(this)">Watched</button>
+            <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchedDIV">Watched</button>
 
-            <div class="slide-content">
+            <div id="WatchedDIV" class="slide-content">
                 <h2>Watched</h2>
                 <ol>
                     <li style="color: #05f072;">Céline (1992)</li>
@@ -372,9 +380,9 @@
 
                 </ol>
             </div>
-            <button class="toggle-btn" onclick="toggleSlide(this)">Naxt in cue</button>
+            <button class="toggle-btn" onclick="toggleSlide(this)" data-target="NextInCueDIV">Naxt in cue</button>
 
-            <div class="slide-content">
+            <div id="NextInCueDIV" class="slide-content">
                 <h2>Next in cue</h2>
                 <ol>
                     <li>A Ghost Story 2017</li>
@@ -397,11 +405,12 @@
             <h1 class="Blues">Animes</h1>
 
             <!-- Watched Section -->
-            <button class="toggle-btn" onclick="toggleSlide(this)">Watched</button>
-            <div class="slide-content">
+            <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchedDIV">Watched</button>
+            <div id="WatchedDIV" class="slide-content">
                 <h2>Watched</h2>
-                <button onclick="toggleInnerSlide(this)">Anime in general with associated movies</button>
-                <div class="inner-slide">
+                <button onclick="toggleInnerSlide(this)" data-target="AnimeInGeneralWithMoviesDIV">Anime in general with
+                    associated movies</button>
+                <div id="AnimeInGeneralWithMoviesDIV" class="inner-slide">
                     <h1 class="Blues">
                         Anime (<span style="color: #4a0182; font-size: 50%;">in general with associated movies</span>)
                     </h1>
@@ -437,8 +446,8 @@
                     </ol>
 
                 </div>
-                <button onclick="toggleInnerSlide(this)">Anime Movies</button>
-                <div class="inner-slide">
+                <button onclick="toggleInnerSlide(this)" data-target="AnimeMoviesDIV">Anime Movies</button>
+                <div id="AnimeMoviesDIV" class="inner-slide">
                     <h1>
                         Anime (<span style="color: #bd0f1b; font-size: 50%;">Movies</span>)
                     </h1>
@@ -475,11 +484,12 @@
                 </div>
             </div>
             <!-- Watching Section -->
-            <button class="toggle-btn" onclick="toggleSlide(this)">Watching</button>
-            <div class="slide-content">
+            <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchingDIV">Watching</button>
+            <div id="WatchingDIV" class="slide-content">
                 <h2>Watching</h2>
-                <button onclick="toggleInnerSlide(this)">Anime in general with associated movies</button>
-                <div class="inner-slide">
+                <button onclick="toggleInnerSlide(this)" data-target="AnimeInGeneralWithMoviesDIV">Anime in general with
+                    associated movies</button>
+                <div d="AnimeInGeneralWithMoviesDIV" class="inner-slide">
                     <h1 class="Blues">
                         Anime (<span style="color: #4a0182; font-size: 50%;">in general with associated movies</span>)
                     </h1>
@@ -492,19 +502,20 @@
                     </ol>
 
                 </div>
-                <button onclick="toggleInnerSlide(this)">Anime Movies</button>
-                <div class="inner-slide">
+                <button onclick="toggleInnerSlide(this)" data-target="AnimeMoviesDIV">Anime Movies</button>
+                <div id="AnimeMoviesDIV" class="inner-slide">
                     <h1>
                         Anime (<span style="color: #bd0f1b; font-size: 50%;">Movies</span>)
                     </h1>
                 </div>
             </div>
             <!-- Next in cue Section -->
-            <button class="toggle-btn" onclick="toggleSlide(this)">Naxt in cue</button>
-            <div class="slide-content">
+            <button class="toggle-btn" onclick="toggleSlide(this)" data-target="NextInCueDIV">Naxt in cue</button>
+            <div id="NextInCueDIV" class="slide-content">
                 <h2>Next in cue</h2>
-                <button onclick="toggleInnerSlide(this)">Anime in general with associated movies</button>
-                <div class="inner-slide">
+                <button onclick="toggleInnerSlide(this)" data-target="AnimeInGeneralWithMoviesDIV">Anime in general with
+                    associated movies</button>
+                <div d="AnimeInGeneralWithMoviesDIV" class="inner-slide">
                     <h1 class="Blues">
                         Anime (<span style="color: #4a0182; font-size: 50%;">in general with associated movies</span>)
                     </h1>
@@ -527,8 +538,8 @@
                     </ol>
                 </div>
 
-                <button onclick="toggleInnerSlide(this)">Anime Movies</button>
-                <div class="inner-slide">
+                <button onclick="toggleInnerSlide(this)" data-target="AnimeMoviesDIV">Anime Movies</button>
+                <div id="AnimeMoviesDIV" class="inner-slide">
                     <h1>
                         Anime (<span style="color: #bd0f1b; font-size: 50%;">Movies</span>)
                     </h1>
