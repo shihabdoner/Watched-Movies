@@ -140,6 +140,7 @@ input[type="text"] {
   border: 1px solid #09ff00;
   width: 80%;
   background: #333333;
+  margin-bottom: 1%;
 }
 
 
@@ -169,4 +170,5 @@ ul#itemList li {
   size: 10px;
   border-bottom: 1px solid #201e1e;
   background: #016e30;
+  margin-bottom: 1%;
 }
