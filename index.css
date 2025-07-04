@@ -128,7 +128,7 @@ h2 {
 
 .example {
   margin: auto;
-  max-width: 70%;
+  max-width: 90%;
   color: black;
   font-family: "Exo 2", 'Courier New', Courier, monospace;
 
@@ -140,7 +140,7 @@ input[type="text"] {
   border: 1px solid #09ff00;
   width: 80%;
   background: #333333;
-  margin-bottom: 1%;
+  margin-bottom: 5%;
 }
 
 
