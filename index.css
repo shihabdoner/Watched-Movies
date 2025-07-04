@@ -141,10 +141,7 @@ input[type="text"] {
   width: 80%;
   background: #333333;
 }
-
-button:hover {
-  background: #09ff00;
-}
+
 
 ul#itemList {
   margin-top: 20px;
