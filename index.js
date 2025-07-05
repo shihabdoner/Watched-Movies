@@ -1,3 +1,8 @@
+function getSection(id) {
+    return document.querySelector(`[data-id="${id}"]`) || document.getElementById(id);
+}
+
+
 function toggleTVShows() {
     var TVShowsDIV = document.getElementById("TVShowsDIV");
     TVShowsDIV.style.display = (TVShowsDIV.style.display === "none") ? "block" : "none";
@@ -14,13 +19,12 @@ function toggleAnime() {
 
 
 function toggleAnimeinGeneral() {
-    const generalDiv = document.getElementById("AnimeinGeneralDIV");
+    const generalDiv = document.querySelector('[data-id="AnimeInGeneralWithMoviesDIV"]');
     const toggleButton = document.querySelector("button[onclick='toggleAnimeinGeneral()']");
     const slideBox = generalDiv.closest(".slide-content");
     const isOpen = generalDiv.classList.contains("open");
 
     if (isOpen) {
-        // Closing: Set maxHeight to current height first to enable transition
         generalDiv.style.maxHeight = generalDiv.scrollHeight + "px";
         requestAnimationFrame(() => {
             generalDiv.style.maxHeight = "0";
@@ -28,7 +32,6 @@ function toggleAnimeinGeneral() {
         generalDiv.classList.remove("open");
         toggleButton.classList.remove("active");
     } else {
-        // Opening: Start from 0, then set maxHeight to scrollHeight to trigger animation
         generalDiv.style.maxHeight = "0";
         generalDiv.classList.add("open");
         requestAnimationFrame(() => {
@@ -37,15 +40,14 @@ function toggleAnimeinGeneral() {
         toggleButton.classList.add("active");
     }
 
-    // Adjust parent container height
     requestAnimationFrame(() => {
         slideBox.style.maxHeight = slideBox.scrollHeight + "px";
     });
 }
 
 function toggleAnimeinMovies() {
-    const animesDiv = document.getElementById("AnimeMoviesDIV");
-    const toggleButton = document.getElementById("animeMoviesButton");
+    const animesDiv = document.querySelector('[data-id="AnimeMoviesDIV"]');
+    const toggleButton = document.getElementById("animeMoviesButton"); // assume ID here is unique
     const slideBox = animesDiv.closest(".slide-content");
     const isOpen = animesDiv.classList.contains("open");
 
@@ -69,6 +71,7 @@ function toggleAnimeinMovies() {
         slideBox.style.maxHeight = slideBox.scrollHeight + "px";
     });
 }
+
 
 
 function toggleDocuments() {
@@ -207,14 +210,16 @@ function openAllParents(el) {
     let parent = el;
 
     while (parent && parent !== document.body) {
-        if (mainSections.includes(parent.id)) {
+        const targetId = parent.dataset.id || parent.id;
+        if (mainSections.includes(targetId)) {
+
             // Handle top-level sections
             if (['TVShowsDIV', 'MoviesDIV', 'AnimeDIV', 'DocumentsDIV'].includes(parent.id)) {
                 document.getElementById(parent.id).style.display = 'block';
             }
 
             // Trigger toggle buttons for inner IDs
-            const toggleBtn = document.querySelector(`button[data-target="${parent.id}"]`);
+            const toggleBtn = document.querySelector(`button[data-target="${targetId}"]`);
             if (toggleBtn) toggleBtn.click();
         }
         // 2. Trigger Free Comics
@@ -321,3 +326,34 @@ function filterList() {
         suggestionBox.appendChild(div);
     });
 }
+
+// Stacking Dynamic
+function updateStickyOffsets() {
+    const searchbox = document.getElementById("Searchbox");
+    const parentButtons = document.getElementById("ParentButtons");
+
+    if (!searchbox || !parentButtons) return;
+
+    const searchboxHeight = searchbox.offsetHeight;
+    const gap = 10; // optional gap
+    parentButtons.style.top = `${searchboxHeight + gap}px`;
+}
+
+function updateSpacingBelowSticky() {
+    const parentButtons = document.getElementById("ParentButtons");
+    const beneath = document.getElementById("BeneathParrentButtons");
+
+    if (!parentButtons || !beneath) return;
+
+    const parentHeight = parentButtons.offsetHeight;
+    beneath.style.marginTop = `${parentHeight + 20}px`; // spacing below stickies
+}
+
+window.addEventListener("load", () => {
+    updateStickyOffsets();
+    updateSpacingBelowSticky();
+});
+window.addEventListener("resize", () => {
+    updateStickyOffsets();
+    updateSpacingBelowSticky();
+});
