@@ -252,53 +252,57 @@ ul#itemList li {
   background: #016e30;
   margin-bottom: 1%;
 }
+
 /* Rainbow */
-#1 {
-  color: red;
+.rainbow {
   display: inline-block;
 }
 
-#2 {
-  color: orange;
-  display: inline-block;
-}
+/* Rainbow color loop: red → orange → yellow → green → blue → indigo → violet */
+.rainbow:nth-of-type(1)  { color: red; }
+.rainbow:nth-of-type(2)  { color: orange; }
+.rainbow:nth-of-type(3)  { color: yellow; }
+.rainbow:nth-of-type(4)  { color: green; }
+.rainbow:nth-of-type(5)  { color: blue; }
+.rainbow:nth-of-type(6)  { color: indigo; }
+.rainbow:nth-of-type(7)  { color: violet; }
 
-#3 {
-  color: yellow;
-  display: inline-block;
-}
+.rainbow:nth-of-type(8)  { color: red; }
+.rainbow:nth-of-type(9)  { color: orange; }
+.rainbow:nth-of-type(10) { color: yellow; }
+.rainbow:nth-of-type(11) { color: green; }
+.rainbow:nth-of-type(12) { color: blue; }
+.rainbow:nth-of-type(13) { color: indigo; }
+.rainbow:nth-of-type(14) { color: violet; }
 
-#4 {
-  color: green;
-  display: inline-block;
-}
+.rainbow:nth-of-type(15) { color: red; }
+.rainbow:nth-of-type(16) { color: orange; }
+.rainbow:nth-of-type(17) { color: yellow; }
+.rainbow:nth-of-type(18) { color: green; }
+.rainbow:nth-of-type(19) { color: blue; }
+.rainbow:nth-of-type(20) { color: indigo; }
+.rainbow:nth-of-type(21) { color: violet; }
 
-#5 {
-  color: blue;
-  display: inline-block;
-}
+.rainbow:nth-of-type(22) { color: red; }
+.rainbow:nth-of-type(23) { color: orange; }
+.rainbow:nth-of-type(24) { color: yellow; }
+.rainbow:nth-of-type(25) { color: green; }
+.rainbow:nth-of-type(26) { color: blue; }
+.rainbow:nth-of-type(27) { color: indigo; }
+.rainbow:nth-of-type(28) { color: violet; }
 
-#6 {
-  color: indigo;
-  display: inline-block;
-}
+.rainbow:nth-of-type(29) { color: red; }
+.rainbow:nth-of-type(30) { color: orange; }
+.rainbow:nth-of-type(31) { color: yellow; }
+.rainbow:nth-of-type(32) { color: green; }
+.rainbow:nth-of-type(33) { color: blue; }
+.rainbow:nth-of-type(34) { color: indigo; }
+.rainbow:nth-of-type(35) { color: violet; }
 
-#7 {
-  color: violet;
-  display: inline-block;
-}
-
-#8 {
-  color: red;
-  display: inline-block;
-}
-
-#9 {
-  color: orange;
-  display: inline-block;
-}
-
-#10 {
-  color: yellow;
-  display: inline-block;
-}
+.rainbow:nth-of-type(36) { color: red; }
+.rainbow:nth-of-type(37) { color: orange; }
+.rainbow:nth-of-type(38) { color: yellow; }
+.rainbow:nth-of-type(39) { color: green; }
+.rainbow:nth-of-type(40) { color: blue; }
+.rainbow:nth-of-type(41) { color: indigo; }
+.rainbow:nth-of-type(42) { color: violet; }
