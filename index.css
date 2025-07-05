@@ -70,12 +70,14 @@ body {
 
 
 #Searchbox {
+  text-align: center;
   position: sticky;
   top: 2%;
   z-index: 100;
 }
 
 #ParentButtons {
+  text-align: center;
   position: sticky;
   top: 10%;
   /* Searchbox height + margin */
@@ -94,6 +96,7 @@ body {
 
 
 .Frnt2 {
+  text-align: center;
   color: #ffffff;
   font-family: "Exo 2", sans-serif;
   font-optical-sizing: auto;
@@ -103,6 +106,7 @@ body {
 }
 
 .Fronttext {
+  text-align: center;
   font-family: "Press Start 2P", system-ui;
   color: #008000;
   background-color: #000000;
