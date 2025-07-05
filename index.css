@@ -91,9 +91,92 @@ body {
   z-index: 98;
 }
 
+#SUPERHERO {
+  color: #02b0fa;
+}
+
+#ROMANCE {
+  background-color: #ff0066d5;
+}
+
+#PSYCHOLOGICAL {
+  background-color: #ff6b02;
+}
+
+#ADULT {
+  text-decoration: line-through rgb(255, 255, 255) dotted;
+}
+
+#GOATbutADULT {
+  color: #05f072;
+  text-decoration: line-through rgb(255, 255, 255) dotted;
+}
+
+#GOAT {
+  color: #05f072;
+}
+
+#BRAINDamaging {
+  color: #ff0000;
+}
+
+#SciFIeandChild {
+  font-family: "Press Start 2P", system-ui;
+  color: #00008b;
+}
+
+#ColorsIndication {
+  text-align: center;
+  background-color: #000000;
+  color: whitesmoke;
+}
+
+/* Indication colored */
+.tag-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 300px;
+  padding: 1rem;
+  background: #010000;
+  border-radius: 10px;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 1rem auto;
+
+}
+
+.tag-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Exo 2", sans-serif;
+  border: 0.01px solid rgb(59, 59, 59);
+  padding: 0.1rem 1rem;
+  /* add some padding inside the border */
+}
 
 
+.tag-color {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+}
 
+.tag-text {
+  font-size: 1rem;
+  color: #333;
+}
+
+.strike {
+  text-decoration: line-through dotted white;
+}
+
+.custom-strike {
+  color: #05f072;
+  text-decoration: line-through white dotted;
+}
 
 .Frnt2 {
   text-align: center;
@@ -259,50 +342,170 @@ ul#itemList li {
 }
 
 /* Rainbow color loop: red → orange → yellow → green → blue → indigo → violet */
-.rainbow:nth-of-type(1)  { color: red; }
-.rainbow:nth-of-type(2)  { color: orange; }
-.rainbow:nth-of-type(3)  { color: yellow; }
-.rainbow:nth-of-type(4)  { color: green; }
-.rainbow:nth-of-type(5)  { color: blue; }
-.rainbow:nth-of-type(6)  { color: indigo; }
-.rainbow:nth-of-type(7)  { color: violet; }
+.rainbow:nth-of-type(1) {
+  color: red;
+}
 
-.rainbow:nth-of-type(8)  { color: red; }
-.rainbow:nth-of-type(9)  { color: orange; }
-.rainbow:nth-of-type(10) { color: yellow; }
-.rainbow:nth-of-type(11) { color: green; }
-.rainbow:nth-of-type(12) { color: blue; }
-.rainbow:nth-of-type(13) { color: indigo; }
-.rainbow:nth-of-type(14) { color: violet; }
+.rainbow:nth-of-type(2) {
+  color: orange;
+}
 
-.rainbow:nth-of-type(15) { color: red; }
-.rainbow:nth-of-type(16) { color: orange; }
-.rainbow:nth-of-type(17) { color: yellow; }
-.rainbow:nth-of-type(18) { color: green; }
-.rainbow:nth-of-type(19) { color: blue; }
-.rainbow:nth-of-type(20) { color: indigo; }
-.rainbow:nth-of-type(21) { color: violet; }
+.rainbow:nth-of-type(3) {
+  color: yellow;
+}
 
-.rainbow:nth-of-type(22) { color: red; }
-.rainbow:nth-of-type(23) { color: orange; }
-.rainbow:nth-of-type(24) { color: yellow; }
-.rainbow:nth-of-type(25) { color: green; }
-.rainbow:nth-of-type(26) { color: blue; }
-.rainbow:nth-of-type(27) { color: indigo; }
-.rainbow:nth-of-type(28) { color: violet; }
+.rainbow:nth-of-type(4) {
+  color: green;
+}
 
-.rainbow:nth-of-type(29) { color: red; }
-.rainbow:nth-of-type(30) { color: orange; }
-.rainbow:nth-of-type(31) { color: yellow; }
-.rainbow:nth-of-type(32) { color: green; }
-.rainbow:nth-of-type(33) { color: blue; }
-.rainbow:nth-of-type(34) { color: indigo; }
-.rainbow:nth-of-type(35) { color: violet; }
+.rainbow:nth-of-type(5) {
+  color: blue;
+}
 
-.rainbow:nth-of-type(36) { color: red; }
-.rainbow:nth-of-type(37) { color: orange; }
-.rainbow:nth-of-type(38) { color: yellow; }
-.rainbow:nth-of-type(39) { color: green; }
-.rainbow:nth-of-type(40) { color: blue; }
-.rainbow:nth-of-type(41) { color: indigo; }
-.rainbow:nth-of-type(42) { color: violet; }
+.rainbow:nth-of-type(6) {
+  color: indigo;
+}
+
+.rainbow:nth-of-type(7) {
+  color: violet;
+}
+
+.rainbow:nth-of-type(8) {
+  color: red;
+}
+
+.rainbow:nth-of-type(9) {
+  color: orange;
+}
+
+.rainbow:nth-of-type(10) {
+  color: yellow;
+}
+
+.rainbow:nth-of-type(11) {
+  color: green;
+}
+
+.rainbow:nth-of-type(12) {
+  color: blue;
+}
+
+.rainbow:nth-of-type(13) {
+  color: indigo;
+}
+
+.rainbow:nth-of-type(14) {
+  color: violet;
+}
+
+.rainbow:nth-of-type(15) {
+  color: red;
+}
+
+.rainbow:nth-of-type(16) {
+  color: orange;
+}
+
+.rainbow:nth-of-type(17) {
+  color: yellow;
+}
+
+.rainbow:nth-of-type(18) {
+  color: green;
+}
+
+.rainbow:nth-of-type(19) {
+  color: blue;
+}
+
+.rainbow:nth-of-type(20) {
+  color: indigo;
+}
+
+.rainbow:nth-of-type(21) {
+  color: violet;
+}
+
+.rainbow:nth-of-type(22) {
+  color: red;
+}
+
+.rainbow:nth-of-type(23) {
+  color: orange;
+}
+
+.rainbow:nth-of-type(24) {
+  color: yellow;
+}
+
+.rainbow:nth-of-type(25) {
+  color: green;
+}
+
+.rainbow:nth-of-type(26) {
+  color: blue;
+}
+
+.rainbow:nth-of-type(27) {
+  color: indigo;
+}
+
+.rainbow:nth-of-type(28) {
+  color: violet;
+}
+
+.rainbow:nth-of-type(29) {
+  color: red;
+}
+
+.rainbow:nth-of-type(30) {
+  color: orange;
+}
+
+.rainbow:nth-of-type(31) {
+  color: yellow;
+}
+
+.rainbow:nth-of-type(32) {
+  color: green;
+}
+
+.rainbow:nth-of-type(33) {
+  color: blue;
+}
+
+.rainbow:nth-of-type(34) {
+  color: indigo;
+}
+
+.rainbow:nth-of-type(35) {
+  color: violet;
+}
+
+.rainbow:nth-of-type(36) {
+  color: red;
+}
+
+.rainbow:nth-of-type(37) {
+  color: orange;
+}
+
+.rainbow:nth-of-type(38) {
+  color: yellow;
+}
+
+.rainbow:nth-of-type(39) {
+  color: green;
+}
+
+.rainbow:nth-of-type(40) {
+  color: blue;
+}
+
+.rainbow:nth-of-type(41) {
+  color: indigo;
+}
+
+.rainbow:nth-of-type(42) {
+  color: violet;
+}
