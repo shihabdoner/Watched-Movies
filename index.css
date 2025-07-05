@@ -252,3 +252,53 @@ ul#itemList li {
   background: #016e30;
   margin-bottom: 1%;
 }
+/* Rainbow */
+#1 {
+  color: red;
+  display: inline-block;
+}
+
+#2 {
+  color: orange;
+  display: inline-block;
+}
+
+#3 {
+  color: yellow;
+  display: inline-block;
+}
+
+#4 {
+  color: green;
+  display: inline-block;
+}
+
+#5 {
+  color: blue;
+  display: inline-block;
+}
+
+#6 {
+  color: indigo;
+  display: inline-block;
+}
+
+#7 {
+  color: violet;
+  display: inline-block;
+}
+
+#8 {
+  color: red;
+  display: inline-block;
+}
+
+#9 {
+  color: orange;
+  display: inline-block;
+}
+
+#10 {
+  color: yellow;
+  display: inline-block;
+}
