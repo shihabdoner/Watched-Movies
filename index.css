@@ -50,19 +50,48 @@ body {
   color: black;
   background-color: #021b02;
   font-family: "Exo 2", sans-serif;
-  border: 3px solid rgb(8, 236, 15); /* Combine border properties into one line */
-  padding: 3%; /* Optional: adds space inside the border */
+  border: 3px solid rgb(8, 236, 15);
+  /* Combine border properties into one line */
+  padding: 3%;
+  /* Optional: adds space inside the border */
 }
 
 #White li {
   color: black;
   background-color: #4a944a3f;
   font-family: "Exo 2", sans-serif;
-  border: 2px solid black; /* Visible border for each li item */
-  border-style:dashed ;
-  margin-bottom: 5px; /* Optional: spacing between items */
+  border: 2px solid black;
+  /* Visible border for each li item */
+  border-style: dashed;
+  margin-bottom: 5px;
+  /* Optional: spacing between items */
   padding: 3px;
 }
+
+
+#Searchbox {
+  position: sticky;
+  top: 2%;
+  z-index: 100;
+}
+
+#ParentButtons {
+  position: sticky;
+  top: 8%;
+  /* Searchbox height + margin */
+  z-index: 99;
+}
+
+#BeneathParrentButtons {
+  position: sticky;
+  top: 13%;
+  /* Combined height of above sections */
+  z-index: 98;
+}
+
+
+
+
 
 .Frnt2 {
   color: #ffffff;
@@ -72,6 +101,7 @@ body {
   background-color: #000000;
   font-size: 200%;
 }
+
 .Fronttext {
   font-family: "Press Start 2P", system-ui;
   color: #008000;
@@ -82,24 +112,32 @@ h1 {
   background-color: #1f1e1c;
   font-family: "Exo 2", sans-serif;
 }
+
 h2 {
   color: greenyellow;
 
 }
+
 ol {
   background-color: #1f1e1c;
-  padding: 20px; /* Padding for the whole list */
-  list-style-position: inside; /* Optional: keeps bullets inside padding */
+  padding: 20px;
+  /* Padding for the whole list */
+  list-style-position: inside;
+  /* Optional: keeps bullets inside padding */
   border: 2px solid rgb(140, 140, 140);
-  margin-bottom: 5px; /* Optional: spacing between items */
+  margin-bottom: 5px;
+  /* Optional: spacing between items */
 }
 
 li {
   background-color: #1f1e1c;
   color: rgb(0, 0, 0);
-  padding: 0.01%; /* This will expand the li */
-  margin-bottom: 10px; /* Adds spacing between items */
-  border: 0.8px solid #2b2b2b; /* Makes padding visible */
+  padding: 0.01%;
+  /* This will expand the li */
+  margin-bottom: 10px;
+  /* Adds spacing between items */
+  border: 0.8px solid #2b2b2b;
+  /* Makes padding visible */
   text-shadow: -0.02px 0 #2b2b2b, 0 0.02px #2b2b2b, 0.02px 0 #2b2b2b, 0 -0.02px #2b2b2b;
 }
 
@@ -133,7 +171,7 @@ li {
 }
 
 .slide-content {
-  overflow:auto;
+  overflow: auto;
   max-height: 100000000;
   transition: max-height 0.5s ease;
   margin-top: 10px;
