@@ -20,25 +20,31 @@
 
 <body>
     <h1 class="Fronttext"> Here are some things I remember</h1>
-    <form class="example" onsubmit="return false;">
-        <input type="text" placeholder="Search.." id="searchInput" onkeyup="filterList()">
-        <div id="suggestionBox"
-            style="background:rgb(12, 70, 11);  max-height:200px; overflow:auto; position:relative; z-index:10;">
-        </div>
-
-    </form>
-
-    <div>
+    <!-- Search Box Division -->
+    <div id="Searchbox">
+        <form class="example" onsubmit="return false;">
+            <input type="text" placeholder="Search.." id="searchInput" onkeyup="filterList()">
+            <div id="suggestionBox"
+                style="background:rgb(12, 70, 11);  max-height:200px; overflow:auto; position:relative; z-index:10;">
+            </div>
+        </form>
+    </div>
+    <!-- Parent Button Division -->
+    <div id="ParentButtons">
         <button onclick="toggleSection('TVShowsDIV')">TVShows</button>
         <button onclick="toggleSection('MoviesDIV')">Movies</button>
         <button onclick="toggleSection('AnimeDIV')">Anime</button>
         <button onclick="toggleSection('DocumentsDIV')">Documents</button>
-
+    </div>
+    <!-- Beneath Parent Buttons Division -->
+    <div id="BeneathParrentButtons">
+        <!-- TV Shows -->
         <div id="TVShowsDIV" style="display:none;">
             <h1 class="Blues">TV Shows</h1>
+            <!-- Watched Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchedDIV">Watched</button>
 
-            <div class="slide-content" id="WatchedDIV">
+            <div class="slide-content" data-id="WatchedDIV">
                 <h2>Watched</h2>
                 <ol>
                     <li style="color: #05f072;">Game of Thrones</li>
@@ -52,9 +58,10 @@
                     <li style="color: #02b0fa;">Gotham</li>
                 </ol>
             </div>
+            <!-- Watching Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchingDIV">Watching</button>
 
-            <div class="slide-content" id="WatchingDIV">
+            <div class="slide-content" data-id="WatchingDIV">
                 <h2>Watching</h2>
                 <ol id="White">
                     <li style="color: #05f072;">Better Call Saul</li>
@@ -62,9 +69,10 @@
 
                 </ol>
             </div>
+            <!-- Next in cue Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="NextInCueDIV">Naxt in cue</button>
 
-            <div class="slide-content" id="NextInCueDIV">
+            <div class="slide-content" data-id="NextInCueDIV">
                 <h2>Next in cue</h2>
                 <ol id="White">
                     <li style="color: #02b0fa;">CW Flash </li>
@@ -74,12 +82,13 @@
                 </ol>
             </div>
         </div>
-
+        <!-- Movies Division -->
         <div id="MoviesDIV" style="display: none;">
             <h1 class="Blues">Movies</h1>
+            <!-- Watched Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchedDIV">Watched</button>
 
-            <div class="slide-content" id="WatchedDIV">
+            <div class="slide-content" data-id="WatchedDIV">
                 <h2>Watched</h2>
                 <ol>
                     <li style="color: #05f072;">Céline (1992)</li>
@@ -381,9 +390,10 @@
 
                 </ol>
             </div>
+            <!-- Next in cue Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="NextInCueDIV">Naxt in cue</button>
 
-            <div class="slide-content" id="NextInCueDIV">
+            <div class="slide-content" data-id="NextInCueDIV">
                 <h2>Next in cue</h2>
                 <ol id="White">
                     <li>A Ghost Story 2017</li>
@@ -402,16 +412,19 @@
             </div>
 
         </div>
+
+        <!-- Anime Division -->
         <div id="AnimeDIV" style="display:none;">
             <h1 class="Blues">Animes</h1>
 
             <!-- Watched Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchedDIV">Watched</button>
-            <div id="WatchedDIV" class="slide-content">
+            <div data-id="WatchedDIV" class="slide-content">
                 <h2>Watched</h2>
+                <!-- Anime in General with Associated Movies Section -->
                 <button onclick="toggleInnerSlide(this)" data-target="AnimeInGeneralWithMoviesDIV">Anime in general with
                     associated movies</button>
-                <div id="AnimeInGeneralWithMoviesDIV" class="inner-slide">
+                <div data-id="AnimeInGeneralWithMoviesDIV" class="inner-slide">
                     <h1 class="Blues">
                         Anime (<span style="color: #4a0182; font-size: 50%;">in general with associated movies</span>)
                     </h1>
@@ -447,8 +460,9 @@
                     </ol>
 
                 </div>
+                <!-- Anime Movies Section -->
                 <button onclick="toggleInnerSlide(this)" data-target="AnimeMoviesDIV">Anime Movies</button>
-                <div id="AnimeMoviesDIV" class="inner-slide">
+                <div data-id="AnimeMoviesDIV" class="inner-slide">
                     <h1>
                         Anime (<span style="color: #bd0f1b; font-size: 50%;">Movies</span>)
                     </h1>
@@ -486,11 +500,12 @@
             </div>
             <!-- Watching Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchingDIV">Watching</button>
-            <div id="WatchingDIV" class="slide-content">
+            <div data-id="WatchingDIV" class="slide-content">
                 <h2>Watching</h2>
+                <!-- Anime in General with Associated Movies Section -->
                 <button onclick="toggleInnerSlide(this)" data-target="AnimeInGeneralWithMoviesDIV">Anime in general with
                     associated movies</button>
-                <div d="AnimeInGeneralWithMoviesDIV" class="inner-slide">
+                <div data-id="AnimeInGeneralWithMoviesDIV" class="inner-slide">
                     <h1 class="Blues">
                         Anime (<span style="color: #4a0182; font-size: 50%;">in general with associated movies</span>)
                     </h1>
@@ -503,8 +518,9 @@
                     </ol>
 
                 </div>
+                <!-- Anime Movies Section -->
                 <button onclick="toggleInnerSlide(this)" data-target="AnimeMoviesDIV">Anime Movies</button>
-                <div id="AnimeMoviesDIV" class="inner-slide">
+                <div data-id="AnimeMoviesDIV" class="inner-slide">
                     <h1>
                         Anime (<span style="color: #bd0f1b; font-size: 50%;">Movies</span>)
                     </h1>
@@ -513,11 +529,12 @@
             <!-- Next in cue Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="NextInCueDIV">Naxt in cue</button>
 
-            <div class="slide-content" id="NextInCueDIV">
+            <div class="slide-content" data-id="NextInCueDIV">
                 <h2>Next in cue</h2>
+                <!-- Anime in General with Associated Movies Section -->
                 <button onclick="toggleInnerSlide(this)" data-target="AnimeInGeneralWithMoviesDIV">Anime in general with
                     associated movies</button>
-                <div d="AnimeInGeneralWithMoviesDIV" class="inner-slide">
+                <div data-id="AnimeInGeneralWithMoviesDIV" class="inner-slide">
                     <h1 class="Blues">
                         Anime (<span style="color: #4a0182; font-size: 50%;">in general with associated movies</span>)
                     </h1>
@@ -539,56 +556,60 @@
 
                     </ol>
                 </div>
-
+                <!-- Anime Movies Section -->
                 <button onclick="toggleInnerSlide(this)" data-target="AnimeMoviesDIV">Anime Movies</button>
-                <div id="AnimeMoviesDIV" class="inner-slide">
+                <div data-id="AnimeMoviesDIV" class="inner-slide">
                     <h1>
                         Anime (<span style="color: #bd0f1b; font-size: 50%;">Movies</span>)
                     </h1>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="DocumentsDIV" style="display:none;" class="preview-box">
-        <h1 class="Blues">Documents</h1>
+        <!-- Documents Division -->
 
-        <button onclick="toggleFreeComics()">Free Comics</button>
+        <div id="DocumentsDIV" style="display:none;" class="preview-box">
+            <h1 class="Blues">Documents</h1>
 
-        <div id="FreecomicsDIV" style="display:none;">
-            <p style="background-color: #000000; color: whitesmoke; font-family: 'Cascadia Code', Courier, monospace ;">
-                Comics</p>
-            <div style="display: flex; gap: 20px; align-items: flex-start;">
-                <div style="width: 150px; text-align: center;">
-                    <a href="https://marlomogensen.itch.io/spikes" target="_blank" rel="noopener noreferrer"
-                        style="cursor: pointer; display: block;">
-                        <img src="https://img.itch.zone/aW1nLzY3OTczODAuanBn/original/lpZtyh.jpg" alt="Spikes"
-                            style="width: 150px; display: block; margin: 0 auto;">
-                        <div style="color: whitesmoke; font-weight: bold; margin-top: 5px;">Spikes</div>
-                    </a>
+            <button onclick="toggleFreeComics()">Free Comics</button>
+
+            <div id="FreecomicsDIV" style="display:none;">
+                <p
+                    style="background-color: #000000; color: whitesmoke; font-family: 'Cascadia Code', Courier, monospace ;">
+                    Comics</p>
+                <div style="display: flex; gap: 20px; align-items: flex-start;">
+                    <div style="width: 150px; text-align: center;">
+                        <a href="https://marlomogensen.itch.io/spikes" target="_blank" rel="noopener noreferrer"
+                            style="cursor: pointer; display: block;">
+                            <img src="https://img.itch.zone/aW1nLzY3OTczODAuanBn/original/lpZtyh.jpg" alt="Spikes"
+                                style="width: 150px; display: block; margin: 0 auto;">
+                            <div style="color: whitesmoke; font-weight: bold; margin-top: 5px;">Spikes</div>
+                        </a>
+                    </div>
+
+                    <div style="width: 150px; text-align: center;">
+                        <a href="https://pollyguo.itch.io/gawains-girlfriend" target="_blank" rel="noopener noreferrer"
+                            style="cursor: pointer; display: block;">
+                            <img src="https://img.itch.zone/aW1hZ2UvMjA2OTU3Lzk2OTgwNS5wbmc=/original/%2B%2FuxKt.png"
+                                alt="Gawain's Girlfriend and the Green Knight"
+                                style="width: 150px; display: block; margin: 0 auto;">
+                            <div style="color: whitesmoke; font-weight: bold; margin-top: 5px;">Gawain's Girlfriend
+                                and
+                                the Green Knight</div>
+                        </a>
+                    </div>
                 </div>
 
-                <div style="width: 150px; text-align: center;">
-                    <a href="https://pollyguo.itch.io/gawains-girlfriend" target="_blank" rel="noopener noreferrer"
-                        style="cursor: pointer; display: block;">
-                        <img src="https://img.itch.zone/aW1hZ2UvMjA2OTU3Lzk2OTgwNS5wbmc=/original/%2B%2FuxKt.png"
-                            alt="Gawain's Girlfriend and the Green Knight"
-                            style="width: 150px; display: block; margin: 0 auto;">
-                        <div style="color: whitesmoke; font-weight: bold; margin-top: 5px;">Gawain's Girlfriend and
-                            the Green Knight</div>
-                    </a>
-                </div>
+
+
             </div>
 
-
-
         </div>
-
-    </div>
-    </div>
-    <div id="BottomDIV" style="display:contents">
-        <p class="Frnt2" >Cultural artifacts sustainably cultivate thoughts in individual minds
-            considerably and comprehensively, in line with real-world demeanour. It is highly likely to discern an
-            individual's cognitive demeanour through such engagement.</p>
+        <!-- Bottom Text Division -->
+        <div id="BottomDIV" style="display:contents">
+            <p class="Frnt2">Cultural artifacts sustainably cultivate thoughts in individual minds
+                considerably and comprehensively, in line with real-world demeanour. It is highly likely to discern an
+                individual's cognitive demeanour through such engagement.</p>
+        </div>
     </div>
 
 </body>
