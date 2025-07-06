@@ -1,3 +1,4 @@
+/* Everything related to buttons */
 button.active {
   background-color: #016e30;
   color: white;
@@ -7,7 +8,6 @@ button.active {
   /* Add space below the active button */
 }
 
-
 button {
   background-color: whitesmoke;
   color: black;
@@ -16,6 +16,77 @@ button {
   font-family: 'Cascadia Code', Courier, monospace;
 }
 
+#ParentButtons {
+  text-align: center;
+  position: sticky;
+  top: 10%;
+  /* Searchbox height + margin */
+  z-index: 99;
+}
+
+#Buttons-in-document-section {
+  text-align: center;
+  position: sticky;
+  top: 10%;
+  /* Searchbox height + margin */
+  z-index: 99;
+}
+
+.toggle-btn {
+  background-color: whitesmoke;
+  color: black;
+  border: 1px solid black;
+  border-radius: 10%;
+  font-family: 'Cascadia Code', Courier, monospace;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.toggle-btn:active {
+  background-color: #016e30;
+  color: white;
+  border: 1px solid #09ff00;
+}
+
+.toggle-btn.active {
+  background-color: #016e30;
+  color: white;
+  border: 1px solid #09ff00;
+}
+
+.slide-content {
+  overflow: auto;
+  max-height: 100000000;
+  transition: max-height 0.5s ease;
+  margin-top: 10px;
+  padding: 0 20px;
+  border-radius: 4px;
+}
+
+.slide-content>button {
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.slide-content.open {
+  /* No need to change padding dynamically */
+}
+
+.inner-slide {
+  overflow: hidden;
+  max-height: 0;
+  opacity: 0;
+
+}
+
+.inner-slide.open {
+  opacity: 1;
+  /* max-height is controlled by JS dynamically */
+}
+
+/* ------------------------------------------------------------------------------------ */
+/* Everything related to fonts */
 .press-start-2p-regular {
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
@@ -40,12 +111,6 @@ button {
   font-style: normal;
 }
 
-body {
-  background-color: black;
-  font-family: 'Cascadia Code', Courier, monospace;
-
-}
-
 #White {
   color: black;
   background-color: #021b02;
@@ -68,19 +133,13 @@ body {
   padding: 3px;
 }
 
-#Searchbox {
-  text-align: center;
-  position: sticky;
-  top: 2%;
-  z-index: 100;
-}
+/* ------------------------------------------------------------------------------------ */
+/* Things in the top */
+/* --------------------------------------- */
+body {
+  background-color: black;
+  font-family: 'Cascadia Code', Courier, monospace;
 
-#ParentButtons {
-  text-align: center;
-  position: sticky;
-  top: 10%;
-  /* Searchbox height + margin */
-  z-index: 99;
 }
 
 #BeneathParrentButtons {
@@ -88,117 +147,6 @@ body {
   top: 13%;
   /* Combined height of above sections */
   z-index: 98;
-}
-
-#SUPERHERO {
-  color: #02b0fa;
-}
-
-#ROMANCE {
-  background-color: #ff0066d5;
-}
-
-#PSYCHOLOGICAL {
-  background-color: #ff6b02;
-}
-
-#ADULT {
-  text-decoration: line-through rgb(255, 255, 255) dotted;
-}
-
-#GOATbutADULT {
-  color: #05f072;
-  text-decoration: line-through rgb(255, 255, 255) dotted;
-}
-
-#GOAT {
-  color: #05f072;
-}
-
-#BRAINDamaging {
-  color: #ff0000;
-}
-
-#SciFIeandChild {
-  font-family: "Press Start 2P", system-ui;
-  color: #00008b;
-}
-
-#ColorsIndication {
-  text-align: center;
-  background-color: #41414198;
-  color: rgb(123, 123, 123);
-  font-family: "Merienda", cursive;
-  font-style: italic;
-  text-decoration-style: dotted;
-  animation: flicker 2s infinite;
-  text-shadow: 0 0 2px #ff00bf, 0 0 10px #00ff1e;
-  border-radius: 50%;
-  border: 2px solid green;
-  border-style: dashed double;
-}
-
-
-/* Indication colored */
-.tag-legend {
-  position: fixed;
-  top: 100px;
-  left: 100px;
-  /* Use left for JS movement */
-  cursor: move;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
-  max-width: 300px;
-  padding: 1rem;
-  background: #31313158;
-  border-radius: 10px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  user-select: none;
-  z-index: 9999;
-  touch-action: none;
-  /* Prevents scroll during touch drag */
-  cursor: grab;
-}
-
-.tag-item {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  font-family: "Exo 2", sans-serif;
-  border: 0.01px solid rgb(59, 59, 59);
-  padding: 0.1rem 1rem;
-  /* add some padding inside the border */
-}
-
-/* Apply space only after the last tag-item */
-.tag-item:last-child {
-  margin-bottom: 10%;
-}
-
-
-
-.tag-color {
-  width: 18px;
-  height: 18px;
-  border-radius: 3px;
-  border: 1px solid #ccc;
-  flex-shrink: 0;
-
-}
-
-.tag-text {
-  font-size: 1rem;
-  color: #333;
-}
-
-.strike {
-  text-decoration: line-through dotted white;
-}
-
-.custom-strike {
-  color: #05f072;
-  text-decoration: line-through white dotted;
 }
 
 .Frnt2 {
@@ -251,65 +199,18 @@ li {
   text-shadow: -0.02px 0 #2b2b2b, 0 0.02px #2b2b2b, 0.02px 0 #2b2b2b, 0 -0.02px #2b2b2b;
 }
 
-
-
 .Blues {
   color: blue;
   font-style: italic;
 }
 
-.toggle-btn {
-  background-color: whitesmoke;
-  color: black;
-  border: 1px solid black;
-  border-radius: 10%;
-  font-family: 'Cascadia Code', Courier, monospace;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.toggle-btn:active {
-  background-color: #016e30;
-  color: white;
-  border: 1px solid #09ff00;
-}
-
-.toggle-btn.active {
-  background-color: #016e30;
-  color: white;
-  border: 1px solid #09ff00;
-}
-
-.slide-content {
-  overflow: auto;
-  max-height: 100000000;
-  transition: max-height 0.5s ease;
-  margin-top: 10px;
-  padding: 0 20px;
-  border-radius: 4px;
-}
-
-.slide-content>button {
-  display: inline-block;
-  margin-right: 10px;
-  margin-bottom: 10px;
-}
-
-
-.slide-content.open {
-  /* No need to change padding dynamically */
-}
-
-.inner-slide {
-  overflow: hidden;
-  max-height: 0;
-  opacity: 0;
-
-}
-
-.inner-slide.open {
-  opacity: 1;
-  /* max-height is controlled by JS dynamically */
+/* --------------------------------------- */
+/* Search Function */
+#Searchbox {
+  text-align: center;
+  position: sticky;
+  top: 2%;
+  z-index: 100;
 }
 
 .example {
@@ -357,6 +258,133 @@ ul#itemList li {
   border-bottom: 1px solid #201e1e;
   background: #016e30;
   margin-bottom: 1%;
+}
+
+/* ------------------------------------------------------------------------------------ */
+/* Things in Document Section */
+#BeneathDocumentParrentButtons {}
+
+#document-h1 {
+  text-align: center;
+  position: sticky;
+  top: 10%;
+  /* Searchbox height + margin */
+  z-index: 99;
+}
+
+#Headings-in-document-section {
+  background-color: #000000;
+  color: whitesmoke;
+  font-family: 'Cascadia Code', Courier, monospace;
+}
+
+/* ------------------------------------------------------------------------------------ */
+/* COlor indication tags */
+#SUPERHERO {
+  color: #02b0fa;
+}
+
+#ROMANCE {
+  background-color: #ff0066d5;
+}
+
+#PSYCHOLOGICAL {
+  background-color: #ff6b02;
+}
+
+#ADULT {
+  text-decoration: line-through rgb(255, 255, 255) dotted;
+}
+
+#GOATbutADULT {
+  color: #05f072;
+  text-decoration: line-through rgb(255, 255, 255) dotted;
+}
+
+#GOAT {
+  color: #05f072;
+}
+
+#BRAINDamaging {
+  color: #ff0000;
+}
+
+#SciFIeandChild {
+  font-family: "Press Start 2P", system-ui;
+  color: #00008b;
+}
+
+#ColorsIndication {
+  text-align: center;
+  background-color: #41414198;
+  color: rgb(123, 123, 123);
+  font-family: "Merienda", cursive;
+  font-style: italic;
+  text-decoration-style: dotted;
+  animation: flicker 2s infinite;
+  text-shadow: 0 0 2px #ff00bf, 0 0 10px #00ff1e;
+  border-radius: 50%;
+  border: 2px solid green;
+  border-style: dashed double;
+}
+
+.tag-legend {
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  /* Use left for JS movement */
+  cursor: move;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 300px;
+  padding: 1rem;
+  background: #31313158;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  user-select: none;
+  z-index: 9999;
+  touch-action: none;
+  /* Prevents scroll during touch drag */
+  cursor: grab;
+}
+
+.tag-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: "Cascadia Code", sans-serif;
+  border: 0.01px solid rgb(59, 59, 59);
+  padding: 0.1rem 1rem;
+  /* add some padding inside the border */
+}
+
+/* Apply space only after the last tag-item */
+.tag-item:last-child {
+  margin-bottom: 10%;
+}
+
+.tag-color {
+  width: 18px;
+  height: 18px;
+  border-radius: 3px;
+  border: 1px solid #ccc;
+  flex-shrink: 0;
+
+}
+
+.tag-text {
+  font-size: 1rem;
+  color: #333;
+}
+
+.strike {
+  text-decoration: line-through dotted white;
+}
+
+.custom-strike {
+  color: #05f072;
+  text-decoration: line-through white dotted;
 }
 
 /* Rainbow */
@@ -575,3 +603,5 @@ ul#itemList li {
     color: rgb(23, 46, 24);
   }
 }
+
+/* ------------------------------------------------------------------------------------ */
