@@ -127,7 +127,6 @@
                 <h2>Watched</h2>
                 <ol>
                     <li id="GOAT">Céline (1992)</li>
-<li id="GOAT">The Scent of Green Papaya 1993</li>
                     <li id="ROMANCE">Persuation</li>
                     <li id="PSYCHOLOGICAL">The Shallows</li>
                     <li id="GOAT">The DUFF</li>
@@ -454,7 +453,8 @@
                     <li>Aftersun 2022</li>
                     <li>Incendies 2010</li>
                     <li>Murder on the Orient Express 2017</li>
-                    <li>Shutter Island 2010</li>
+                    <li>Shutter Island 2010</li>
+                    <li>The Scent of Green Papaya 1993</li>
                     <li>The Girl on the Train 2016</li>
                 </ol>
             </div>
@@ -624,41 +624,54 @@
         <!-- Documents Division -->
 
         <div id="DocumentsDIV" style="display:none;" class="preview-box">
-            <h1 class="Blues">Documents</h1>
-
-            <button onclick="toggleFreeComics()">Free Comics</button>
-
-            <div id="FreecomicsDIV" style="display:none;">
-                <p
-                    style="background-color: #000000; color: whitesmoke; font-family: 'Cascadia Code', Courier, monospace ;">
-                    Comics</p>
-                <div style="display: flex; gap: 20px; align-items: flex-start;">
-                    <div style="width: 150px; text-align: center;">
-                        <a href="https://marlomogensen.itch.io/spikes" target="_blank" rel="noopener noreferrer"
-                            style="cursor: pointer; display: block;">
-                            <img src="https://img.itch.zone/aW1nLzY3OTczODAuanBn/original/lpZtyh.jpg" alt="Spikes"
-                                style="width: 150px; display: block; margin: 0 auto;">
-                            <div style="color: whitesmoke; font-weight: bold; margin-top: 5px;">Spikes</div>
-                        </a>
-                    </div>
-
-                    <div style="width: 150px; text-align: center;">
-                        <a href="https://pollyguo.itch.io/gawains-girlfriend" target="_blank" rel="noopener noreferrer"
-                            style="cursor: pointer; display: block;">
-                            <img src="https://img.itch.zone/aW1hZ2UvMjA2OTU3Lzk2OTgwNS5wbmc=/original/%2B%2FuxKt.png"
-                                alt="Gawain's Girlfriend and the Green Knight"
-                                style="width: 150px; display: block; margin: 0 auto;">
-                            <div style="color: whitesmoke; font-weight: bold; margin-top: 5px;">Gawain's Girlfriend
-                                and
-                                the Green Knight</div>
-                        </a>
-                    </div>
-                </div>
-
-
-
+            <h1 class="Blues" id="document-h1">Documents</h1>
+            <div id="Buttons-in-document-section">
+                <button onclick="toggleDocumentSubSection('FreecomicsDIV', this)">Free Comics</button>
+                <button onclick="toggleDocumentSubSection('BooksDIV', this)">Books</button>
+                <button onclick="toggleDocumentSubSection('NewsPapersDIV', this)">News Papers</button>
+                <button onclick="toggleDocumentSubSection('MangasDIV', this)">Mangas</button>
+                <button onclick="toggleDocumentSubSection('NotFreeComicsDIV', this)">Not Free Comics</button>
             </div>
 
+            <div id="BeneathDocumentParrentButtons">
+                <div id="FreecomicsDIV" style="display:none;">
+                    <h2 id="Headings-in-document-section">Comics</h2>
+                    <div style="display: flex; gap: 20px; align-items: flex-start;">
+                        <div style="width: 150px; text-align: center;">
+                            <a href="https://marlomogensen.itch.io/spikes" target="_blank" rel="noopener noreferrer"
+                                style="cursor: pointer; display: block;">
+                                <img src="https://img.itch.zone/aW1nLzY3OTczODAuanBn/original/lpZtyh.jpg" alt="Spikes"
+                                    style="width: 150px; display: block; margin: 0 auto;">
+                                <div style="color: whitesmoke; font-weight: bold; margin-top: 5px;">Spikes</div>
+                            </a>
+                        </div>
+
+                        <div style="width: 150px; text-align: center;">
+                            <a href="https://pollyguo.itch.io/gawains-girlfriend" target="_blank"
+                                rel="noopener noreferrer" style="cursor: pointer; display: block;">
+                                <img src="https://img.itch.zone/aW1hZ2UvMjA2OTU3Lzk2OTgwNS5wbmc=/original/%2B%2FuxKt.png"
+                                    alt="Gawain's Girlfriend and the Green Knight"
+                                    style="width: 150px; display: block; margin: 0 auto;">
+                                <div style="color: whitesmoke; font-weight: bold; margin-top: 5px;">Gawain's Girlfriend
+                                    and
+                                    the Green Knight</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div id="BooksDIV" style="display:none;">
+                    <h2 id="Headings-in-document-section">Books</h2>
+                </div>
+                <div id="NewsPapersDIV" style="display:none;">
+                    <h2 id="Headings-in-document-section">News Papers</h2>
+                </div>
+                <div id="MangasDIV" style="display:none;">
+                    <h2 id="Headings-in-document-section">Manga</h2>
+                </div>
+                <div id="NotFreeComicsDIV" style="display:none;">
+                    <h2 id="Headings-in-document-section">Not Free Comics</h2>
+                </div>
+            </div>
         </div>
     </div>
     <!-- Bottom Text Division -->
@@ -671,88 +684,88 @@
 
 </body>
 <script>
-document.addEventListener("DOMContentLoaded", () => {
-    const legends = ["tagLegend1", "tagLegend2", "tagLegend3"];
+    document.addEventListener("DOMContentLoaded", () => {
+        const legends = ["tagLegend1", "tagLegend2", "tagLegend3"];
 
-    legends.forEach((id) => {
-        const tagLegend = document.getElementById(id);
-        let isDragging = false;
-        let offsetX = 0, offsetY = 0;
-        let pendingX = 0, pendingY = 0;
-        let animationFrame = null;
+        legends.forEach((id) => {
+            const tagLegend = document.getElementById(id);
+            let isDragging = false;
+            let offsetX = 0, offsetY = 0;
+            let pendingX = 0, pendingY = 0;
+            let animationFrame = null;
 
-        // Ensure better touch performance
-        tagLegend.style.touchAction = "none";
-        tagLegend.style.cursor = "grab";
+            // Ensure better touch performance
+            tagLegend.style.touchAction = "none";
+            tagLegend.style.cursor = "grab";
 
-        // Load saved position
-        const saved = JSON.parse(localStorage.getItem(`${id}_position`));
-        if (saved) {
-            tagLegend.style.position = "fixed";
-            tagLegend.style.left = `${saved.left}px`;
-            tagLegend.style.top = `${saved.top}px`;
-        }
-
-        const updatePosition = () => {
-            tagLegend.style.position = "fixed";
-            tagLegend.style.left = `${pendingX}px`;
-            tagLegend.style.top = `${pendingY}px`;
-            animationFrame = null;
-        };
-
-        const startDrag = (x, y) => {
-            isDragging = true;
-            offsetX = x - tagLegend.offsetLeft;
-            offsetY = y - tagLegend.offsetTop;
-            tagLegend.style.cursor = "grabbing";
-        };
-
-        const onMove = (x, y) => {
-            if (!isDragging) return;
-            pendingX = x - offsetX;
-            pendingY = y - offsetY;
-            if (!animationFrame) {
-                animationFrame = requestAnimationFrame(updatePosition);
+            // Load saved position
+            const saved = JSON.parse(localStorage.getItem(`${id}_position`));
+            if (saved) {
+                tagLegend.style.position = "fixed";
+                tagLegend.style.left = `${saved.left}px`;
+                tagLegend.style.top = `${saved.top}px`;
             }
-        };
 
-        const endDrag = () => {
-            if (isDragging) {
-                isDragging = false;
-                tagLegend.style.cursor = "grab";
-                const rect = tagLegend.getBoundingClientRect();
-                localStorage.setItem(`${id}_position`, JSON.stringify({
-                    left: rect.left,
-                    top: rect.top
-                }));
-            }
-        };
+            const updatePosition = () => {
+                tagLegend.style.position = "fixed";
+                tagLegend.style.left = `${pendingX}px`;
+                tagLegend.style.top = `${pendingY}px`;
+                animationFrame = null;
+            };
 
-        // Mouse
-        tagLegend.addEventListener("mousedown", (e) => {
-            startDrag(e.clientX, e.clientY);
-            e.preventDefault();
+            const startDrag = (x, y) => {
+                isDragging = true;
+                offsetX = x - tagLegend.offsetLeft;
+                offsetY = y - tagLegend.offsetTop;
+                tagLegend.style.cursor = "grabbing";
+            };
+
+            const onMove = (x, y) => {
+                if (!isDragging) return;
+                pendingX = x - offsetX;
+                pendingY = y - offsetY;
+                if (!animationFrame) {
+                    animationFrame = requestAnimationFrame(updatePosition);
+                }
+            };
+
+            const endDrag = () => {
+                if (isDragging) {
+                    isDragging = false;
+                    tagLegend.style.cursor = "grab";
+                    const rect = tagLegend.getBoundingClientRect();
+                    localStorage.setItem(`${id}_position`, JSON.stringify({
+                        left: rect.left,
+                        top: rect.top
+                    }));
+                }
+            };
+
+            // Mouse
+            tagLegend.addEventListener("mousedown", (e) => {
+                startDrag(e.clientX, e.clientY);
+                e.preventDefault();
+            });
+
+            document.addEventListener("mousemove", (e) => onMove(e.clientX, e.clientY));
+            document.addEventListener("mouseup", endDrag);
+
+            // Touch
+            tagLegend.addEventListener("touchstart", (e) => {
+                const touch = e.touches[0];
+                startDrag(touch.clientX, touch.clientY);
+            }, { passive: false });
+
+            document.addEventListener("touchmove", (e) => {
+                if (!isDragging) return;
+                const touch = e.touches[0];
+                onMove(touch.clientX, touch.clientY);
+                e.preventDefault(); // Stop scrolling during drag
+            }, { passive: false });
+
+            document.addEventListener("touchend", endDrag);
         });
-
-        document.addEventListener("mousemove", (e) => onMove(e.clientX, e.clientY));
-        document.addEventListener("mouseup", endDrag);
-
-        // Touch
-        tagLegend.addEventListener("touchstart", (e) => {
-            const touch = e.touches[0];
-            startDrag(touch.clientX, touch.clientY);
-        }, { passive: false });
-
-        document.addEventListener("touchmove", (e) => {
-            if (!isDragging) return;
-            const touch = e.touches[0];
-            onMove(touch.clientX, touch.clientY);
-            e.preventDefault(); // Stop scrolling during drag
-        }, { passive: false });
-
-        document.addEventListener("touchend", endDrag);
     });
-});
 </script>
 
 </html>
