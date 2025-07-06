@@ -17,7 +17,6 @@ function toggleAnime() {
     animesDiv.style.display = (animesDiv.style.display === "none") ? "block" : "none";
 }
 
-
 function toggleAnimeinGeneral() {
     const generalDiv = document.querySelector('[data-id="AnimeInGeneralWithMoviesDIV"]');
     const toggleButton = document.querySelector("button[onclick='toggleAnimeinGeneral()']");
@@ -79,19 +78,36 @@ function toggleDocuments() {
     moviesDiv.style.display = (moviesDiv.style.display === "none") ? "block" : "none";
 }
 
-function toggleFreeComics() {
-    const comicsDiv = document.getElementById("FreecomicsDIV");
-    const toggleButton = document.querySelector("button[onclick='toggleFreeComics()']");
 
-    const isVisible = comicsDiv.style.display === "block";
-    comicsDiv.style.display = isVisible ? "none" : "block";
+function toggleDocumentSubSection(idToShow, buttonElement) {
+    const sectionIds = [
+        "FreecomicsDIV",
+        "BooksDIV",
+        "NewsPapersDIV",
+        "MangasDIV",
+        "NotFreeComicsDIV"
+    ];
 
-    if (!isVisible) {
-        toggleButton.classList.add("active");
-    } else {
-        toggleButton.classList.remove("active");
+    // Hide all sections and remove button highlights
+    sectionIds.forEach(id => {
+        const div = document.getElementById(id);
+        if (div) div.style.display = "none";
+    });
+
+    const allDocButtons = document.querySelectorAll("#Buttons-in-document-section button");
+    allDocButtons.forEach(btn => btn.classList.remove("active"));
+
+    // Toggle target
+    const targetDiv = document.getElementById(idToShow);
+    if (targetDiv) {
+        const isVisible = targetDiv.style.display === "block";
+        targetDiv.style.display = isVisible ? "none" : "block";
+        if (!isVisible && buttonElement) {
+            buttonElement.classList.add("active");
+        }
     }
 }
+
 function toggleSection(idToShow) {
     const sectionIds = ["TVShowsDIV", "MoviesDIV", "AnimeDIV", "DocumentsDIV"];
     const frontParagraph = document.querySelector(".Frnt2");
