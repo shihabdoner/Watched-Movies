@@ -15,6 +15,7 @@ button {
   border-radius: 10%;
   font-family: 'Cascadia Code', Courier, monospace;
 }
+
 .press-start-2p-regular {
   font-family: "Press Start 2P", system-ui;
   font-weight: 400;
@@ -125,27 +126,37 @@ body {
 
 #ColorsIndication {
   text-align: center;
-  background-color: #000000;
-  color: whitesmoke;
+  background-color: #41414198;
+  color: rgb(123, 123, 123);
+  font-family: "Merienda", cursive;
+  font-style: italic;
+  text-decoration-style: dotted;
+  animation: flicker 2s infinite;
+  text-shadow: 0 0 2px #ff00bf, 0 0 10px #00ff1e;
+  border-radius: 50%;
+  border: 2px solid green;
+  border-style: dashed double;
 }
+
 
 /* Indication colored */
 .tag-legend {
-    position: fixed;
-    top: 100px;
-    left: 100px; /* Use left for JS movement */
-    cursor: move;
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-    max-width: 300px;
-    padding: 1rem;
-    background: #ffffffcc;
-    border-radius: 10px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-    user-select: none;
-    z-index: 9999;
-  }
+  position: fixed;
+  top: 100px;
+  left: 100px;
+  /* Use left for JS movement */
+  cursor: move;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 300px;
+  padding: 1rem;
+  background: #31313158;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  user-select: none;
+  z-index: 9999;
+}
 
 .tag-item {
   display: flex;
@@ -156,6 +167,7 @@ body {
   padding: 0.1rem 1rem;
   /* add some padding inside the border */
 }
+
 /* Apply space only after the last tag-item */
 .tag-item:last-child {
   margin-bottom: 10%;
@@ -169,7 +181,7 @@ body {
   border-radius: 3px;
   border: 1px solid #ccc;
   flex-shrink: 0;
-  
+
 }
 
 .tag-text {
@@ -516,4 +528,47 @@ ul#itemList li {
 
 .rainbow:nth-of-type(42) {
   color: violet;
+}
+
+
+@keyframes flicker {
+  0% {
+    opacity: 1;
+    color: #00ff80;
+  }
+
+  5% {
+    opacity: 0.4;
+    color: #008d1f;
+  }
+
+  10% {
+    opacity: 1;
+    color: #bbb;
+  }
+
+  15% {
+    opacity: 0.6;
+    color: #eee;
+  }
+
+  20% {
+    opacity: 1;
+    color: #999;
+  }
+
+  25% {
+    opacity: 0.3;
+    color: #59ff00;
+  }
+
+  30% {
+    opacity: 1;
+    color: #127a3a;
+  }
+
+  100% {
+    opacity: 1;
+    color: rgb(23, 46, 24);
+  }
 }
