@@ -269,8 +269,6 @@ function isCollapsed(el) {
 }
 console.log("Clicking button to open:", toggleBtn?.textContent);
 
-
-
 // Core filter logic
 function filterList() {
     const input = document.getElementById("searchInput").value.toLowerCase().trim();
