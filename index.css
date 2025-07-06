@@ -27,7 +27,7 @@ button {
 #Buttons-in-document-section {
   text-align: center;
   position: sticky;
-  top: 10%;
+  top: 18%;
   /* Searchbox height + margin */
   z-index: 99;
 }
@@ -230,7 +230,6 @@ input[type="text"] {
   margin-bottom: 5%;
 }
 
-
 ul#itemList {
   margin-top: 20px;
   list-style: none;
@@ -267,7 +266,7 @@ ul#itemList li {
 #document-h1 {
   text-align: center;
   position: sticky;
-  top: 10%;
+  top: 12.5%;
   /* Searchbox height + margin */
   z-index: 99;
 }
