@@ -40,6 +40,12 @@
     <div id="BeneathParrentButtons">
         <!-- TV Shows -->
         <div id="TVShowsDIV" style="display:none;">
+            <div class="tag-legend" id="tagLegend1">
+                <h1 id="ColorsIndication">Colors</h1>
+                <div class="tag-item" style="background-color:#1f1e1c; color: #02b0fa;">1. Super Hero</div>
+                <div class="tag-item" style="background-color: #ff6b02; color: #000000;">3. Psychological</div>
+                <div class="tag-item" style="background-color: #1f1e1c; color: #05f072;">5. Goat</div>
+            </div>
             <h1 class="Blues">TV Shows</h1>
             <!-- Watched Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchedDIV">Watched</button>
@@ -84,7 +90,7 @@
         </div>
         <!-- Movies Division -->
         <div id="MoviesDIV" style="display: none;">
-            <div class="tag-legend" id="tagLegend">
+            <div class="tag-legend" id="tagLegend2">
                 <h1 id="ColorsIndication">Colors</h1>
                 <div class="tag-item" style="background-color:#1f1e1c; color: #02b0fa;">1. Super Hero</div>
                 <div class="tag-item" style="background-color: #ff0066d5; color: #000000;">2. Romantic</div>
@@ -457,6 +463,16 @@
 
     <!-- Anime Division -->
     <div id="AnimeDIV" style="display:none;">
+        <div class="tag-legend" id="tagLegend3">
+            <h1 id="ColorsIndication">Colors</h1>
+            <div class="tag-item" style="background-color:#1f1e1c; color: #02b0fa;">1. Super Hero</div>
+            <div class="tag-item" style="background-color: #ff6b02; color: #000000;">3. Psychological</div>
+            <div class="tag-item" style="background-color: #1f1e1c; color: #05f072;">5. Goat</div>
+            <div class="tag-item" style="background-color: #1f1e1c; color:#ff0000;">7. Brain Damaging</div>
+            <div class="tag-item" style="background-color: #1f1e1c; color: #000;">
+                8. <span class="strike">RRRRRR</span>
+            </div>x
+        </div>
         <h1 class="Blues">Animes</h1>
 
         <!-- Watched Section -->
@@ -657,52 +673,79 @@
 <script>
     // ✅ DRAGGABLE FUNCTION
     document.addEventListener("DOMContentLoaded", () => {
-        const tagLegend = document.getElementById("tagLegend");
+        const legends = ["tagLegend1", "tagLegend2", "tagLegend3"];
 
-        let isDragging = false;
-        let offsetX = 0;
-        let offsetY = 0;
+        legends.forEach((id) => {
+            const tagLegend = document.getElementById(id);
+            let isDragging = false;
+            let offsetX = 0;
+            let offsetY = 0;
 
-        const savedPosition = JSON.parse(localStorage.getItem("tagLegendPosition"));
-        if (savedPosition) {
-            tagLegend.style.left = `${savedPosition.left}px`;
-            tagLegend.style.top = `${savedPosition.top}px`;
-        }
-
-        tagLegend.addEventListener("mousedown", (e) => {
-            isDragging = true;
-            offsetX = e.clientX - tagLegend.offsetLeft;
-            offsetY = e.clientY - tagLegend.offsetTop;
-            tagLegend.style.cursor = "grabbing";
-            e.preventDefault();
-        });
-
-        document.addEventListener("mousemove", (e) => {
-            if (isDragging) {
-                const x = e.clientX - offsetX;
-                const y = e.clientY - offsetY;
-
-                const maxX = window.innerWidth - tagLegend.offsetWidth;
-                const maxY = window.innerHeight - tagLegend.offsetHeight;
-                const clampedX = Math.min(Math.max(0, x), maxX);
-                const clampedY = Math.min(Math.max(0, y), maxY);
-
-                tagLegend.style.left = `${clampedX}px`;
-                tagLegend.style.top = `${clampedY}px`;
+            // Load saved position from localStorage
+            const savedPosition = JSON.parse(localStorage.getItem(`${id}_position`));
+            if (savedPosition) {
+                tagLegend.style.position = "fixed";
+                tagLegend.style.left = `${savedPosition.left}px`;
+                tagLegend.style.top = `${savedPosition.top}px`;
             }
-        });
 
-        document.addEventListener("mouseup", () => {
-            if (isDragging) {
-                isDragging = false;
-                tagLegend.style.cursor = "move";
-                const rect = tagLegend.getBoundingClientRect();
-                localStorage.setItem("tagLegendPosition", JSON.stringify({
-                    left: rect.left,
-                    top: rect.top
-                }));
-            }
+            const startDrag = (x, y) => {
+                isDragging = true;
+                offsetX = x - tagLegend.offsetLeft;
+                offsetY = y - tagLegend.offsetTop;
+                tagLegend.style.cursor = "grabbing";
+            };
+
+            const onMove = (x, y) => {
+                if (isDragging) {
+                    const newX = x - offsetX;
+                    const newY = y - offsetY;
+                    tagLegend.style.position = "fixed";
+                    tagLegend.style.left = `${newX}px`;
+                    tagLegend.style.top = `${newY}px`;
+                }
+            };
+
+            const endDrag = () => {
+                if (isDragging) {
+                    isDragging = false;
+                    tagLegend.style.cursor = "move";
+                    const rect = tagLegend.getBoundingClientRect();
+                    localStorage.setItem(`${id}_position`, JSON.stringify({
+                        left: rect.left,
+                        top: rect.top
+                    }));
+                }
+            };
+
+            // Mouse events
+            tagLegend.addEventListener("mousedown", (e) => {
+                startDrag(e.clientX, e.clientY);
+                e.preventDefault();
+            });
+
+            document.addEventListener("mousemove", (e) => {
+                onMove(e.clientX, e.clientY);
+            });
+
+            document.addEventListener("mouseup", endDrag);
+
+            // Touch events
+            tagLegend.addEventListener("touchstart", (e) => {
+                const touch = e.touches[0];
+                startDrag(touch.clientX, touch.clientY);
+            });
+
+            document.addEventListener("touchmove", (e) => {
+                if (!isDragging) return;
+                const touch = e.touches[0];
+                onMove(touch.clientX, touch.clientY);
+            });
+
+            document.addEventListener("touchend", endDrag);
         });
-    });</script>
+    });
+
+</script>
 
 </html>
