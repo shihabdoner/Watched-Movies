@@ -78,8 +78,7 @@ function toggleDocuments() {
     moviesDiv.style.display = (moviesDiv.style.display === "none") ? "block" : "none";
 }
 
-
-function toggleDocumentSubSection(idToShow, buttonElement) {
+function toggleDocumentSubSection(idToToggle, buttonElement) {
     const sectionIds = [
         "FreecomicsDIV",
         "BooksDIV",
@@ -88,72 +87,118 @@ function toggleDocumentSubSection(idToShow, buttonElement) {
         "NotFreeComicsDIV"
     ];
 
-    // Hide all sections and remove button highlights
-    sectionIds.forEach(id => {
-        const div = document.getElementById(id);
-        if (div) div.style.display = "none";
-    });
+    const frontParagraph = document.querySelector(".FrntinDoc");
+    let anyVisible = false;
 
+    // Remove 'active' class from all document section buttons
     const allDocButtons = document.querySelectorAll("#Buttons-in-document-section button");
     allDocButtons.forEach(btn => btn.classList.remove("active"));
 
-    // Toggle target
-    const targetDiv = document.getElementById(idToShow);
-    if (targetDiv) {
-        const isVisible = targetDiv.style.display === "block";
-        targetDiv.style.display = isVisible ? "none" : "block";
-        if (!isVisible && buttonElement) {
-            buttonElement.classList.add("active");
+    sectionIds.forEach(id => {
+        const div = document.getElementById(id);
+
+        if (!div) return;
+
+        if (id === idToToggle) {
+            const isVisible = div.style.display === "block";
+            div.style.display = isVisible ? "none" : "block";
+            anyVisible = !isVisible;
+
+            if (!isVisible && buttonElement) {
+                buttonElement.classList.add("active");
+            }
+        } else {
+            div.style.display = "none";
         }
-    }
+    });
+
+    // Show or hide the front text (like initial state)
+    if (frontParagraph)
+        frontParagraph.style.display = anyVisible ? "none" : "block";
 }
+
 
 function toggleSection(idToShow) {
     const sectionIds = ["TVShowsDIV", "MoviesDIV", "AnimeDIV", "DocumentsDIV"];
     const frontParagraph = document.querySelector(".Frnt2");
     let anyVisible = false;
 
-    // Remove 'active' class from all buttons
-    const buttons = document.querySelectorAll("button");
-    buttons.forEach(btn => btn.classList.remove("active"));
+    // Remove 'active' class from all parent buttons
+    const parentButtons = document.querySelectorAll("#ParentButtons button");
+    parentButtons.forEach(btn => btn.classList.remove("active"));
 
     sectionIds.forEach(function (id) {
         const div = document.getElementById(id);
+        if (!div) return;
+
         if (id === idToShow) {
-            // Toggle clicked section
             const isCurrentlyVisible = div.style.display === "block";
             div.style.display = isCurrentlyVisible ? "none" : "block";
             anyVisible = !isCurrentlyVisible;
-            // Add 'active' class to the clicked button only if visible
+
             if (!isCurrentlyVisible) {
                 const clickedButton = document.querySelector(`button[onclick="toggleSection('${id}')"]`);
                 if (clickedButton) clickedButton.classList.add("active");
             }
+
+            // ✅ FIX: Re-check child visibility if DocumentsDIV is being shown
+            if (id === "DocumentsDIV" && !isCurrentlyVisible) {
+                const docChildIds = [
+                    "FreecomicsDIV",
+                    "BooksDIV",
+                    "NewsPapersDIV",
+                    "MangasDIV",
+                    "NotFreeComicsDIV"
+                ];
+
+                docChildIds.forEach((childId, index) => {
+                    const childDiv = document.getElementById(childId);
+                    if (childDiv && childDiv.style.display === "block") {
+                        // Find the matching button and re-activate
+                        const childButtons = document.querySelectorAll("#Buttons-in-document-section button");
+                        const btn = childButtons[index];
+                        if (btn) btn.classList.add("active");
+                    }
+                });
+            }
+
         } else {
-            // Hide all other sections
             div.style.display = "none";
         }
     });
-    // Show or hide .FrontText based on visibility of any section
+
     if (frontParagraph)
         frontParagraph.style.display = anyVisible ? "none" : "block";
-
 }
+// ✅ Ensures all slide and inner-slide contents are CLOSED on page load
+window.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".slide-content, .inner-slide").forEach(el => {
+        el.classList.remove("open");
+        el.style.maxHeight = "0"; // force closed
+    });
 
-
-/*slide content button*/
+    document.querySelectorAll(".toggle-btn, [onclick*='toggleInnerSlide']").forEach(btn => {
+        btn.classList.remove("active");
+    });
+});
 function toggleSlide(button) {
     const content = button.nextElementSibling;
+    const parentContainer = button.closest("#TVShowsDIV, #MoviesDIV, #AnimeDIV");
+
     const isOpen = content.classList.contains("open");
 
-    if (isOpen) {
-        content.style.maxHeight = content.scrollHeight + "px";
-        requestAnimationFrame(() => {
-            content.style.maxHeight = "0";
-        });
-        content.classList.remove("open");
-        button.classList.remove("active");
-    } else {
+    // 🔒 Close all others first
+    parentContainer.querySelectorAll(".slide-content").forEach(slide => {
+        slide.classList.remove("open");
+        slide.style.maxHeight = "0";
+        const btn = slide.previousElementSibling;
+        if (btn && btn.classList.contains("toggle-btn")) {
+            btn.classList.remove("active");
+        }
+    });
+
+    // ✅ Only open the clicked one if it was not already open
+    if (!isOpen) {
         content.classList.add("open");
         requestAnimationFrame(() => {
             content.style.maxHeight = content.scrollHeight + "px";
@@ -161,33 +206,34 @@ function toggleSlide(button) {
         button.classList.add("active");
     }
 }
-
-// Handles inner toggles (like Anime Movies or General)
 function toggleInnerSlide(innerButton) {
     const innerDiv = innerButton.nextElementSibling;
     const parentSlide = innerDiv.closest(".slide-content");
 
     const isOpen = innerDiv.classList.contains("open");
 
-    if (isOpen) {
-        innerDiv.style.maxHeight = innerDiv.scrollHeight + "px";
-        requestAnimationFrame(() => {
-            innerDiv.style.maxHeight = "0";
-        });
-        innerDiv.classList.remove("open");
-        innerButton.classList.remove("active");
-    } else {
+    // 🔒 Close all other inner-slide elements
+    parentSlide.querySelectorAll(".inner-slide").forEach(slide => {
+        slide.classList.remove("open");
+        slide.style.maxHeight = "0";
+        const btn = slide.previousElementSibling;
+        if (btn) btn.classList.remove("active");
+    });
+
+    // ✅ Open the clicked one only if it was not already open
+    if (!isOpen) {
         innerDiv.classList.add("open");
-        innerDiv.style.maxHeight = "0";
         requestAnimationFrame(() => {
             innerDiv.style.maxHeight = innerDiv.scrollHeight + "px";
         });
         innerButton.classList.add("active");
     }
 
-    // Resize the outer container too
+    // 🔁 Resize outer container if needed
     requestAnimationFrame(() => {
-        parentSlide.style.maxHeight = parentSlide.scrollHeight + "px";
+        if (parentSlide) {
+            parentSlide.style.maxHeight = parentSlide.scrollHeight + "px";
+        }
     });
 }
 
