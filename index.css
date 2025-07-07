@@ -604,3 +604,27 @@ ul#itemList li {
 }
 
 /* ------------------------------------------------------------------------------------ */
+.popup-image {
+  display: none;
+  position: fixed;
+  /* Full-screen effect */
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.8);
+  /* Optional dark backdrop */
+  z-index: 10000;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.popup-image img {
+  max-width: 90%;
+  max-height: 90%;
+  border: 2px solid white;
+  border-radius: 8px;
+  box-shadow: 0 0 20px black;
+}
