@@ -225,6 +225,16 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
 });
+// Add click-to-close functionality
+document.querySelectorAll('.popup-image').forEach(popup => {
+    popup.addEventListener('click', () => {
+        popup.style.opacity = '0';
+        setTimeout(() => {
+            popup.style.display = 'none';
+        }, 500);
+    });
+});
+
 function toggleSlide(button) {
     const content = button.nextElementSibling;
     const parentContainer = button.closest("#TVShowsDIV, #MoviesDIV, #AnimeDIV");
