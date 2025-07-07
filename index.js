@@ -172,6 +172,7 @@ function toggleSection(idToShow) {
 }
 // ✅ Ensures all slide and inner-slide contents are CLOSED on page load
 window.addEventListener("DOMContentLoaded", () => {
+    // Existing logic
     document.querySelectorAll(".slide-content, .inner-slide").forEach(el => {
         el.classList.remove("open");
         el.style.maxHeight = "0"; // force closed
@@ -180,6 +181,49 @@ window.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".toggle-btn, [onclick*='toggleInnerSlide']").forEach(btn => {
         btn.classList.remove("active");
     });
+
+    // Popup logic
+    document.querySelectorAll('.popup-btn').forEach(button => {
+        button.addEventListener('click', function () {
+            const popup = document.querySelector('.popup-image');
+            if (!popup) return;
+
+            const img = popup.querySelector('img');
+
+            // Reset opacity and display before loading
+            popup.style.opacity = '0';
+            popup.style.display = 'flex';
+
+            // Wait for image to load
+            if (img.complete) {
+                // Image already loaded
+                fadeInOutPopup(popup);
+            } else {
+                img.onload = () => {
+                    fadeInOutPopup(popup);
+                };
+                img.onerror = () => {
+                    console.error("Failed to load popup image");
+                    popup.style.display = 'none';
+                };
+            }
+        });
+
+        function fadeInOutPopup(popup) {
+            requestAnimationFrame(() => {
+                popup.style.opacity = '1';
+            });
+
+            setTimeout(() => {
+                popup.style.opacity = '0';
+                setTimeout(() => {
+                    popup.style.display = 'none';
+                }, 500);
+            }, 1500);
+        }
+    });
+
+
 });
 function toggleSlide(button) {
     const content = button.nextElementSibling;
@@ -417,3 +461,22 @@ window.addEventListener("resize", () => {
     updateStickyOffsets();
     updateSpacingBelowSticky();
 });
+function showPopupImage() {
+    const popup = document.getElementById("popup-image");
+    popup.style.display = "block";
+
+    // Fade in
+    setTimeout(() => {
+        popup.style.opacity = "1";
+    }, 10); // Short delay to trigger transition
+
+    // Wait 1 second, then fade out
+    setTimeout(() => {
+        popup.style.opacity = "0";
+
+        // Hide after fade out
+        setTimeout(() => {
+            popup.style.display = "none";
+        }, 500); // Match transition duration
+    }, 1500); // 1000ms visible + 500ms fade in
+}
