@@ -133,19 +133,39 @@
                     <li id="ROMANCE">The Spectacular Now</li>
                     <li id="PSYCHOLOGICAL">The Edge of Seventeen</li>
                     <li id="SUPERHERO">Spiderman:no way home</li>
-                    <li style="letter-spacing: -1px;">
-                        <span class="rainbow">L</span>
-                        <span class="rainbow">o</span>
-                        <span class="rainbow">v</span>
-                        <span class="rainbow">e</span>
-                        <span class="rainbow">,</span>
-                        <span> </span>
-                        <span class="rainbow">S</span>
-                        <span class="rainbow">i</span>
-                        <span class="rainbow">m</span>
-                        <span class="rainbow">o</span>
-                        <span class="rainbow">n</span>
+                    <li style="letter-spacing: -1px; position: relative;"> <!-- Make li relative for absolute popup -->
+                        <div>
+                            <span class="rainbow">L</span>
+                            <span class="rainbow">o</span>
+                            <span class="rainbow">v</span>
+                            <span class="rainbow">e</span>
+                            <span class="rainbow">,</span>
+                            <span> </span>
+                            <span class="rainbow">S</span>
+                            <span class="rainbow">i</span>
+                            <span class="rainbow">m</span>
+                            <span class="rainbow">o</span>
+                            <span class="rainbow">n</span>
+                            <span> </span>
+
+                            <!-- Popup button -->
+                            <span style="cursor: pointer;" class="popup-btn">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="black"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    style="border: 1px solid black; background-color: white; border-radius: 4px;">
+                                    <text x="7" y="17" font-size="16" font-weight="bold">!</text>
+                                </svg>
+                            </span>
+
+                            <!-- Popup image container -->
+                            <!-- Popup image container -->
+                            <div class="popup-image">
+                                <img src="Picsart_25-07-07_08-38-31-135.png" alt="popup image">
+                            </div>
+
+                        </div>
                     </li>
+
                     <li id="GOAT">The Perks of Being a Wallflower</li>
                     <li id="GOAT">Private Life</li>
                     <li id="GOAT">The First Time</li>
@@ -847,7 +867,8 @@
 
             </div>
             <div style="display:contents">
-                <p class="FrntinDoc" style="color: wheat;">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis cumque nobis, quis dolorum non
+                <p class="FrntinDoc" style="color: wheat;">Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Facilis cumque nobis, quis dolorum non
                     aperiam commodi facere possimus eum amet nihil animi nostrum laboriosam. Dolores error odio
                     accusamus impedit ratione.
                 </p>
@@ -946,6 +967,8 @@
             document.addEventListener("touchend", endDrag);
         });
     });
+
+
 </script>
 
 </html>
