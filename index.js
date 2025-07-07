@@ -184,55 +184,41 @@ window.addEventListener("DOMContentLoaded", () => {
     // Popup logic
     document.querySelectorAll('.popup-btn').forEach(button => {
         button.addEventListener('click', function () {
-            // ✅ Find the next .popup-image sibling
+            // Find the nearest popup-image
             let popup = this.parentElement.querySelector('.popup-image');
-
             if (!popup) {
-                // Try searching the next sibling (for <li> structure)
                 popup = this.nextElementSibling;
             }
-
             if (!popup || !popup.classList.contains("popup-image")) return;
 
             const img = popup.querySelector('img');
-
-            // Reset opacity and display before loading
-            popup.style.opacity = '0';
-            popup.style.display = 'flex';
+            popup.classList.add('show'); // Use new show class
 
             if (img.complete) {
-                fadeInOutPopup(popup);
+                startFadeOut(popup);
             } else {
-                img.onload = () => fadeInOutPopup(popup);
+                img.onload = () => startFadeOut(popup);
                 img.onerror = () => {
                     console.error("Failed to load popup image");
-                    popup.style.display = 'none';
+                    popup.classList.remove('show');
                 };
             }
         });
 
-        function fadeInOutPopup(popup) {
-            popup.style.opacity = '1';
-            void popup.offsetWidth; // Force reflow
-
+        function startFadeOut(popup) {
             setTimeout(() => {
-                popup.style.opacity = '0';
-                setTimeout(() => {
-                    popup.style.display = 'none';
-                }, 500);
+                popup.classList.remove('show');
             }, 1500);
         }
     });
 
-});
-// Add click-to-close functionality
-document.querySelectorAll('.popup-image').forEach(popup => {
-    popup.addEventListener('click', () => {
-        popup.style.opacity = '0';
-        setTimeout(() => {
-            popup.style.display = 'none';
-        }, 500);
+    // Optional: Click to close early
+    document.querySelectorAll('.popup-image').forEach(popup => {
+        popup.addEventListener('click', () => {
+            popup.classList.remove('show');
+        });
     });
+
 });
 
 function toggleSlide(button) {
