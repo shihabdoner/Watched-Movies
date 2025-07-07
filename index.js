@@ -210,17 +210,23 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 
         function fadeInOutPopup(popup) {
-            requestAnimationFrame(() => {
-                popup.style.opacity = '1';
-            });
+            // Show popup with opacity 1
+            popup.style.opacity = '1';
+
+            // Force reflow to ensure transition triggers
+            void popup.offsetWidth;
 
             setTimeout(() => {
+                // Fade out
                 popup.style.opacity = '0';
+
                 setTimeout(() => {
+                    // Hide after fade out
                     popup.style.display = 'none';
                 }, 500);
             }, 1500);
         }
+
     });
 
 
