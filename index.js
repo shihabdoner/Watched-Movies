@@ -181,12 +181,18 @@ window.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".toggle-btn, [onclick*='toggleInnerSlide']").forEach(btn => {
         btn.classList.remove("active");
     });
-
     // Popup logic
     document.querySelectorAll('.popup-btn').forEach(button => {
         button.addEventListener('click', function () {
-            const popup = document.querySelector('.popup-image');
-            if (!popup) return;
+            // ✅ Find the next .popup-image sibling
+            let popup = this.parentElement.querySelector('.popup-image');
+
+            if (!popup) {
+                // Try searching the next sibling (for <li> structure)
+                popup = this.nextElementSibling;
+            }
+
+            if (!popup || !popup.classList.contains("popup-image")) return;
 
             const img = popup.querySelector('img');
 
@@ -194,14 +200,10 @@ window.addEventListener("DOMContentLoaded", () => {
             popup.style.opacity = '0';
             popup.style.display = 'flex';
 
-            // Wait for image to load
             if (img.complete) {
-                // Image already loaded
                 fadeInOutPopup(popup);
             } else {
-                img.onload = () => {
-                    fadeInOutPopup(popup);
-                };
+                img.onload = () => fadeInOutPopup(popup);
                 img.onerror = () => {
                     console.error("Failed to load popup image");
                     popup.style.display = 'none';
@@ -210,25 +212,17 @@ window.addEventListener("DOMContentLoaded", () => {
         });
 
         function fadeInOutPopup(popup) {
-            // Show popup with opacity 1
             popup.style.opacity = '1';
-
-            // Force reflow to ensure transition triggers
-            void popup.offsetWidth;
+            void popup.offsetWidth; // Force reflow
 
             setTimeout(() => {
-                // Fade out
                 popup.style.opacity = '0';
-
                 setTimeout(() => {
-                    // Hide after fade out
                     popup.style.display = 'none';
                 }, 500);
             }, 1500);
         }
-
     });
-
 
 });
 function toggleSlide(button) {
