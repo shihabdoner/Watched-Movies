@@ -650,16 +650,20 @@ img[alt]:not([src])::after {
 /* Slide menu buttons */
 /* Initially hidden */
 .autoslidebuttons {
-    display: none;
-    flex-direction: column;
-    gap: 10px;
+  display: none;
+  flex-direction: column;
+  gap: 10px;
 }
 
 .autoslidebuttons button {
-  width: 200px;
-  height: 50px;
-  font-size: 16px;
+  width: 90px;
+  height: 30px;
+  font-size: 12px;
   cursor: pointer;
+}
+
+.autoslidebuttons button.toggle-btn.active {
+  color: #305134;
 }
 
 /* 🔒 Fixed container in bottom-right */
@@ -673,4 +677,77 @@ img[alt]:not([src])::after {
   align-items: flex-end;
   z-index: 9999;
   display: none;
+}
+
+/* Add this new rule to adjust the ☰ button position */
+.floating-controller #glow-button {
+  position: relative;
+  right: 25px;
+  /* Moves left */
+  bottom: 35px;
+  /* Moves up */
+}
+
+#glow-button {
+  bottom: 20%;
+  right: 5%;
+  width: 25px;
+  height: 25px;
+  background: transparent;
+  /* Fully transparent center */
+  border: none;
+  cursor: pointer;
+  outline: none;
+  color: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  z-index: 1;
+}
+
+/* Rainbow glow (fully faded) */
+#glow-button::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg,
+      rgb(255, 0, 0),
+      rgb(255, 255, 0),
+      rgb(0, 255, 0),
+      rgb(0, 255, 255),
+      rgb(0, 0, 255),
+      rgb(255, 0, 255),
+      rgb(255, 0, 0));
+  z-index: -1;
+  filter: blur(10px);
+  /* Heavy blur for seamless fade */
+  opacity: 0.5;
+  animation: rotate 4s linear infinite;
+}
+
+/* Subtle core for visibility */
+#glow-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.05);
+  backdrop-filter: blur(2px);
+  z-index: -1;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
 }
