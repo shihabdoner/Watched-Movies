@@ -515,77 +515,68 @@ function showPopupImage() {
     }, 1500); // 1000ms visible + 500ms fade in
 }
 // Auto slide function
-let autoScrollInterval = null;
-let autoScrollDirection = null;
-let activeButton = null;
+// Toggle slide menu
+const glowButton = document.getElementById('glow-button');
+const slideButtons = document.querySelector('.autoslidebuttons');
 
+glowButton.addEventListener('click', function () {
+    slideButtons.classList.toggle('visible');
+});
+
+// Scroll functions
 function scrollPage(direction) {
-    const distance = 300;
-    if (direction === 'up') {
-        window.scrollBy({ top: -distance, behavior: 'smooth' });
-    } else {
-        window.scrollBy({ top: distance, behavior: 'smooth' });
-    }
+    const scrollAmount = window.innerHeight * 0.8;
+    window.scrollBy({
+        top: direction === 'up' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+    });
 }
 
+// Auto-scroll variables
+let scrollInterval;
+let currentDirection = null;
+
 function toggleAutoScroll(button, direction) {
-    if (autoScrollInterval) {
+    button.classList.toggle('active');
+
+    // If clicking the same direction button
+    if (currentDirection === direction) {
         stopAutoScroll();
         return;
     }
 
-    activeButton = button;
-    autoScrollDirection = direction;
-
-    autoScrollInterval = setInterval(() => {
-        console.log('scrolling', direction);
-
-        const distance = direction === 'up' ? -5 : 5;
-        window.scrollBy(0, distance);
-
-        // Stop at top
-        if (direction === 'up' && window.scrollY <= 0) {
-            stopAutoScroll();
-        }
-
-        // Stop at bottom
-        if (direction === 'down' && (window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-            stopAutoScroll();
-        }
-    }, 20); // runs every 20ms
-
-    window.addEventListener('click', stopAutoScrollOnce);
-    window.addEventListener('touchstart', stopAutoScrollOnce);
-
-    updateButtonLabel();
-}
-function stopAutoScroll() {
-    clearInterval(autoScrollInterval);
-    autoScrollInterval = null;
-    autoScrollDirection = null;
-
-    updateButtonLabel();
-
-    window.removeEventListener('click', stopAutoScrollOnce);
-    window.removeEventListener('touchstart', stopAutoScrollOnce);
-    activeButton = null;
-}
-
-function stopAutoScrollOnce() {
-    stopAutoScroll();
-}
-function updateButtonLabel() {
-    if (!activeButton) return;
-
-    if (autoScrollDirection === 'up') {
-        activeButton.textContent = '⏸️ Pause Up';
-    } else if (autoScrollDirection === 'down') {
-        activeButton.textContent = '⏸️ Pause Down';
-    } else {
-        if (activeButton.id === 'slideUpBtn') {
-            activeButton.textContent = '⏮️ Slide Up';
-        } else if (activeButton.id === 'slideDownBtn') {
-            activeButton.textContent = '⏭️ Slide Down';
-        }
+    // If another direction is active
+    if (currentDirection) {
+        document.querySelector(`#slide${currentDirection === 'up' ? 'Up' : 'Down'}Btn`)
+            .classList.remove('active');
     }
+
+    // Start new scroll
+    currentDirection = direction;
+    stopAutoScroll();
+
+    scrollInterval = setInterval(() => {
+        window.scrollBy({
+            top: direction === 'up' ? -50 : 50,
+            behavior: 'smooth'
+        });
+    }, 100);
 }
+
+function stopAutoScroll() {
+    if (scrollInterval) {
+        clearInterval(scrollInterval);
+        scrollInterval = null;
+    }
+    currentDirection = null;
+}
+
+// Stop scrolling when reaching top/bottom
+window.addEventListener('scroll', function () {
+    if ((window.scrollY <= 0 && currentDirection === 'up') ||
+        (window.scrollY + window.innerHeight >= document.body.scrollHeight && currentDirection === 'down')) {
+        stopAutoScroll();
+        document.querySelector(`#slide${currentDirection === 'up' ? 'Up' : 'Down'}Btn`)
+            .classList.remove('active');
+    }
+});
