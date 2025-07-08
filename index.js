@@ -222,30 +222,68 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function toggleSlide(button) {
-    const content = button.nextElementSibling;
-    const parentContainer = button.closest("#TVShowsDIV, #MoviesDIV, #AnimeDIV");
 
+    // Only handle the floating ☰ toggle
+    // 1. Check if this is the ☰ button (floating controller)
+    if (button.classList.contains('toggle-button')) {
+        const autoButtons = button.nextElementSibling;
+        if (autoButtons && autoButtons.classList.contains("autoslidebuttons")) {
+            if (autoButtons.style.display === "flex") {
+                // Currently shown — hide autoslidebuttons and show menu button
+                autoButtons.style.display = "none";
+                button.style.display = "inline-block";
+            } else {
+                // Currently hidden — show autoslidebuttons and hide menu button
+                autoButtons.style.display = "flex";
+                button.style.display = "none";
+            }
+        }
+        return;
+    }
+
+    // 2. Main toggle logic for sections (accordion behavior)
+    const content = button.nextElementSibling;
+    // 🔍 Handle content panel toggling (accordion-style)
+    const parentContainer = button.closest("#TVShowsDIV, #MoviesDIV, #AnimeDIV");
     const isOpen = content.classList.contains("open");
 
     // 🔒 Close all others first
     parentContainer.querySelectorAll(".slide-content").forEach(slide => {
         slide.classList.remove("open");
         slide.style.maxHeight = "0";
+
+        // Hide floating controller inside each slide
+        const fc = slide.querySelector(".floating-controller");
+        if (fc) fc.style.display = "none";
+
         const btn = slide.previousElementSibling;
         if (btn && btn.classList.contains("toggle-btn")) {
             btn.classList.remove("active");
         }
     });
-
-    // ✅ Only open the clicked one if it was not already open
+    // Open the clicked section
     if (!isOpen) {
         content.classList.add("open");
         requestAnimationFrame(() => {
             content.style.maxHeight = content.scrollHeight + "px";
         });
         button.classList.add("active");
+
+        // Show this section’s floating controller
+        const fc = content.querySelector(".floating-controller");
+        if (fc) {
+            fc.style.display = "flex";
+
+            // Reset to show ☰ again and hide controls
+            const toggleBtn = fc.querySelector(".toggle-button");
+            const autoBtns = fc.querySelector(".autoslidebuttons");
+            if (toggleBtn) toggleBtn.style.display = "inline-block";
+            if (autoBtns) autoBtns.style.display = "none";
+        }
     }
 }
+
+
 function toggleInnerSlide(innerButton) {
     const innerDiv = innerButton.nextElementSibling;
     const parentSlide = innerDiv.closest(".slide-content");
@@ -475,4 +513,79 @@ function showPopupImage() {
             popup.style.display = "none";
         }, 500); // Match transition duration
     }, 1500); // 1000ms visible + 500ms fade in
+}
+// Auto slide function
+let autoScrollInterval = null;
+let autoScrollDirection = null;
+let activeButton = null;
+
+function scrollPage(direction) {
+    const distance = 300;
+    if (direction === 'up') {
+        window.scrollBy({ top: -distance, behavior: 'smooth' });
+    } else {
+        window.scrollBy({ top: distance, behavior: 'smooth' });
+    }
+}
+
+function toggleAutoScroll(button, direction) {
+    if (autoScrollInterval) {
+        stopAutoScroll();
+        return;
+    }
+
+    activeButton = button;
+    autoScrollDirection = direction;
+
+    autoScrollInterval = setInterval(() => {
+        console.log('scrolling', direction);
+
+        const distance = direction === 'up' ? -5 : 5;
+        window.scrollBy(0, distance);
+
+        // Stop at top
+        if (direction === 'up' && window.scrollY <= 0) {
+            stopAutoScroll();
+        }
+
+        // Stop at bottom
+        if (direction === 'down' && (window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+            stopAutoScroll();
+        }
+    }, 20); // runs every 20ms
+
+    window.addEventListener('click', stopAutoScrollOnce);
+    window.addEventListener('touchstart', stopAutoScrollOnce);
+
+    updateButtonLabel();
+}
+function stopAutoScroll() {
+    clearInterval(autoScrollInterval);
+    autoScrollInterval = null;
+    autoScrollDirection = null;
+
+    updateButtonLabel();
+
+    window.removeEventListener('click', stopAutoScrollOnce);
+    window.removeEventListener('touchstart', stopAutoScrollOnce);
+    activeButton = null;
+}
+
+function stopAutoScrollOnce() {
+    stopAutoScroll();
+}
+function updateButtonLabel() {
+    if (!activeButton) return;
+
+    if (autoScrollDirection === 'up') {
+        activeButton.textContent = '⏸️ Pause Up';
+    } else if (autoScrollDirection === 'down') {
+        activeButton.textContent = '⏸️ Pause Down';
+    } else {
+        if (activeButton.id === 'slideUpBtn') {
+            activeButton.textContent = '⏮️ Slide Up';
+        } else if (activeButton.id === 'slideDownBtn') {
+            activeButton.textContent = '⏭️ Slide Down';
+        }
+    }
 }
