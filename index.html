@@ -1129,6 +1129,8 @@
                 scrollAnimationId = requestAnimationFrame(autoScroll);
             }
 
+            const music = document.getElementById("scroll-music");
+
             function startScrolling(direction) {
                 stopScrolling(); // reset before new scroll
                 scrollDirection = direction;
@@ -1138,6 +1140,13 @@
                     scrollUpBtn.classList.add('scrolling');
                 } else {
                     scrollDownBtn.classList.add('scrolling');
+                }
+
+                // ✅ Play music without resetting position
+                if (music && music.paused) {
+                    music.play().catch(err => {
+                        console.warn("Autoplay blocked or failed:", err);
+                    });
                 }
 
                 autoScroll();
@@ -1150,9 +1159,15 @@
                 }
                 scrollDirection = null;
 
-                // Remove 'scrolling' class from both buttons
+                // Remove 'scrolling' class
                 scrollUpBtn.classList.remove('scrolling');
                 scrollDownBtn.classList.remove('scrolling');
+
+                // ✅ Pause music without resetting position
+                if (music && !music.paused) {
+                    music.pause();
+                    // Do NOT reset currentTime
+                }
             }
 
 
