@@ -180,412 +180,413 @@
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchedDIV">Watched</button>
 
             <div class="slide-content" data-id="WatchedDIV">
-                <h2>Watched</h2>
-                <div class="floating-controller">
-                    <button id="glow-button" class="toggle-button" onclick="toggleSlide(this)">☰</button>
+                <div id="contentwrapper">
+                    <h2>Watched</h2>
+                    <div>
+                        <ol>
+                            <li id="GOAT">Céline (1992)</li>
+                            <li id="GOAT">The Scent of Green Papaya 1993</li>
+                            <li id="ROMANCE">Persuation</li>
+                            <li id="PSYCHOLOGICAL">The Shallows</li>
+                            <li id="GOAT">The DUFF</li>
+                            <li id="ROMANCE">The Spectacular Now</li>
+                            <li id="PSYCHOLOGICAL">The Edge of Seventeen</li>
+                            <li id="SUPERHERO">Spiderman:no way home</li>
+                            <li style="letter-spacing: -1px; position: relative;">
+                                <!-- Make li relative for absolute popup -->
+                                <span class="rainbow">L</span>
+                                <span class="rainbow">o</span>
+                                <span class="rainbow">v</span>
+                                <span class="rainbow">e</span>
+                                <span class="rainbow">,</span>
+                                <span> </span>
+                                <span class="rainbow">S</span>
+                                <span class="rainbow">i</span>
+                                <span class="rainbow">m</span>
+                                <span class="rainbow">o</span>
+                                <span class="rainbow">n</span>
+                                <span> </span>
+                                <!-- Popup button -->
+                                <span style="cursor: pointer;" class="popup-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                        style="cursor: pointer;">
 
-                    <div class="autoslidebuttons">
-                        <button onclick="scrollPage('up')">⬆️ Up</button>
-                        <button onclick="toggleAutoScroll(this, 'up')" id="slideUpBtn">⏮️ Slide Up</button>
-                        <button onclick="toggleAutoScroll(this, 'down')" id="slideDownBtn">⏭️ Slide Down</button>
-                        <button onclick="scrollPage('down')">⬇️ Down</button>
+                                        <!-- Triangle -->
+                                        <polygon points="12,2 22,20 2,20" fill="white" stroke="black"
+                                            stroke-width="2" />
+
+                                        <!-- Exclamation mark -->
+                                        <text x="12" y="17" text-anchor="middle" font-size="14" font-weight="bold"
+                                            fill="black" font-family="Arial, sans-serif">
+                                            !
+                                        </text>
+                                    </svg>
+                                </span>
+                                <!-- Popup image container -->
+                                <div class="popup-image">
+                                    <img src="Picsart_25-07-07_08-38-31-135.png" alt="It was a misunderstanding"
+                                        onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', `<div style='color:red; font-weight:bold;'>${this.alt}</div>`);">
+                                </div>
+                            </li>
+
+                            <li id="GOAT">The Perks of Being a Wallflower</li>
+                            <li id="GOAT">Private Life</li>
+                            <li id="GOAT">The First Time</li>
+                            <li id="ROMANCE">All the Bright Places</li>
+                            <li id="ROMANCE">Every Day</li>
+                            <li>Enola holmes</li>
+                            <li id="ROMANCE">The Map of Tiny Perfect Things</li>
+                            <li>Enola Holmes 2</li>
+                            <li id="BRAINDamaging">Saltburn
+                                <!-- Popup button -->
+                                <span style="cursor: pointer;" class="popup-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                        style="cursor: pointer;">
+
+                                        <!-- Triangle -->
+                                        <polygon points="12,2 22,20 2,20" fill="white" stroke="black"
+                                            stroke-width="2" />
+
+                                        <!-- Exclamation mark -->
+                                        <text x="12" y="17" text-anchor="middle" font-size="14" font-weight="bold"
+                                            fill="black" font-family="Arial, sans-serif">
+                                            !
+                                        </text>
+                                    </svg>
+                                </span>
+                                <!-- Popup image container -->
+                                <div class="popup-image">
+                                    <img src="Picsart_25-07-07_10-08-34-645.jpg"
+                                        alt="Such content is not deliberately chosen. Often, the poster does not convey a complete or nuanced perspective and may not represent the entirety of the concept, leaving room for misinterpretation. It is advisable to refrain from making assumptions beyond its intended scope"
+                                        onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', `<div style='color:red; font-weight:bold;'>${this.alt}</div>`);">
+                                </div>
+                            </li>
+                            <li id="PSYCHOLOGICAL">Eighth grade</li>
+                            <li id="ROMANCE">Chemical hearts</li>
+                            <li id="ADULT">Fifty shades of gray</li>
+                            <li id="ROMANCE">Along for the ride</li>
+                            <li id="ADULT">The next 365 days</li>
+                            <li id="PSYCHOLOGICAL">Do revenge</li>
+                            <li id="ADULT">My fault</li>
+                            <li id="ADULT">Your Fault</li>
+                            <li id="PSYCHOLOGICAL">When we first met</li>
+                            <li id="ADULT">Fifty shades freed</li>
+                            <li id="ADULT">Love and other drugs</li>
+                            <li id="SUPERHERO">Uncharted</li>
+                            <li id="GOAT">Little women</li>
+                            <li id="ROMANCE">Aloha</li>
+                            <li id="ADULT">Purple hearts</li>
+                            <li id="SciFIeandChild">Interstellar</li>
+                            <li id="PSYCHOLOGICAL">The Intern</li>
+                            <li id="SUPERHERO">The dark knight rises</li>
+                            <li id="PSYCHOLOGICAL">American psycho</li>
+                            <li id="ROMANCE">The Notebook</li>
+                            <li id="PSYCHOLOGICAL">Blade Runner 2049</li>
+                            <li>The Gray Man</li>
+                            <li id="GOAT">Crazy, Stupid, Love</li>
+                            <li id="ROMANCE">Blue Valentine</li>
+                            <li id="ROMANCE">Midnight in Paris</li>
+                            <li id="SciFIeandChild">Cars</li>
+                            <li id="SciFIeandChild">Cars 2</li>
+                            <li id="SciFIeandChild">Cars 3</li>
+                            <li id="SciFIeandChild">Cars 4</li>
+                            <li id="SciFIeandChild">Finding Nemo</li>
+                            <li id="SUPERHERO">The dark knight</li>
+                            <li id="SUPERHERO">Batman begins</li>
+                            <li id="SUPERHERO">Aquaman 1</li>
+                            <li id="SUPERHERO">Aquaman 2</li>
+                            <li id="PSYCHOLOGICAL">Slumberland</li>
+                            <li id="SUPERHERO">Thor</li>
+                            <li id="SUPERHERO">Thor the dark world</li>
+                            <li id="SUPERHERO">Eternals</li>
+                            <li id="SUPERHERO">The avengers</li>
+                            <li id="GOAT">Avengers age of ultron</li>
+                            <li id="SUPERHERO">Doctor strange</li>
+                            <li id="SUPERHERO">Thor ragnarok</li>
+                            <li id="GOAT">Avenger infinity war</li>
+                            <li id="GOAT">Avengers endgame</li>
+                            <li id="SUPERHERO">Thor love and thunder</li>
+                            <li id="SUPERHERO">Transformers one</li>
+                            <li id="SUPERHERO">Transformers the rise of the beasts</li>
+                            <li id="SUPERHERO">Transformers</li>
+                            <li id="SUPERHERO">Transformers revenge of the fallen</li>
+                            <li id="SUPERHERO">Transformers dark of the moon</li>
+                            <li id="SUPERHERO">Transformers age of extinction</li>
+                            <li id="SUPERHERO">Transformers the last knight</li>
+                            <li id="SUPERHERO">Bumblebee</li>
+                            <li id="GOAT">Detachment</li>
+                            <li id="SUPERHERO">Captain Marvel</li>
+                            <li id="SUPERHERO">Captain America the first avenger</li>
+                            <li id="GOAT">Ironman 1</li>
+                            <li id="GOAT">Ironeman 2</li>
+                            <li id="GOAT">Ironman 3</li>
+                            <li id="GOAT">Captain America civil war</li>
+                            <li id="SUPERHERO">Captain america the winter soldier</li>
+                            <li id="SUPERHERO">Ant man and the wasp</li>
+                            <li id="SUPERHERO">Black widow</li>
+                            <li id="GOAT">Spiderman homecoming</li>
+                            <li id="SUPERHERO">Doctor strange in the multiverse of madness</li>
+                            <li id="SUPERHERO">Eternals></li>
+                            <li id="GOAT">Spiderman Far from home</li>
+                            <li id="SUPERHERO">The marvels</li>
+                            <li id="SUPERHERO">Guardians of the galaxy vol.1</li>
+                            <li id="SUPERHERO">Guardians of the galaxy vol.2</li>
+                            <li id="SciFIeandChild">Monsters Inc.</li>
+                            <li id="SciFIeandChild">Monster University</li>
+                            <li id="SciFIeandChild">Incredibles</li>
+                            <li id="SciFIeandChild">Incredibles 2</li>
+                            <li id="SciFIeandChild">Toy Story</li>
+                            <li id="SciFIeandChild">Toy Story 2</li>
+                            <li id="SciFIeandChild">Toy Story 3</li>
+                            <li id="SciFIeandChild">Toy Story 4</li>
+                            <li id="SciFIeandChild">Sonic the Hedgehog </li>
+                            <li id="SciFIeandChild">Sonic the Hedgehog 2</li>
+                            <li id="SciFIeandChild">Sonic the Hedgehog 3</li>
+                            <li>The Mask</li>
+                            <li>Bruce Almighty</li>
+                            <li>Liar Liar</li>
+                            <li id="SciFIeandChild">Finding Dory</li>
+                            <li id="SciFIeandChild">Despicable me</li>
+                            <li id="SciFIeandChild">Despicable me 2</li>
+                            <li id="SciFIeandChild">Despicable me 3</li>
+                            <li id="SciFIeandChild">Despicable me 4</li>
+                            <li id="GOAT">Big Hero 6</li>
+                            <li id="SciFIeandChild">The Croods</li>
+                            <li id="SciFIeandChild">Hotel Transylvania</li>
+                            <li id="SciFIeandChild">Hotel Transylvania 2</li>
+                            <li id="SciFIeandChild">Hotel Transylvania 3: Sumeer Vacation</li>
+                            <li id="SciFIeandChild">Hotel Transylvania: Transformania</li>
+                            <li id="SciFIeandChild">Lightyear</li>
+                            <li id="SciFIeandChild">Shrek</li>
+                            <li id="SciFIeandChild">Shrek 2</li>
+                            <li id="SciFIeandChild">Shrek the third</li>
+                            <li id="SciFIeandChild">Shrek forever after</li>
+                            <li id="GOATbutADULT">After</li>
+                            <li id="GOATbutADULT">After we collided</li>
+                            <li id="GOATbutADULT">After we fell</li>
+                            <li id="GOATbutADULT">After ever happy</li>
+                            <li id="GOATbutADULT">After everything</li>
+                            <li id="GOATbutADULT">The other Zoey</li>
+                            <li id="PSYCHOLOGICAL">Moxie</li>
+                            <li id="SUPERHERO">The batman</li>
+                            <li id="SUPERHERO">Justice league: Dark Apokolips War</li>
+                            <li id="SUPERHERO">Justice League: Crisis on infinite earth part one</li>
+                            <li id="SUPERHERO">Justice League: Crisis on infinite earth part two</li>
+                            <li id="SUPERHERO">Justice League: Crisis on infinite earth part three</li>
+                            <li id="SUPERHERO">The death of superman</li>
+                            <li id="SUPERHERO">Justice league: the flashpoint paradox</li>
+                            <li id="SUPERHERO">Batman: The Killing Joke</li>
+                            <li id="SUPERHERO">Batman: Gotham Knight</li>
+                            <li id="SUPERHERO">Batman the Dark Knight Returns: Part 1</li>
+                            <li id="SUPERHERO">Batman the Dark Knight Returns: Part 2</li>
+                            <li id="SUPERHERO">All star Superman</li>
+                            <li id="SUPERHERO">Justice League Dark</li>
+                            <li id="SUPERHERO">Reign of the Superman</li>
+                            <li id="SUPERHERO">Suicide Squad: Hell to pay</li>
+                            <li id="SUPERHERO">Green Lantern: Be aware my power</li>
+                            <li id="SUPERHERO">Catwomen: Hunted</li>
+                            <li id="SUPERHERO">Superman Red Son</li>
+                            <li id="SUPERHERO">Green Lantern: Emerald Knights</li>
+                            <li id="SUPERHERO">Superman: Man of Tomorrow</li>
+                            <li id="SUPERHERO">Batman: Ninja</li>
+                            <li id="SUPERHERO">Green Lantern: First Flight</li>
+                            <li id="SUPERHERO">Justice League vs. The Fatal Five</li>
+                            <li id="SUPERHERO">Batman: Bad Blood</li>
+                            <li id="SUPERHERO">Justice League: War</li>
+                            <li id="SUPERHERO">Injustice</li>
+                            <li id="SUPERHERO">Legion of Superheroes</li>
+                            <li id="SUPERHERO">Wonder Woman: Commemorative Edition</li>
+                            <li id="SUPERHERO">Batman Ninja vs, Yakuza League</li>
+                            <li id="SUPERHERO">Justice League: Doom</li>
+                            <li id="SUPERHERO">Batman and Superman: Battel of the Supersons</li>
+                            <li id="SUPERHERO">Batman: Under the Red Hood</li>
+                            <li id="SUPERHERO">Justice League: War World</li>
+                            <li id="SUPERHERO">Justice League: Gods and Monsters</li>
+                            <li id="SUPERHERO">Batman: Assault on Arkham</li>
+                            <li id="SUPERHERO">Justice Society: World War II</li>
+                            <li id="SUPERHERO">Justice League: Crisis on two Earths</li>
+                            <li id="SUPERHERO">Justice League vs. Teen Titans</li>
+                            <li id="SUPERHERO">Superman vs. The Elite</li>
+                            <li id="SUPERHERO">Batman: Gotham by Gaslight</li>
+                            <li id="SUPERHERO">Batman: The Long Halloween Part 1</li>
+                            <li id="SUPERHERO">Batman: The Long Halloween Part 2</li>
+                            <li id="SUPERHERO">Batman: Year One</li>
+                            <li id="SUPERHERO">Batman vs. Robin</li>
+                            <li id="SUPERHERO">Batman: The Doom that Came to Gotham</li>
+                            <li id="SUPERHERO">Son of Batman</li>
+                            <li id="SUPERHERO">Batman vs. two face</li>
+                            <li id="SUPERHERO">Batman Beyond: Return of the Joker</li>
+                            <li id="SUPERHERO">Batman: Mask of the Phantasm</li>
+                            <li id="SUPERHERO">Danny Phantom</li>
+                            <li id="SUPERHERO">Batman and Harley Quinn</li>
+                            <li id="SUPERHERO">Batman: Death in the Family</li>
+                            <Li id="SUPERHERO">Batman Unlimited: Mechs vs. Mutants</Li>
+                            <li id="SUPERHERO">Batman: Return of the caped Cruseders</li>
+                            <li id="SUPERHERO">Batman: Animal Instincts</li>
+                            <li id="SUPERHERO">Batman: Soul of the Dragon</li>
+                            <li id="SUPERHERO">Batman: Hush</li>
+                            <li id="SUPERHERO">Superman/Batman Apocalypse</li>
+                            <li id="SUPERHERO">Batman vs Teenage Mutants Ninja turtles</li>
+                            <li id="SUPERHERO">Merry Little Batman</li>
+                            <li id="SUPERHERO">Scooby Doo! and Batman: The Brave and The Bold</li>
+                            <li id="GOATbutADULT">Gabriel's Inferno Part 1</li>
+                            <li id="GOATbutADULT">Gabriel's Inferno Part 2</li>
+                            <li id="GOATbutADULT">Gabriel's Rapture Part 1</li>
+                            <li id="GOATbutADULT">Gabriel's Rapture Part 2</li>
+                            <li id="GOATbutADULT">Gabriel's Rapture Part 3</li>
+                            <li id="GOATbutADULT">Gabriel's Redemption Part 1
+                            </li>
+                            <li id="GOATbutADULT">Gabriel's Redemption Part 2
+                            </li>
+                            <li id="GOATbutADULT">Gabriel's Redemption Part 3
+                            </li>
+                            <li id="GOAT">Twilight</li>
+                            <li id="GOAT">The Twilight Saga: New Moon</li>
+                            <li id="GOAT">The Twilight Saga: Eclipse</li>
+                            <li id="GOAT">The Twilight Saga: Breaking Down Part 1</li>
+                            <li id="GOAT">The Twilight Saga: Breaking Down Part 2</li>
+                            <li id="SciFIeandChild">Harry Potter and the Philosopher's Stone</li>
+                            <li id="SciFIeandChild">Harry Potter and the Chamber of Secrets</li>
+                            <li id="SciFIeandChild">Harry Potter and the Prison of Azkaban</li>
+                            <li id="SciFIeandChild">Harry Potter and the Goblet of Fire</li>
+                            <li id="SciFIeandChild">Harry Potter and the Order of the Phoenix</li>
+                            <li id="SciFIeandChild">Harry Potter and the Half Blood Prince</li>
+                            <li id="SciFIeandChild">Harry Potter and the Deathly Hallows Part 1</li>
+                            <li id="SciFIeandChild">Harry Potter and the Deathly Hallows Part 2</li>
+                            <li id="SciFIeandChild">Harry Potter 20th Anniversary: Return to Hogwarts</li>
+                            <li id="SciFIeandChild">Pirates of the Caribbean: The Curse of the Black Pearl</li>
+                            <li id="SciFIeandChild">Pirates of the Caribbean: Dead Man's Chest</li>
+                            <li id="SciFIeandChild">Pirates of the Caribbean: At Worlds End</li>
+                            <li id="SciFIeandChild">Pirates of the Caribbean: On Stranger Tides</li>
+                            <li id="SciFIeandChild">Pirates of the Caribbean: Dead Men Tell No Tales</li>
+                            <li id="ROMANCE">Atonement</li>
+                            <li id="ROMANCE">Pride and Prejudice</li>
+                            <li id="ROMANCE">Begin Again</li>
+                            <li id="BRAINDamaging">Poor Things
+                                <!-- Popup button -->
+                                <span style="cursor: pointer;" class="popup-btn">
+                                    <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
+                                        style="cursor: pointer;">
+
+                                        <!-- Triangle -->
+                                        <polygon points="12,2 22,20 2,20" fill="white" stroke="black"
+                                            stroke-width="2" />
+
+                                        <!-- Exclamation mark -->
+                                        <text x="12" y="17" text-anchor="middle" font-size="14" font-weight="bold"
+                                            fill="black" font-family="Arial, sans-serif">
+                                            !
+                                        </text>
+                                    </svg>
+                                </span>
+                                <!-- Popup image container -->
+                                <div class="popup-image">
+                                    <img src="Picsart_25-07-07_10-08-34-645.jpg"
+                                        alt="Such content is not deliberately chosen. Often, the poster does not convey a complete or nuanced perspective and may not represent the entirety of the concept, leaving room for misinterpretation. It is advisable to refrain from making assumptions beyond its intended scope"
+                                        onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', `<div style='color:red; font-weight:bold;'>${this.alt}</div>`);">
+                                </div>
+                            </li>
+                            <li id="ROMANCE">La La Land</li>
+                            <li id="GOAT">Easy A</li>
+                            <li id="SUPERHERO">The Amezing Spiderman</li>
+                            <li id="SUPERHERO">The Amezing Spiderman 2</li>
+                            <li id="SUPERHERO">Spider-Man</li>
+                            <li id="SUPERHERO">Spider-Man 2</li>
+                            <li id="SUPERHERO">Spider-Man 3</li>
+                            <li id="ROMANCE">We live in time</li>
+                            <li id="GOAT">The Social Network</li>
+                            <li id="ROMANCE">Friends With Benifits</li>
+                            <li id="GOAT">Frances Ha</li>
+                            <li id="GOAT">Mistress America</li>
+                            <li id="PSYCHOLOGICAL">Lady Bird</li>
+                            <li id="PSYCHOLOGICAL">The Outurn</li>
+                            <li id="GOAT">Brooklyn</li>
+                            <li id="PSYCHOLOGICAL">20th Century Women</li>
+                            <li id="GOAT">Cha Cha Real Smooth</li>
+                            <li id="GOAT">The Worst Person in the World</li>
+                            <li id="GOAT">Columbus</li>
+                            <li id="PSYCHOLOGICAL">Short Term 12</li>
+                            <li id="ROMANCE">Before Sunrise</li>
+                            <li id="ROMANCE">Before Sunset</li>
+                            <li id="ROMANCE">Before Midnight</li>
+                            <li id="PSYCHOLOGICAL">The Meyerowitz Stories</li>
+                            <li id="PSYCHOLOGICAL">Submarine</li>
+                            <li id="PSYCHOLOGICAL">Licorice Pizza</li>
+                            <li id="GOAT">Super Dark Times</li>
+                            <li id="GOAT">The Room Next Door</li>
+                            <li id="ROMANCE">I still Believe</li>
+                            <li id="ROMANCE">The last summer</li>
+                            <li id="ROMANCE">Hello, Goodbye and Everything in Between</li>
+                            <li id="ADULT">Chemical Hearts</li>
+                            <li id="ADULT">Through My Window</li>
+                            <li id="ADULT">Through My WIndow: Across the Sea</li>
+                            <li id="ADULT">Through my Window: Looking at You</li>
+                            <li id="ADULT">The Kissing Booth</li>
+                            <li id="ADULT">The Kissing Booth 2</li>
+                            <li id="ADULT">The Kissing Booth 3</li>
+                            <li id="PSYCHOLOGICAL">Sierra Burgess Is a Loser</li>
+                            <li id="PSYCHOLOGICAL">Tallgirl</li>
+                            <li id="PSYCHOLOGICAL">Tallgirl 2</li>
+                            <li id="SciFIeandChild">The Adam Project</li>
+                            <li id="SciFIeandChild">Pokémon Detective Pikachu</li>
+                            <li id="ROMANCE">Ghosted </li>
+                            <li id="ROMANCE">Aftersun 2022</li>
+                            <li id="SciFIeandChild">Turbo </li>
+                            <li id="SUPERHERO">Deadpool 1</li>
+                            <li id="SUPERHERO">Deadpool 2</li>
+                            <li id="SUPERHERO">Deadpool 3</li>
+                            <li id="SUPERHERO">Jumanji: Welcome to the Jungle</li>
+                            <li id="SciFIeandChild">Jumanji: The Next Level</li>
+                            <li id="SUPERHERO">Black Adam</li>
+                            <li id="SciFIeandChild">Rampage </li>
+                            <li id="SUPERHERO">Shazam!</li>
+                            <li id="SUPERHERO">Shazam! 2</li>
+                            <li id="SciFIeandChild">Tangled</li>
+                            <li id="SciFIeandChild">Alvin and the Chipmunks</li>
+                            <li id="GOAT">It Chapter 1</li>
+                            <li id="PSYCHOLOGICAL">It Chapter Two</li>
+                            <li id="PSYCHOLOGICAL">Ava</li>
+                            <li id="SciFIeandChild">Ad Astra</li>
+                            <li id="SciFIeandChild">Extinction</li>
+                            <li id="SciFIeandChild">The Electric State</li>
+                            <li id="SciFIeandChild">Atlas</li>
+                            <li id="GOAT">The In Between</li>
+                            <li id="SUPERHERO">Venom 2018</li>
+                            <li id="SUPERHERO">Venom: Let There Be Carnage</li>
+                            <li id="SUPERHERO">Venom: The Last Dance</li>
+                            <li id="PSYCHOLOGICAL">The Karate Kid</li>
+                            <li id="GOAT">Drunken Master 1978</li>
+                            <li id="PSYCHOLOGICAL">Rush Hour 1</li>
+                            <li>Rush Hour 2</li>
+                            <li>Rush Hour 3</li>
+                            <li id="PSYCHOLOGICAL">Into the Wild</li>
+                            <li id="ROMANCE">No Hard Feelings</li>
+                            <li>Charlie and the Chocolate Factory</li>
+                            <li id="GOAT">Jeanne du Barry</li>
+                            <li>The Tourist</li>
+                            <li id="GOAT">Home Alone 3</li>
+                            <li id="SUPERHERO">Black Widow 2021</li>
+                            <li id="SUPERHERO">Madame Web</li>
+                            <li>Oppenheimer 2023</li>
+                            <li id="GOAT">The Wonder </li>
+                            <li id="SciFIeandChild">Puss in Boots: The Last Wish</li>
+                            <li id="SUPERHERO">X-Men</li>
+                            <li id="SUPERHERO">X-Men Origins: Wolverine</li>
+                            <li id="SUPERHERO">X-Men: First Class</li>
+                            <li id="SUPERHERO">The Wolverine</li>
+                            <li id="SUPERHERO">X-Men: Apocalypse</li>
+                            <li id="SUPERHERO">X-Men: Dark Phoenix</li>
+                            <li id="GOAT">Kingdom of Heaven</li>
+                            <li>Twisters</li>
+
+                        </ol>
                     </div>
                 </div>
+                <div class="auto-scroll-div">
+                    <button class="glow-button" id="scroll-up">▲Scroll Up</button>
+                    <button class="glow-button" id="scroll-down">▼Scroll Down</button>
+                </div>
 
-                <ol>
-                    <li id="GOAT">Céline (1992)</li>
-                    <li id="GOAT">The Scent of Green Papaya 1993</li>
-                    <li id="ROMANCE">Persuation</li>
-                    <li id="PSYCHOLOGICAL">The Shallows</li>
-                    <li id="GOAT">The DUFF</li>
-                    <li id="ROMANCE">The Spectacular Now</li>
-                    <li id="PSYCHOLOGICAL">The Edge of Seventeen</li>
-                    <li id="SUPERHERO">Spiderman:no way home</li>
-                    <li style="letter-spacing: -1px; position: relative;"> <!-- Make li relative for absolute popup -->
-                        <span class="rainbow">L</span>
-                        <span class="rainbow">o</span>
-                        <span class="rainbow">v</span>
-                        <span class="rainbow">e</span>
-                        <span class="rainbow">,</span>
-                        <span> </span>
-                        <span class="rainbow">S</span>
-                        <span class="rainbow">i</span>
-                        <span class="rainbow">m</span>
-                        <span class="rainbow">o</span>
-                        <span class="rainbow">n</span>
-                        <span> </span>
-                        <!-- Popup button -->
-                        <span style="cursor: pointer;" class="popup-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                style="cursor: pointer;">
-
-                                <!-- Triangle -->
-                                <polygon points="12,2 22,20 2,20" fill="white" stroke="black" stroke-width="2" />
-
-                                <!-- Exclamation mark -->
-                                <text x="12" y="17" text-anchor="middle" font-size="14" font-weight="bold" fill="black"
-                                    font-family="Arial, sans-serif">
-                                    !
-                                </text>
-                            </svg>
-                        </span>
-                        <!-- Popup image container -->
-                        <div class="popup-image">
-                            <img src="Picsart_25-07-07_08-38-31-135.png" alt="It was a misunderstanding"
-                                onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', `<div style='color:red; font-weight:bold;'>${this.alt}</div>`);">
-                        </div>
-                    </li>
-
-                    <li id="GOAT">The Perks of Being a Wallflower</li>
-                    <li id="GOAT">Private Life</li>
-                    <li id="GOAT">The First Time</li>
-                    <li id="ROMANCE">All the Bright Places</li>
-                    <li id="ROMANCE">Every Day</li>
-                    <li>Enola holmes</li>
-                    <li id="ROMANCE">The Map of Tiny Perfect Things</li>
-                    <li>Enola Holmes 2</li>
-                    <li id="BRAINDamaging">Saltburn
-                        <!-- Popup button -->
-                        <span style="cursor: pointer;" class="popup-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                style="cursor: pointer;">
-
-                                <!-- Triangle -->
-                                <polygon points="12,2 22,20 2,20" fill="white" stroke="black" stroke-width="2" />
-
-                                <!-- Exclamation mark -->
-                                <text x="12" y="17" text-anchor="middle" font-size="14" font-weight="bold" fill="black"
-                                    font-family="Arial, sans-serif">
-                                    !
-                                </text>
-                            </svg>
-                        </span>
-                        <!-- Popup image container -->
-                        <div class="popup-image">
-                            <img src="Picsart_25-07-07_10-08-34-645.jpg"
-                                alt="Such content is not deliberately chosen. Often, the poster does not convey a complete or nuanced perspective and may not represent the entirety of the concept, leaving room for misinterpretation. It is advisable to refrain from making assumptions beyond its intended scope"
-                                onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', `<div style='color:red; font-weight:bold;'>${this.alt}</div>`);">
-                        </div>
-                    </li>
-                    <li id="PSYCHOLOGICAL">Eighth grade</li>
-                    <li id="ROMANCE">Chemical hearts</li>
-                    <li id="ADULT">Fifty shades of gray</li>
-                    <li id="ADULT">Fifty shades darker</li>
-                    <li id="ROMANCE">Along for the ride</li>
-                    <li id="ADULT">The next 365 days</li>
-                    <li id="PSYCHOLOGICAL">Do revenge</li>
-                    <li id="ADULT">My fault</li>
-                    <li id="ADULT">Your Fault</li>
-                    <li id="PSYCHOLOGICAL">When we first met</li>
-                    <li id="ADULT">Fifty shades freed</li>
-                    <li id="ADULT">Love and other drugs</li>
-                    <li id="SUPERHERO">Uncharted</li>
-                    <li id="GOAT">Little women</li>
-                    <li id="ROMANCE">Aloha</li>
-                    <li id="ADULT">Purple hearts</li>
-                    <li id="SciFIeandChild">Interstellar</li>
-                    <li id="PSYCHOLOGICAL">The Intern</li>
-                    <li id="SUPERHERO">The dark knight rises</li>
-                    <li id="PSYCHOLOGICAL">American psycho</li>
-                    <li id="ROMANCE">The Notebook</li>
-                    <li id="PSYCHOLOGICAL">Blade Runner 2049</li>
-                    <li>The Gray Man</li>
-                    <li id="GOAT">Crazy, Stupid, Love</li>
-                    <li id="ROMANCE">Blue Valentine</li>
-                    <li id="ROMANCE">Midnight in Paris</li>
-                    <li id="SciFIeandChild">Cars</li>
-                    <li id="SciFIeandChild">Cars 2</li>
-                    <li id="SciFIeandChild">Cars 3</li>
-                    <li id="SciFIeandChild">Cars 4</li>
-                    <li id="SciFIeandChild">Finding Nemo</li>
-                    <li id="SUPERHERO">The dark knight</li>
-                    <li id="SUPERHERO">Batman begins</li>
-                    <li id="SUPERHERO">Aquaman 1</li>
-                    <li id="SUPERHERO">Aquaman 2</li>
-                    <li id="PSYCHOLOGICAL">Slumberland</li>
-                    <li id="SUPERHERO">Thor</li>
-                    <li id="SUPERHERO">Thor the dark world</li>
-                    <li id="SUPERHERO">Eternals</li>
-                    <li id="SUPERHERO">The avengers</li>
-                    <li id="GOAT">Avengers age of ultron</li>
-                    <li id="SUPERHERO">Doctor strange</li>
-                    <li id="SUPERHERO">Thor ragnarok</li>
-                    <li id="GOAT">Avenger infinity war</li>
-                    <li id="GOAT">Avengers endgame</li>
-                    <li id="SUPERHERO">Thor love and thunder</li>
-                    <li id="SUPERHERO">Transformers one</li>
-                    <li id="SUPERHERO">Transformers the rise of the beasts</li>
-                    <li id="SUPERHERO">Transformers</li>
-                    <li id="SUPERHERO">Transformers revenge of the fallen</li>
-                    <li id="SUPERHERO">Transformers dark of the moon</li>
-                    <li id="SUPERHERO">Transformers age of extinction</li>
-                    <li id="SUPERHERO">Transformers the last knight</li>
-                    <li id="SUPERHERO">Bumblebee</li>
-                    <li id="GOAT">Detachment</li>
-                    <li id="SUPERHERO">Captain Marvel</li>
-                    <li id="SUPERHERO">Captain America the first avenger</li>
-                    <li id="GOAT">Ironman 1</li>
-                    <li id="GOAT">Ironeman 2</li>
-                    <li id="GOAT">Ironman 3</li>
-                    <li id="GOAT">Captain America civil war</li>
-                    <li id="SUPERHERO">Captain america the winter soldier</li>
-                    <li id="SUPERHERO">Ant man and the wasp</li>
-                    <li id="SUPERHERO">Black widow</li>
-                    <li id="GOAT">Spiderman homecoming</li>
-                    <li id="SUPERHERO">Doctor strange in the multiverse of madness</li>
-                    <li id="SUPERHERO">Eternals></li>
-                    <li id="GOAT">Spiderman Far from home</li>
-                    <li id="SUPERHERO">The marvels</li>
-                    <li id="SUPERHERO">Guardians of the galaxy vol.1</li>
-                    <li id="SUPERHERO">Guardians of the galaxy vol.2</li>
-                    <li id="SciFIeandChild">Monsters Inc.</li>
-                    <li id="SciFIeandChild">Monster University</li>
-                    <li id="SciFIeandChild">Incredibles</li>
-                    <li id="SciFIeandChild">Incredibles 2</li>
-                    <li id="SciFIeandChild">Toy Story</li>
-                    <li id="SciFIeandChild">Toy Story 2</li>
-                    <li id="SciFIeandChild">Toy Story 3</li>
-                    <li id="SciFIeandChild">Toy Story 4</li>
-                    <li id="SciFIeandChild">Sonic the Hedgehog </li>
-                    <li id="SciFIeandChild">Sonic the Hedgehog 2</li>
-                    <li id="SciFIeandChild">Sonic the Hedgehog 3</li>
-                    <li>The Mask</li>
-                    <li>Bruce Almighty</li>
-                    <li>Liar Liar</li>
-                    <li id="SciFIeandChild">Finding Dory</li>
-                    <li id="SciFIeandChild">Despicable me</li>
-                    <li id="SciFIeandChild">Despicable me 2</li>
-                    <li id="SciFIeandChild">Despicable me 3</li>
-                    <li id="SciFIeandChild">Despicable me 4</li>
-                    <li id="GOAT">Big Hero 6</li>
-                    <li id="SciFIeandChild">The Croods</li>
-                    <li id="SciFIeandChild">Hotel Transylvania</li>
-                    <li id="SciFIeandChild">Hotel Transylvania 2</li>
-                    <li id="SciFIeandChild">Hotel Transylvania 3: Sumeer Vacation</li>
-                    <li id="SciFIeandChild">Hotel Transylvania: Transformania</li>
-                    <li id="SciFIeandChild">Lightyear</li>
-                    <li id="SciFIeandChild">Shrek</li>
-                    <li id="SciFIeandChild">Shrek 2</li>
-                    <li id="SciFIeandChild">Shrek the third</li>
-                    <li id="SciFIeandChild">Shrek forever after</li>
-                    <li id="GOATbutADULT">After</li>
-                    <li id="GOATbutADULT">After we collided</li>
-                    <li id="GOATbutADULT">After we fell</li>
-                    <li id="GOATbutADULT">After ever happy</li>
-                    <li id="GOATbutADULT">After everything</li>
-                    <li id="GOATbutADULT">The other Zoey</li>
-                    <li id="PSYCHOLOGICAL">Moxie</li>
-                    <li id="SUPERHERO">The batman</li>
-                    <li id="SUPERHERO">Justice league: Dark Apokolips War</li>
-                    <li id="SUPERHERO">Justice League: Crisis on infinite earth part one</li>
-                    <li id="SUPERHERO">Justice League: Crisis on infinite earth part two</li>
-                    <li id="SUPERHERO">Justice League: Crisis on infinite earth part three</li>
-                    <li id="SUPERHERO">The death of superman</li>
-                    <li id="SUPERHERO">Justice league: the flashpoint paradox</li>
-                    <li id="SUPERHERO">Batman: The Killing Joke</li>
-                    <li id="SUPERHERO">Batman: Gotham Knight</li>
-                    <li id="SUPERHERO">Batman the Dark Knight Returns: Part 1</li>
-                    <li id="SUPERHERO">Batman the Dark Knight Returns: Part 2</li>
-                    <li id="SUPERHERO">All star Superman</li>
-                    <li id="SUPERHERO">Justice League Dark</li>
-                    <li id="SUPERHERO">Reign of the Superman</li>
-                    <li id="SUPERHERO">Suicide Squad: Hell to pay</li>
-                    <li id="SUPERHERO">Green Lantern: Be aware my power</li>
-                    <li id="SUPERHERO">Catwomen: Hunted</li>
-                    <li id="SUPERHERO">Superman Red Son</li>
-                    <li id="SUPERHERO">Green Lantern: Emerald Knights</li>
-                    <li id="SUPERHERO">Superman: Man of Tomorrow</li>
-                    <li id="SUPERHERO">Batman: Ninja</li>
-                    <li id="SUPERHERO">Green Lantern: First Flight</li>
-                    <li id="SUPERHERO">Justice League vs. The Fatal Five</li>
-                    <li id="SUPERHERO">Batman: Bad Blood</li>
-                    <li id="SUPERHERO">Justice League: War</li>
-                    <li id="SUPERHERO">Injustice</li>
-                    <li id="SUPERHERO">Legion of Superheroes</li>
-                    <li id="SUPERHERO">Wonder Woman: Commemorative Edition</li>
-                    <li id="SUPERHERO">Batman Ninja vs, Yakuza League</li>
-                    <li id="SUPERHERO">Justice League: Doom</li>
-                    <li id="SUPERHERO">Batman and Superman: Battel of the Supersons</li>
-                    <li id="SUPERHERO">Batman: Under the Red Hood</li>
-                    <li id="SUPERHERO">Justice League: War World</li>
-                    <li id="SUPERHERO">Justice League: Gods and Monsters</li>
-                    <li id="SUPERHERO">Batman: Assault on Arkham</li>
-                    <li id="SUPERHERO">Justice Society: World War II</li>
-                    <li id="SUPERHERO">Justice League: Crisis on two Earths</li>
-                    <li id="SUPERHERO">Justice League vs. Teen Titans</li>
-                    <li id="SUPERHERO">Superman vs. The Elite</li>
-                    <li id="SUPERHERO">Batman: Gotham by Gaslight</li>
-                    <li id="SUPERHERO">Batman: The Long Halloween Part 1</li>
-                    <li id="SUPERHERO">Batman: The Long Halloween Part 2</li>
-                    <li id="SUPERHERO">Batman: Year One</li>
-                    <li id="SUPERHERO">Batman vs. Robin</li>
-                    <li id="SUPERHERO">Batman: The Doom that Came to Gotham</li>
-                    <li id="SUPERHERO">Son of Batman</li>
-                    <li id="SUPERHERO">Batman vs. two face</li>
-                    <li id="SUPERHERO">Batman Beyond: Return of the Joker</li>
-                    <li id="SUPERHERO">Batman: Mask of the Phantasm</li>
-                    <li id="SUPERHERO">Danny Phantom</li>
-                    <li id="SUPERHERO">Batman and Harley Quinn</li>
-                    <li id="SUPERHERO">Batman: Death in the Family</li>
-                    <Li id="SUPERHERO">Batman Unlimited: Mechs vs. Mutants</Li>
-                    <li id="SUPERHERO">Batman: Return of the caped Cruseders</li>
-                    <li id="SUPERHERO">Batman: Animal Instincts</li>
-                    <li id="SUPERHERO">Batman: Soul of the Dragon</li>
-                    <li id="SUPERHERO">Batman: Hush</li>
-                    <li id="SUPERHERO">Superman/Batman Apocalypse</li>
-                    <li id="SUPERHERO">Batman vs Teenage Mutants Ninja turtles</li>
-                    <li id="SUPERHERO">Merry Little Batman</li>
-                    <li id="SUPERHERO">Scooby Doo! and Batman: The Brave and The Bold</li>
-                    <li id="GOATbutADULT">Gabriel's Inferno Part 1</li>
-                    <li id="GOATbutADULT">Gabriel's Inferno Part 2</li>
-                    <li id="GOATbutADULT">Gabriel's Rapture Part 1</li>
-                    <li id="GOATbutADULT">Gabriel's Rapture Part 2</li>
-                    <li id="GOATbutADULT">Gabriel's Rapture Part 3</li>
-                    <li id="GOATbutADULT">Gabriel's Redemption Part 1
-                    </li>
-                    <li id="GOATbutADULT">Gabriel's Redemption Part 2
-                    </li>
-                    <li id="GOATbutADULT">Gabriel's Redemption Part 3
-                    </li>
-                    <li id="GOAT">Twilight</li>
-                    <li id="GOAT">The Twilight Saga: New Moon</li>
-                    <li id="GOAT">The Twilight Saga: Eclipse</li>
-                    <li id="GOAT">The Twilight Saga: Breaking Down Part 1</li>
-                    <li id="GOAT">The Twilight Saga: Breaking Down Part 2</li>
-                    <li id="SciFIeandChild">Harry Potter and the Philosopher's Stone</li>
-                    <li id="SciFIeandChild">Harry Potter and the Chamber of Secrets</li>
-                    <li id="SciFIeandChild">Harry Potter and the Prison of Azkaban</li>
-                    <li id="SciFIeandChild">Harry Potter and the Goblet of Fire</li>
-                    <li id="SciFIeandChild">Harry Potter and the Order of the Phoenix</li>
-                    <li id="SciFIeandChild">Harry Potter and the Half Blood Prince</li>
-                    <li id="SciFIeandChild">Harry Potter and the Deathly Hallows Part 1</li>
-                    <li id="SciFIeandChild">Harry Potter and the Deathly Hallows Part 2</li>
-                    <li id="SciFIeandChild">Harry Potter 20th Anniversary: Return to Hogwarts</li>
-                    <li id="SciFIeandChild">Pirates of the Caribbean: The Curse of the Black Pearl</li>
-                    <li id="SciFIeandChild">Pirates of the Caribbean: Dead Man's Chest</li>
-                    <li id="SciFIeandChild">Pirates of the Caribbean: At Worlds End</li>
-                    <li id="SciFIeandChild">Pirates of the Caribbean: On Stranger Tides</li>
-                    <li id="SciFIeandChild">Pirates of the Caribbean: Dead Men Tell No Tales</li>
-                    <li id="ROMANCE">Atonement</li>
-                    <li id="ROMANCE">Pride and Prejudice</li>
-                    <li id="ROMANCE">Begin Again</li>
-                    <li id="BRAINDamaging">Poor Things
-                        <!-- Popup button -->
-                        <span style="cursor: pointer;" class="popup-btn">
-                            <svg width="24" height="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"
-                                style="cursor: pointer;">
-
-                                <!-- Triangle -->
-                                <polygon points="12,2 22,20 2,20" fill="white" stroke="black" stroke-width="2" />
-
-                                <!-- Exclamation mark -->
-                                <text x="12" y="17" text-anchor="middle" font-size="14" font-weight="bold" fill="black"
-                                    font-family="Arial, sans-serif">
-                                    !
-                                </text>
-                            </svg>
-                        </span>
-                        <!-- Popup image container -->
-                        <div class="popup-image">
-                            <img src="Picsart_25-07-07_10-08-34-645.jpg"
-                                alt="Such content is not deliberately chosen. Often, the poster does not convey a complete or nuanced perspective and may not represent the entirety of the concept, leaving room for misinterpretation. It is advisable to refrain from making assumptions beyond its intended scope"
-                                onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', `<div style='color:red; font-weight:bold;'>${this.alt}</div>`);">
-                        </div>
-                    </li>
-                    <li id="ROMANCE">La La Land</li>
-                    <li id="GOAT">Easy A</li>
-                    <li id="SUPERHERO">The Amezing Spiderman</li>
-                    <li id="SUPERHERO">The Amezing Spiderman 2</li>
-                    <li id="SUPERHERO">Spider-Man</li>
-                    <li id="SUPERHERO">Spider-Man 2</li>
-                    <li id="SUPERHERO">Spider-Man 3</li>
-                    <li id="ROMANCE">We live in time</li>
-                    <li id="GOAT">The Social Network</li>
-                    <li id="ROMANCE">Friends With Benifits</li>
-                    <li id="GOAT">Frances Ha</li>
-                    <li id="GOAT">Mistress America</li>
-                    <li id="PSYCHOLOGICAL">Lady Bird</li>
-                    <li id="PSYCHOLOGICAL">The Outurn</li>
-                    <li id="GOAT">Brooklyn</li>
-                    <li id="PSYCHOLOGICAL">20th Century Women</li>
-                    <li id="GOAT">Cha Cha Real Smooth</li>
-                    <li id="GOAT">The Worst Person in the World</li>
-                    <li id="GOAT">Columbus</li>
-                    <li id="PSYCHOLOGICAL">Short Term 12</li>
-                    <li id="ROMANCE">Before Sunrise</li>
-                    <li id="ROMANCE">Before Sunset</li>
-                    <li id="ROMANCE">Before Midnight</li>
-                    <li id="PSYCHOLOGICAL">The Meyerowitz Stories</li>
-                    <li id="PSYCHOLOGICAL">Submarine</li>
-                    <li id="PSYCHOLOGICAL">Licorice Pizza</li>
-                    <li id="GOAT">Super Dark Times</li>
-                    <li id="GOAT">The Room Next Door</li>
-                    <li id="ROMANCE">I still Believe</li>
-                    <li id="ROMANCE">The last summer</li>
-                    <li id="ROMANCE">Hello, Goodbye and Everything in Between</li>
-                    <li id="ADULT">Chemical Hearts</li>
-                    <li id="ADULT">Through My Window</li>
-                    <li id="ADULT">Through My WIndow: Across the Sea</li>
-                    <li id="ADULT">Through my Window: Looking at You</li>
-                    <li id="ADULT">The Kissing Booth</li>
-                    <li id="ADULT">The Kissing Booth 2</li>
-                    <li id="ADULT">The Kissing Booth 3</li>
-                    <li id="PSYCHOLOGICAL">Sierra Burgess Is a Loser</li>
-                    <li id="PSYCHOLOGICAL">Tallgirl</li>
-                    <li id="PSYCHOLOGICAL">Tallgirl 2</li>
-                    <li id="SciFIeandChild">The Adam Project</li>
-                    <li id="SciFIeandChild">Pokémon Detective Pikachu</li>
-                    <li id="ROMANCE">Ghosted </li>
-                    <li id="ROMANCE">Aftersun 2022</li>
-                    <li id="SciFIeandChild">Turbo </li>
-                    <li id="SUPERHERO">Deadpool 1</li>
-                    <li id="SUPERHERO">Deadpool 2</li>
-                    <li id="SUPERHERO">Deadpool 3</li>
-                    <li id="SUPERHERO">Jumanji: Welcome to the Jungle</li>
-                    <li id="SciFIeandChild">Jumanji: The Next Level</li>
-                    <li id="SUPERHERO">Black Adam</li>
-                    <li id="SciFIeandChild">Rampage </li>
-                    <li id="SUPERHERO">Shazam!</li>
-                    <li id="SUPERHERO">Shazam! 2</li>
-                    <li id="SciFIeandChild">Tangled</li>
-                    <li id="SciFIeandChild">Alvin and the Chipmunks</li>
-                    <li id="GOAT">It Chapter 1</li>
-                    <li id="PSYCHOLOGICAL">It Chapter Two</li>
-                    <li id="PSYCHOLOGICAL">Ava</li>
-                    <li id="SciFIeandChild">Ad Astra</li>
-                    <li id="SciFIeandChild">Extinction</li>
-                    <li id="SciFIeandChild">The Electric State</li>
-                    <li id="SciFIeandChild">Atlas</li>
-                    <li id="GOAT">The In Between</li>
-                    <li id="SUPERHERO">Venom 2018</li>
-                    <li id="SUPERHERO">Venom: Let There Be Carnage</li>
-                    <li id="SUPERHERO">Venom: The Last Dance</li>
-                    <li id="PSYCHOLOGICAL">The Karate Kid</li>
-                    <li id="GOAT">Drunken Master 1978</li>
-                    <li id="PSYCHOLOGICAL">Rush Hour 1</li>
-                    <li>Rush Hour 2</li>
-                    <li>Rush Hour 3</li>
-                    <li id="PSYCHOLOGICAL">Into the Wild</li>
-                    <li id="ROMANCE">No Hard Feelings</li>
-                    <li>Charlie and the Chocolate Factory</li>
-                    <li id="GOAT">Jeanne du Barry</li>
-                    <li>The Tourist</li>
-                    <li id="GOAT">Home Alone 3</li>
-                    <li id="SUPERHERO">Black Widow 2021</li>
-                    <li id="SUPERHERO">Madame Web</li>
-                    <li>Oppenheimer 2023</li>
-                    <li id="GOAT">The Wonder </li>
-                    <li id="SciFIeandChild">Puss in Boots: The Last Wish</li>
-                    <li id="SUPERHERO">X-Men</li>
-                    <li id="SUPERHERO">X-Men Origins: Wolverine</li>
-                    <li id="SUPERHERO">X-Men: First Class</li>
-                    <li id="SUPERHERO">The Wolverine</li>
-                    <li id="SUPERHERO">X-Men: Apocalypse</li>
-                    <li id="SUPERHERO">X-Men: Dark Phoenix</li>
-                    <li id="GOAT">Kingdom of Heaven</li>
-                    <li>Twisters</li>
-
-                </ol>
             </div>
             <!-- Next in cue Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="NextInCueDIV">Naxt in cue</button>
@@ -743,6 +744,19 @@
                         <li>Hunte x Hunter</li>
                         <li>March Comes In like a Lion</li>
                         <li>Arcane</li>
+                        <li>WIND BREAKER</li>
+                        <li>Dragon Ball Super </li>
+                        <li>Shangri-La Frontier </li>
+                        <li>Takopi's Original Sin </li>
+                        <li>Clevatess</li>
+                        <li>ZatsuTabi-That's-Journey</li>
+                        <li>Re:ZERO -Starting Life in Another World</li>
+                        <li>Dr. Stone</li>
+                        <li>Arknights</li>
+                        <li>Jojo's Bizarre Adventure </li>
+                        <li>Psycho Pass </li>
+                        <li>Zoom 100: Bucket list of the Dead </li>
+                        <li>Cyberpunk: Edgerunners </li>
                     </ol>
 
                 </div>
@@ -780,19 +794,6 @@
                         <li>Steins;Gate 0</li>
                         <li>Dandadan S02</li>
                         <li>Wolf's Rain 2003</li>
-<li>WIND BREAKER</li>
-<li>Dragon Ball Super </li>
-<li>Shangri-La Frontier </li>
-<li>Takopi's Original Sin </li>
-<li>Clevatess</li>
-<li>ZatsuTabi-That's-Journey</li>
-<li>Re:ZERO -Starting Life in Another World</li>
-<li>Dr. Stone</li>
-<li>Arknights</li>
-<li>Jojo's Bizarre Adventure  </li> 
-<li>Psycho Pass </li>  
-<li>Zoom 100: Bucket list of the Dead </li>  
-<li>Cyberpunk: Edgerunners </li>
 
                     </ol>
                 </div>
@@ -1050,20 +1051,137 @@
 </body>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
-        const legends = ["tagLegend1", "tagLegend2", "tagLegend3"];
+        // ========================
+        // Slide & Inner Slide Reset
+        // ========================
+        document.querySelectorAll(".slide-content, .inner-slide").forEach(el => {
+            el.classList.remove("open");
+            el.style.maxHeight = null;
+        });
 
+        document.querySelectorAll(".toggle-btn, [onclick*='toggleInnerSlide']").forEach(btn => {
+            btn.classList.remove("active");
+        });
+
+        // ========================
+        // Popup Button Logic
+        // ========================
+        document.querySelectorAll('.popup-btn').forEach(button => {
+            button.addEventListener('click', function () {
+                let popup = this.parentElement.querySelector('.popup-image');
+                if (!popup) popup = this.nextElementSibling;
+                if (!popup || !popup.classList.contains("popup-image")) return;
+
+                const img = popup.querySelector('img');
+                popup.style.opacity = '0';
+                popup.style.display = 'flex';
+
+                if (img.complete) {
+                    fadeInOutPopup(popup);
+                } else {
+                    img.onload = () => fadeInOutPopup(popup);
+                    img.onerror = () => {
+                        console.error("Failed to load popup image");
+                        popup.style.display = 'none';
+                    };
+                }
+            });
+
+            function fadeInOutPopup(popup) {
+                popup.style.opacity = '1';
+                void popup.offsetWidth;
+                setTimeout(() => {
+                    popup.style.opacity = '0';
+                    setTimeout(() => {
+                        popup.style.display = 'none';
+                    }, 500);
+                }, 1500);
+            }
+        });
+
+        // ========================
+        // Scroll Button Logic
+        // ========================
+        const scrollSpeedPerSecond = 50;
+        const scrollStep = Math.ceil(scrollSpeedPerSecond / 60);
+        const wrapper = document.getElementById('contentwrapper');
+
+        if (wrapper) {
+            let scrollDirection = null;
+            let scrollAnimationId = null;
+
+            function autoScroll() {
+                if (!scrollDirection) return;
+
+                if (scrollDirection === 'up') {
+                    wrapper.scrollTop -= scrollStep;
+                    if (wrapper.scrollTop <= 0) {
+                        stopScrolling();
+                        return;
+                    }
+                } else if (scrollDirection === 'down') {
+                    wrapper.scrollTop += scrollStep;
+                    if (wrapper.scrollTop + wrapper.clientHeight >= wrapper.scrollHeight) {
+                        stopScrolling();
+                        return;
+                    }
+                }
+
+                scrollAnimationId = requestAnimationFrame(autoScroll);
+            }
+
+            function startScrolling(direction) {
+                stopScrolling();
+                scrollDirection = direction;
+                autoScroll();
+            }
+
+            function stopScrolling() {
+                if (scrollAnimationId) {
+                    cancelAnimationFrame(scrollAnimationId);
+                    scrollAnimationId = null;
+                }
+                scrollDirection = null;
+            }
+
+            const scrollUpBtn = document.getElementById('scroll-up');
+            const scrollDownBtn = document.getElementById('scroll-down');
+
+            if (scrollUpBtn) {
+                scrollUpBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    startScrolling('up');
+                });
+            }
+
+            if (scrollDownBtn) {
+                scrollDownBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    startScrolling('down');
+                });
+            }
+
+            document.addEventListener('click', stopScrolling);
+        } else {
+            console.warn('contentwrapper not found!');
+        }
+
+        // ========================
+        // Tag Legend Drag Functionality
+        // ========================
+        const legends = ["tagLegend1", "tagLegend2", "tagLegend3"];
         legends.forEach((id) => {
             const tagLegend = document.getElementById(id);
+            if (!tagLegend) return;
+
             let isDragging = false;
             let offsetX = 0, offsetY = 0;
             let pendingX = 0, pendingY = 0;
             let animationFrame = null;
 
-            // Ensure better touch performance
             tagLegend.style.touchAction = "none";
             tagLegend.style.cursor = "grab";
 
-            // Load saved position
             const saved = JSON.parse(localStorage.getItem(`${id}_position`));
             if (saved) {
                 tagLegend.style.position = "fixed";
@@ -1125,7 +1243,7 @@
                 if (!isDragging) return;
                 const touch = e.touches[0];
                 onMove(touch.clientX, touch.clientY);
-                e.preventDefault(); // Stop scrolling during drag
+                e.preventDefault();
             }, { passive: false });
 
             document.addEventListener("touchend", endDrag);
