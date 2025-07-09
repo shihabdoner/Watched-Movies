@@ -581,12 +581,11 @@
 
                         </ol>
                     </div>
+                    <div class="auto-scroll-div">
+                        <button class="glow-button" id="scroll-up">▲Scroll Up</button>
+                        <button class="glow-button" id="scroll-down">▼Scroll Down</button>
+                    </div>
                 </div>
-                <div class="auto-scroll-div">
-                    <button class="glow-button" id="scroll-up">▲Scroll Up</button>
-                    <button class="glow-button" id="scroll-down">▼Scroll Down</button>
-                </div>
-
             </div>
             <!-- Next in cue Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="NextInCueDIV">Naxt in cue</button>
@@ -631,7 +630,6 @@
                             </text>
                         </svg>
                     </span>
-                    <!-- Popup image container -->
                     <!-- Popup image container -->
                     <div class="popup-image">
                         <img src="Picsart_25-07-07_10-08-34-645.jpg"
@@ -1131,8 +1129,16 @@
             }
 
             function startScrolling(direction) {
-                stopScrolling();
+                stopScrolling(); // reset before new scroll
                 scrollDirection = direction;
+
+                // Add 'scrolling' class
+                if (direction === 'up') {
+                    scrollUpBtn.classList.add('scrolling');
+                } else {
+                    scrollDownBtn.classList.add('scrolling');
+                }
+
                 autoScroll();
             }
 
@@ -1142,7 +1148,12 @@
                     scrollAnimationId = null;
                 }
                 scrollDirection = null;
+
+                // Remove 'scrolling' class from both buttons
+                scrollUpBtn.classList.remove('scrolling');
+                scrollDownBtn.classList.remove('scrolling');
             }
+
 
             const scrollUpBtn = document.getElementById('scroll-up');
             const scrollDownBtn = document.getElementById('scroll-down');
