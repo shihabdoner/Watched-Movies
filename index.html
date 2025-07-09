@@ -1132,44 +1132,46 @@
             const music = document.getElementById("scroll-music");
 
             function startScrolling(direction) {
-                stopScrolling(); // reset before new scroll
-                scrollDirection = direction;
+  stopScrolling(); // reset before new scroll
+  scrollDirection = direction;
 
-                // Add 'scrolling' class
-                if (direction === 'up') {
-                    scrollUpBtn.classList.add('scrolling');
-                } else {
-                    scrollDownBtn.classList.add('scrolling');
-                }
+  // Add 'scrolling' class
+  if (direction === 'up') {
+    scrollUpBtn.classList.add('scrolling');
+  } else {
+    scrollDownBtn.classList.add('scrolling');
+  }
 
-                // ✅ Play music without resetting position
-                if (music && music.paused) {
-                    music.play().catch(err => {
-                        console.warn("Autoplay blocked or failed:", err);
-                    });
-                }
+  // ✅ Play music and enable loop
+  if (music) {
+    music.loop = true; // Enable loop while scrolling
+    if (music.paused) {
+      music.play().catch(err => {
+        console.warn("Autoplay blocked or failed:", err);
+      });
+    }
+  }
 
-                autoScroll();
-            }
+  autoScroll();
+}
 
-            function stopScrolling() {
-                if (scrollAnimationId) {
-                    cancelAnimationFrame(scrollAnimationId);
-                    scrollAnimationId = null;
-                }
-                scrollDirection = null;
+function stopScrolling() {
+  if (scrollAnimationId) {
+    cancelAnimationFrame(scrollAnimationId);
+    scrollAnimationId = null;
+  }
+  scrollDirection = null;
 
-                // Remove 'scrolling' class
-                scrollUpBtn.classList.remove('scrolling');
-                scrollDownBtn.classList.remove('scrolling');
+  // Remove 'scrolling' class
+  scrollUpBtn.classList.remove('scrolling');
+  scrollDownBtn.classList.remove('scrolling');
 
-                // ✅ Pause music without resetting position
-                if (music && !music.paused) {
-                    music.pause();
-                    // Do NOT reset currentTime
-                }
-            }
-
+  // ✅ Pause music and disable loop
+  if (music && !music.paused) {
+    music.pause();
+    music.loop = false;
+  }
+}
 
             const scrollUpBtn = document.getElementById('scroll-up');
             const scrollDownBtn = document.getElementById('scroll-down');
