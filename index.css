@@ -647,66 +647,44 @@ img[alt]:not([src])::after {
 }
 
 /* Auto slide  */
-/* Slide menu buttons */
-/* Initially hidden */
-.autoslidebuttons {
-  display: none;
-  flex-direction: column;
-  gap: 10px;
+#contentwrapper {
+  max-height: 280px;
+  /* Adjust as needed */
+  overflow-y: auto;
+  padding-right: 8px;
+  border: 1px solid #000000;
 }
 
-.autoslidebuttons button {
-  width: 90px;
-  height: 30px;
-  font-size: 12px;
+#scroll-up,
+#scroll-down {
+  position: relative;
+  display: inline-block;
+  margin-top: 10px;
+  padding: 5px 10px;
+  font-size: 14px;
   cursor: pointer;
 }
 
-.autoslidebuttons button.toggle-btn.active {
-  color: #305134;
-}
 
-/* 🔒 Fixed container in bottom-right */
-.floating-controller {
-  position: fixed;
-  bottom: 1%;
-  right: 1%;
-  display: flex;
-  flex-direction: column-reverse;
-  /* Puts ☰ button at the bottom */
-  align-items: flex-end;
-  z-index: 9999;
-  display: none;
-}
-
-/* Add this new rule to adjust the ☰ button position */
-.floating-controller #glow-button {
+/* Inherit glow style */
+.glow-button {
+  bottom: 60%;
+  left: 90%;
   position: relative;
-  right: 25px;
-  /* Moves left */
-  bottom: 35px;
-  /* Moves up */
-}
-
-#glow-button {
-  bottom: 20%;
-  right: 5%;
-  width: 25px;
-  height: 25px;
+  width: 50px;
+  height: 50px;
   background: transparent;
-  /* Fully transparent center */
   border: none;
   cursor: pointer;
   outline: none;
-  color: rgb(0, 0, 0);
+  color: black;
   font-weight: bold;
-  font-size: 14px;
-  transition: all 0.3s ease;
+  font-size: 18px;
   z-index: 1;
+  border-radius: 50%;
 }
 
-/* Rainbow glow (fully faded) */
-#glow-button::before {
+.glow-button::before {
   content: '';
   position: absolute;
   top: -20px;
@@ -724,13 +702,11 @@ img[alt]:not([src])::after {
       rgb(255, 0, 0));
   z-index: -1;
   filter: blur(10px);
-  /* Heavy blur for seamless fade */
   opacity: 0.5;
   animation: rotate 4s linear infinite;
 }
 
-/* Subtle core for visibility */
-#glow-button::after {
+.glow-button::after {
   content: '';
   position: absolute;
   top: 0;
@@ -739,6 +715,7 @@ img[alt]:not([src])::after {
   bottom: 0;
   background: rgba(0, 0, 0, 0.05);
   backdrop-filter: blur(2px);
+  border-radius: 50%;
   z-index: -1;
 }
 
