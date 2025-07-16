@@ -675,6 +675,28 @@ img[alt]:not([src])::after {
   height: auto;
 }
 
+/* Sticky h2 */
+#headerinsidescrollbox {
+  position: sticky;
+  top: 0;
+  display: flex;
+  justify-content: flex-end; /* Align contents to the right */
+  background: transparent;   /* No background on the full-width h2 */
+  z-index: 10;
+  padding: 10px;
+}
+
+/* Inner box around the text */
+.header-box {
+  background-color: #000000;
+  color: burlywood;
+  padding: 8px 16px;
+  border-radius: 4px;
+  white-space: nowrap; /* Prevents wrapping */
+}
+
+
+
 
 /* Scroll button container */
 .auto-scroll-div {
