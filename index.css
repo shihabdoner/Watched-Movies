@@ -647,7 +647,7 @@ img[alt]:not([src])::after {
 }
 
 /* Auto slide scroll area */
-#contentwrapper {
+.contentwrapper {
   max-height: 280px;
   overflow-y: auto;
   padding: 2%;
@@ -662,15 +662,15 @@ img[alt]:not([src])::after {
   word-break: break-word;
 }
 
-#contentwrapper * {
+.contentwrapper * {
   box-sizing: border-box;
   max-width: 100%;
   overflow-wrap: break-word;
   word-break: break-word;
 }
 
-#contentwrapper img,
-#contentwrapper button {
+.contentwrapper img,
+.contentwrapper button {
   max-width: 100%;
   height: auto;
 }
