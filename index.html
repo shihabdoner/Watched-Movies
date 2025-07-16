@@ -75,7 +75,7 @@
                     <li id="GOAT">X-Men '97</li>
                     <li id="GOATbutADULT">Sex/Life</li>
                     <li id="GOAT">The Penthouse: War in Life</li>
-<li id="GOAT">Better Call Saul</li>
+                    <li id="GOAT">Better Call Saul</li>
                 </ol>
             </div>
             <!-- Watching Section -->
@@ -180,8 +180,9 @@
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="WatchedDIV">Watched</button>
 
             <div class="slide-content" data-id="WatchedDIV">
-                <div id="contentwrapper">
-                    <h2>Watched</h2>
+                <h2>Watched</h2>
+                <div class="contentwrapper" id="wrapper-1">
+                    <h2>Foreign</h2>
                     <div>
                         <ol>
                             <li id="GOAT">Céline (1992)</li>
@@ -261,7 +262,7 @@
                                         onerror="this.style.display='none'; this.insertAdjacentHTML('afterend', `<div style='color:red; font-weight:bold;'>${this.alt}</div>`);">
                                 </div>
                             </li>
-<li>Triangle</li>
+                            <li>Triangle</li>
                             <li id="PSYCHOLOGICAL">Eighth grade</li>
                             <li id="ROMANCE">Chemical hearts</li>
                             <li id="ADULT">Fifty shades of gray</li>
@@ -279,7 +280,7 @@
                             <li id="ADULT">Purple hearts</li>
                             <li id="SciFIeandChild">Interstellar</li>
                             <li id="PSYCHOLOGICAL">The Intern</li>
-<li id="PSYCHOLOGICAL">Low Tide 2019</li>
+                            <li id="PSYCHOLOGICAL">Low Tide 2019</li>
                             <li id="SUPERHERO">The dark knight rises</li>
                             <li id="PSYCHOLOGICAL">American psycho</li>
                             <li id="ROMANCE">The Notebook</li>
@@ -585,18 +586,48 @@
                         </ol>
                     </div>
                     <div class="auto-scroll-div">
-                        <button class="glow-button" id="scroll-up">▲Scroll Up</button>
-                        <button class="glow-button" id="scroll-down">▼Scroll Down</button>
+                        <button class="glow-button scroll-up" data-target="wrapper-1">▲Scroll Up</button>
+                        <button class="glow-button scroll-down" data-target="wrapper-1">▼Scroll Down</button>
+                    </div>
+                </div>
+                <br>
+                <br>
+                <div class="contentwrapper" id="wrapper-2">
+                    <h2>Continent</h2>
+                    <div>
+                        <ol>
+                            <li>Ludo</li>
+                            <li>Rab Ne Bana Di Jodi 2008</li>
+                            <li>Pathaan 2023</li>
+                            <li>Om Shanti Om 2007</li>
+                            <li>Chak De! India 2007</li>
+                            <li>Raees 2017</li>
+                            <li>Dilwale 2015</li>
+                            <li>Dear Zindagi 2016</li>
+                            <li>Kabhi Khushi Kabhie Gham... 2001</li>
+                            <li>Jab Tak Hai Jaan 2012</li>
+                            <li>Dilwale Dulhania Le Jayenge 1995</li>
+                            <li>Ra.One 2011</li>
+                            <li>Happy New Year 2014</li>
+                            <li>Chennai Express 2013</li>
+                            <li>Mohabbatein 2000</li>
+                            <li></li>
+                        </ol>
+                    </div>
+                    <div class="auto-scroll-div">
+                        <button class="glow-button scroll-up" data-target="wrapper-2">▲Scroll Up</button>
+                        <button class="glow-button scroll-down" data-target="wrapper-2">▼Scroll Down</button>
                     </div>
                 </div>
             </div>
+            <br>
             <!-- Next in cue Section -->
             <button class="toggle-btn" onclick="toggleSlide(this)" data-target="NextInCueDIV">Naxt in cue</button>
 
             <div class="slide-content" data-id="NextInCueDIV">
                 <h2>Next in cue</h2>
                 <ol id="White">
-<li>Metro In Dino</li>
+                    <li>Metro In Dino</li>
                     <li>A Ghost Story 2017</li>
                     <li>Leave no trace 2018</li>
                     <li>Our Little Sister 2015</li>
@@ -743,12 +774,12 @@
                     <ol id="White">
                         <li>Vinland Saga</li>
                         <li>The Rising of the Shield Hero</li>
-<li>Komi Can't Communicate</li>
+                        <li>Komi Can't Communicate</li>
                         <li>Hunte x Hunter</li>
                         <li>March Comes In like a Lion</li>
                         <li>Arcane</li>
-<li>Wolf's Rain 2003</li>
-                       
+                        <li>Wolf's Rain 2003</li>
+
                     </ol>
 
                 </div>
@@ -783,7 +814,8 @@
                         <li>Tokyo Revenge</li>
                         <li>Bleach</li>
                         <li>Kizumonogatari</li>
-                        <li>Steins;Gate 0</li><li>Rascal does not dream of Santa Claus</li>
+                        <li>Steins;Gate 0</li>
+                        <li>Rascal does not dream of Santa Claus</li>
                         <li>Dandadan S02</li>
                         <li>WIND BREAKER</li>
                         <li>Dragon Ball Super </li>
@@ -798,7 +830,7 @@
                         <li>Psycho Pass </li>
                         <li>Zoom 100: Bucket list of the Dead </li>
                         <li>Cyberpunk: Edgerunners </li>
-<li>86</li>
+                        <li>86</li>
                     </ol>
                 </div>
                 <!-- Anime Movies Section -->
@@ -1051,7 +1083,7 @@
             individual's cognitive demeanour through such engagement.</p>
     </div>
     </div>
-<audio id="scroll-music" src="Henry Morris - Taste of Metal.mp3" preload="auto"></audio>
+    <audio id="scroll-music" src="Henry Morris - Taste of Metal.mp3" preload="auto"></audio>
 </body>
 <script>
     document.addEventListener("DOMContentLoaded", () => {
@@ -1108,97 +1140,104 @@
         // ========================
         const scrollSpeedPerSecond = 50;
         const scrollStep = Math.ceil(scrollSpeedPerSecond / 60);
-        const wrapper = document.getElementById('contentwrapper');
+        let scrollDirection = null;
+        let scrollAnimationId = null;
+        let activeWrapper = null;
 
-        if (wrapper) {
-            let scrollDirection = null;
-            let scrollAnimationId = null;
+        const music = document.getElementById("scroll-music");
 
-            function autoScroll() {
-                if (!scrollDirection) return;
+        function autoScroll() {
+            if (!scrollDirection || !activeWrapper) return;
 
-                if (scrollDirection === 'up') {
-                    wrapper.scrollTop -= scrollStep;
-                    if (wrapper.scrollTop <= 0) {
-                        stopScrolling();
-                        return;
-                    }
-                } else if (scrollDirection === 'down') {
-                    wrapper.scrollTop += scrollStep;
-                    if (wrapper.scrollTop + wrapper.clientHeight >= wrapper.scrollHeight) {
-                        stopScrolling();
-                        return;
-                    }
+            if (scrollDirection === 'up') {
+                activeWrapper.scrollTop -= scrollStep;
+                if (activeWrapper.scrollTop <= 0) {
+                    stopScrolling();
+                    return;
                 }
-
-                scrollAnimationId = requestAnimationFrame(autoScroll);
+            } else if (scrollDirection === 'down') {
+                activeWrapper.scrollTop += scrollStep;
+                if (activeWrapper.scrollTop + activeWrapper.clientHeight >= activeWrapper.scrollHeight) {
+                    stopScrolling();
+                    return;
+                }
             }
 
-            const music = document.getElementById("scroll-music");
-
-            function startScrolling(direction) {
-  stopScrolling(); // reset before new scroll
-  scrollDirection = direction;
-
-  // Add 'scrolling' class
-  if (direction === 'up') {
-    scrollUpBtn.classList.add('scrolling');
-  } else {
-    scrollDownBtn.classList.add('scrolling');
-  }
-
-  // ✅ Play music and enable loop
-  if (music) {
-    music.loop = true; // Enable loop while scrolling
-    if (music.paused) {
-      music.play().catch(err => {
-        console.warn("Autoplay blocked or failed:", err);
-      });
-    }
-  }
-
-  autoScroll();
-}
-
-function stopScrolling() {
-  if (scrollAnimationId) {
-    cancelAnimationFrame(scrollAnimationId);
-    scrollAnimationId = null;
-  }
-  scrollDirection = null;
-
-  // Remove 'scrolling' class
-  scrollUpBtn.classList.remove('scrolling');
-  scrollDownBtn.classList.remove('scrolling');
-
-  // ✅ Pause music and disable loop
-  if (music && !music.paused) {
-    music.pause();
-    music.loop = false;
-  }
-}
-
-            const scrollUpBtn = document.getElementById('scroll-up');
-            const scrollDownBtn = document.getElementById('scroll-down');
-
-            if (scrollUpBtn) {
-                scrollUpBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    startScrolling('up');
-                });
-            }
-
-            if (scrollDownBtn) {
-                scrollDownBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    startScrolling('down');
-                });
-            }
-
-            document.addEventListener('click', stopScrolling);
-        } else {
-            console.warn('contentwrapper not found!');
+            scrollAnimationId = requestAnimationFrame(autoScroll);
         }
+
+        function startScrolling(direction, wrapperId, buttonElement) {
+            stopScrolling(); // Stop any current scroll
+            scrollDirection = direction;
+            activeWrapper = document.getElementById(wrapperId);
+
+            if (!activeWrapper) {
+                console.warn(`Wrapper with ID "${wrapperId}" not found.`);
+                return;
+            }
+
+            // Add "scrolling" class only to the clicked button
+            buttonElement.classList.add('scrolling');
+
+            // ✅ Play music and enable loop
+            if (music) {
+                music.loop = true;
+                if (music.paused) {
+                    music.play().catch(err => {
+                        console.warn("Autoplay blocked or failed:", err);
+                    });
+                }
+            }
+
+            autoScroll();
+        }
+
+        function stopScrolling() {
+            if (scrollAnimationId) {
+                cancelAnimationFrame(scrollAnimationId);
+                scrollAnimationId = null;
+            }
+            scrollDirection = null;
+            activeWrapper = null;
+
+            // Remove 'scrolling' class from all scroll buttons
+            document.querySelectorAll('.scroll-up, .scroll-down').forEach(btn => {
+                btn.classList.remove('scrolling');
+            });
+
+            // ✅ Pause music and disable loop
+            if (music && !music.paused) {
+                music.pause();
+                music.loop = false;
+            }
+        }
+
+        // ========================
+        // Event Listeners
+        // ========================
+
+        // Scroll Up
+        document.querySelectorAll('.scroll-up').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const wrapperId = button.getAttribute('data-target');
+                startScrolling('up', wrapperId, button);
+            });
+        });
+
+        // Scroll Down
+        document.querySelectorAll('.scroll-down').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
+                const wrapperId = button.getAttribute('data-target');
+                startScrolling('down', wrapperId, button);
+            });
+        });
+
+        // Stop scrolling when clicking elsewhere
+        document.addEventListener('click', stopScrolling);
+
+
 
         // ========================
         // Tag Legend Drag Functionality
