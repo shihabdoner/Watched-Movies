@@ -189,7 +189,7 @@ ol {
 
 li {
   background-color: #1f1e1c;
-  color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
   padding: 0.01%;
   /* This will expand the li */
   margin-bottom: 10px;
@@ -261,7 +261,6 @@ ul#itemList li {
 
 /* ------------------------------------------------------------------------------------ */
 /* Things in Document Section */
-#BeneathDocumentParrentButtons {}
 
 #document-h1 {
   text-align: center;
@@ -285,10 +284,12 @@ ul#itemList li {
 
 #ROMANCE {
   background-color: #ff0066d5;
+  color: #000000;
 }
 
 #PSYCHOLOGICAL {
   background-color: #ff6b02;
+  color: #000000;
 }
 
 #ADULT {
@@ -650,8 +651,8 @@ img[alt]:not([src])::after {
 .contentwrapper {
   max-height: 280px;
   overflow-y: auto;
-  padding: 2%;
-  border: 1px solid #ffffff;
+  padding: 1%;
+  border: 1px solid #1aff00;
   position: relative;
   box-sizing: border-box;
   /* ✅ Ensures padding doesn't cause overflow */
@@ -660,6 +661,7 @@ img[alt]:not([src])::after {
   overflow-wrap: break-word;
   /* ✅ Force breaking long text */
   word-break: break-word;
+  opacity: 0.9;
 }
 
 .contentwrapper * {
@@ -674,6 +676,26 @@ img[alt]:not([src])::after {
   max-width: 100%;
   height: auto;
 }
+.svg-frame-wrapper {
+  position: relative;
+
+  margin: auto;
+}
+
+.svg-frame-wrapper svg {
+  height: auto;
+  display: block;
+}
+
+.svg-frame-wrapper .inner-content {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  right: 0%;
+  bottom: 0%;
+  color: #fff7da;
+}
+
 
 /* Sticky h2 */
 #headerinsidescrollbox {
@@ -821,3 +843,21 @@ img[alt]:not([src])::after {
     font-size: 14px;
   }
 }
+
+/* Ongoing Active symbol fade in out */
+.ongoing::after {
+  content: "●"; /* Can be replaced with ⚡, ★, etc. */
+  color: limegreen;
+  margin-left: 8px;
+  animation: fade 1.5s infinite;
+  font-size: 1.5em;
+  vertical-align: middle;
+  text-shadow: 0 0 6px limegreen, 0 0 12px limegreen;
+}
+
+@keyframes fade {
+  0% { opacity: 1; }
+  50% { opacity: 0.2; }
+  100% { opacity: 1; }
+}
+
