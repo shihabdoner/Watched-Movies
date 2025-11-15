@@ -892,7 +892,7 @@ img[alt]:not([src])::after {
 
 /* Books related*/
         .book-list-container {
-            background: white;
+            background: #063323;
             width: 90%;
             max-width: 600px;
             padding: 20px 25px;
@@ -932,3 +932,4 @@ img[alt]:not([src])::after {
             font-size: 14px;
             color: #777;
         }
+
