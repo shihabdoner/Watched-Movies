@@ -2,9 +2,7 @@
 
     /* Prevent global interference */
     #animeListContainer {
-        font-family: Arial, sans-serif;
         background: #0d1117;
-        color: #e6edf3;
         padding: 20px;
         line-height: 1.6;
         border-radius: 10px;
@@ -20,12 +18,11 @@
 
     #animeListContainer h3 {
         margin-top: 25px;
-        color: #c9d1d9;
+        color: #0d0d0d;
         font-weight: 500;
     }
 
     #animeListContainer ol {
-        background: #161b22;
         padding: 20px;
         border-radius: 10px;
         border: 1px solid #30363d;
@@ -34,17 +31,6 @@
 
     #animeListContainer li {
         padding: 5px 0;
-    }
-
-    /* GOAT highlight */
-    #animeListContainer .goat {
-        color: #ffd700;
-        font-weight: bold;
-    }
-
-    /* White list */
-    #animeListContainer .white-list li {
-        color: #f0f0f0;
     }
 
 
@@ -982,6 +968,7 @@ img[alt]:not([src])::after {
             font-size: 14px;
             color: #777;
         }
+
 
 
 
