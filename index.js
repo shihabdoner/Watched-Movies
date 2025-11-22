@@ -285,12 +285,21 @@ function toggleSlide(button) {
 
 
 function toggleInnerSlide(innerButton) {
-    const innerDiv = innerButton.nextElementSibling;
+    if (!innerButton) return; // Defensive
+
+    // Use data-target attribute for robustness
+    const targetSelector = innerButton.getAttribute('data-target');
+    const innerDiv = targetSelector
+        ? document.querySelector(targetSelector)
+        : innerButton.nextElementSibling;
+    if (!innerDiv) return;
+
     const parentSlide = innerDiv.closest(".slide-content");
+    if (!parentSlide) return;
 
     const isOpen = innerDiv.classList.contains("open");
 
-    // 🔒 Close all other inner-slide elements
+    // Close all other inner-slide elements
     parentSlide.querySelectorAll(".inner-slide").forEach(slide => {
         slide.classList.remove("open");
         slide.style.maxHeight = "0";
@@ -298,23 +307,19 @@ function toggleInnerSlide(innerButton) {
         if (btn) btn.classList.remove("active");
     });
 
-    // ✅ Open the clicked one only if it was not already open
+    // Open the clicked one only if it was not already open
     if (!isOpen) {
         innerDiv.classList.add("open");
-        requestAnimationFrame(() => {
-            innerDiv.style.maxHeight = innerDiv.scrollHeight + "px";
-        });
+        // Use CSS transitions if possible, otherwise:
+        innerDiv.style.maxHeight = innerDiv.scrollHeight + "px";
         innerButton.classList.add("active");
     }
 
-    // 🔁 Resize outer container if needed
-    requestAnimationFrame(() => {
-        if (parentSlide) {
-            parentSlide.style.maxHeight = parentSlide.scrollHeight + "px";
-        }
-    });
+    // Resize outer container if needed
+    if (parentSlide) {
+        parentSlide.style.maxHeight = parentSlide.scrollHeight + "px";
+    }
 }
-
 /*Search function*/
 let lastVisibleSectionId = null;
 
