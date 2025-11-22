@@ -283,42 +283,40 @@ function toggleSlide(button) {
     }
 }
 
-
 function toggleInnerSlide(innerButton) {
-    if (!innerButton) return; // Defensive
+    if (!innerButton) return;
 
-    // Use data-target attribute for robustness
-    const targetSelector = innerButton.getAttribute('data-target');
-    const innerDiv = targetSelector
-        ? document.querySelector(targetSelector)
-        : innerButton.nextElementSibling;
-    if (!innerDiv) return;
+    // Identify which content to open (local search only!)
+    const targetSelector = innerButton.getAttribute("data-target");
 
-    const parentSlide = innerDiv.closest(".slide-content");
+    // 🔥 FIXED: Only search inside the current slide-content
+    const parentSlide = innerButton.closest(".slide-content");
     if (!parentSlide) return;
+
+    const innerDiv = parentSlide.querySelector(`[data-id="${targetSelector}"]`);
+    if (!innerDiv) return;
 
     const isOpen = innerDiv.classList.contains("open");
 
-    // Close all other inner-slide elements
+    // Close all other inner sections inside ONLY this parent
     parentSlide.querySelectorAll(".inner-slide").forEach(slide => {
         slide.classList.remove("open");
         slide.style.maxHeight = "0";
-        const btn = slide.previousElementSibling;
-        if (btn) btn.classList.remove("active");
+        const button = parentSlide.querySelector(
+            `[data-target="${slide.getAttribute("data-id")}"]`
+        );
+        if (button) button.classList.remove("active");
     });
 
-    // Open the clicked one only if it was not already open
+    // Open the clicked section
     if (!isOpen) {
         innerDiv.classList.add("open");
-        // Use CSS transitions if possible, otherwise:
         innerDiv.style.maxHeight = innerDiv.scrollHeight + "px";
         innerButton.classList.add("active");
     }
 
-    // Resize outer container if needed
-    if (parentSlide) {
-        parentSlide.style.maxHeight = parentSlide.scrollHeight + "px";
-    }
+    // Auto-resize parent container
+    parentSlide.style.maxHeight = parentSlide.scrollHeight + "px";
 }
 /*Search function*/
 let lastVisibleSectionId = null;
