@@ -1,3 +1,54 @@
+
+
+    /* Prevent global interference */
+    #animeListContainer {
+        font-family: Arial, sans-serif;
+        background: #0d1117;
+        color: #e6edf3;
+        padding: 20px;
+        line-height: 1.6;
+        border-radius: 10px;
+        margin: 20px 0;
+    }
+
+    #animeListContainer h2 {
+        margin-top: 40px;
+        color: #58a6ff;
+        border-bottom: 1px solid #30363d;
+        padding-bottom: 5px;
+    }
+
+    #animeListContainer h3 {
+        margin-top: 25px;
+        color: #c9d1d9;
+        font-weight: 500;
+    }
+
+    #animeListContainer ol {
+        background: #161b22;
+        padding: 20px;
+        border-radius: 10px;
+        border: 1px solid #30363d;
+        margin-top: 10px;
+    }
+
+    #animeListContainer li {
+        padding: 5px 0;
+    }
+
+    /* GOAT highlight */
+    #animeListContainer .goat {
+        color: #ffd700;
+        font-weight: bold;
+    }
+
+    /* White list */
+    #animeListContainer .white-list li {
+        color: #f0f0f0;
+    }
+
+
+
 /* Everything related to buttons */
 button.active {
   background-color: #016e30;
@@ -931,6 +982,7 @@ img[alt]:not([src])::after {
             font-size: 14px;
             color: #777;
         }
+
 
 
 
