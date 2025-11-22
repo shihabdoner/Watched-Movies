@@ -14,7 +14,7 @@
     #animeListContainer h2 {
         margin-top: 40px;
         color: #16c710;
-        border-bottom: 2px ridge #059c28;
+        border-bottom: 2px Solid #059c28;
         padding-bottom: 5px;
     }
 
@@ -970,6 +970,7 @@ img[alt]:not([src])::after {
             font-size: 14px;
             color: #777;
         }
+
 
 
 
