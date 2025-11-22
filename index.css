@@ -2,23 +2,25 @@
 
     /* Prevent global interference */
     #animeListContainer {
-        background: #0d1117;
+        background: #0d0d0d;
         padding: 20px;
         line-height: 1.6;
-        border-radius: 10px;
+        border-radius: 4px;
         margin: 20px 0;
+        height: 100%;
+        box-sizing: border-box;
     }
 
     #animeListContainer h2 {
         margin-top: 40px;
-        color: #58a6ff;
-        border-bottom: 1px solid #30363d;
+        color: #16c710;
+        border-bottom: 2px wave #059c28;
         padding-bottom: 5px;
     }
 
     #animeListContainer h3 {
         margin-top: 25px;
-        color: #0d0d0d;
+        color: #66686b;
         font-weight: 500;
     }
 
@@ -968,6 +970,7 @@ img[alt]:not([src])::after {
             font-size: 14px;
             color: #777;
         }
+
 
 
 
