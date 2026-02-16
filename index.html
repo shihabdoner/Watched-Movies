@@ -1048,9 +1048,12 @@
                 <button onclick="toggleDocumentSubSection('BooksDIV', this)">Books</button>
                 <button onclick="toggleDocumentSubSection('NewsPapersDIV', this)">News Papers</button>
                 <button onclick="toggleDocumentSubSection('MangasDIV', this)">Mangas</button>
-                <button onclick="toggleDocumentSubSection('NotFreeComicsDIV', this)">Not Free Comics</button>
+                <button onclick="toggleDocumentSubSection('ManhwaDIV', this)">Manhwa</button>
             </div>
-
+            <div>
+                <button onclick="toggleDocumentSubSection('NotFreeComicsDIV', this)">Not Free Comics</button>
+                
+            </div>
             <div id="BeneathDocumentParrentButtons">
                 <div id="FreecomicsDIV" style="display:none;">
                     <h2 id="Headings-in-document-section">Comics</h2>
@@ -1112,8 +1115,18 @@
                 <div id="NewsPapersDIV" style="display:none;">
                     <h2 id="Headings-in-document-section">News Papers</h2>
                 </div>
-                <div id="MangasDIV" style="display:none;">
-                    <h2 id="Headings-in-document-section">Manga</h2>
+                <div id="ManhwaDIV" style="display:none;">
+                    <h2 id="Headings-in-document-section">Manhwa</h2>
+                    <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; justify-content:center;">
+                        <div style="width: 150px; text-align: center;">
+                            <a href="https://m.webtoons.com/en/action/teenage-mercenary/list?title_no=2677" target="_blank" rel="noopener noreferrer"
+                                style="cursor: pointer; display: block;">
+                                <img src="https://fwmedia.fandomwire.com/wp-content/uploads/2024/11/18043621/teenage-mercenary-solo-leveling.jpg?" alt="Teenage Mercenary"
+                                    style="width: 150px; display: block; margin: 0 auto;">
+                                <div style="color: whitesmoke; font-weight: bold; margin-top: 5px;">Teenage Mercenary</div>
+                            </a>
+                        </div>
+                    </div>
                 </div>
                 <div id="NotFreeComicsDIV" style="display:none;">
                     <h2 id="Headings-in-document-section">Not Free Comics</h2>
@@ -1400,6 +1413,7 @@
 </script>
 
 </html>
+
 
 
 
