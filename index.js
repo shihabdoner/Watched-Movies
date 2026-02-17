@@ -84,6 +84,7 @@ function toggleDocumentSubSection(idToToggle, buttonElement) {
         "BooksDIV",
         "NewsPapersDIV",
         "MangasDIV",
+        "ManhwaDIV",
         "NotFreeComicsDIV"
     ];
 
@@ -148,6 +149,7 @@ function toggleSection(idToShow) {
                     "BooksDIV",
                     "NewsPapersDIV",
                     "MangasDIV",
+                    "ManhwaDIV",
                     "NotFreeComicsDIV"
                 ];
 
