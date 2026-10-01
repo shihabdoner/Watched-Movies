@@ -540,7 +540,13 @@ const FILTER_TAGS = [
     { id: 'ADULT', label: 'RRR', style: 'color:#fff;background:#1f1e1c;text-decoration:line-through dotted white;' }
 ];
 
-const STATUS_LABELS = { WatchedDIV: 'Watched', WatchingDIV: 'Watching', NextInCueDIV: 'Next in cue' };
+const FILTER_STATES = [
+    { id: 'WatchedDIV', label: 'Watched' },
+    { id: 'WatchingDIV', label: 'Watching' },
+    { id: 'NextInCueDIV', label: 'Next in cue' }
+];
+
+const STATUS_LABELS = Object.fromEntries(FILTER_STATES.map(s => [s.id, s.label]));
 
 function initFilterPanel() {
     const btn = document.getElementById('filterBtn');
@@ -548,6 +554,7 @@ function initFilterPanel() {
     if (!btn || !panel) return;
 
     const selectedSections = new Set();
+    const selectedStates = new Set();
     const selectedTags = new Set();
     const tagById = Object.fromEntries(FILTER_TAGS.map(t => [t.id, t]));
 
@@ -558,7 +565,9 @@ function initFilterPanel() {
         </div>
         <div class="filter-title">1. Sections</div>
         <div class="filter-chips" id="filterSections"></div>
-        <div class="filter-title">2. Tags</div>
+        <div class="filter-title">2. State</div>
+        <div class="filter-chips" id="filterStates"></div>
+        <div class="filter-title">3. Tags</div>
         <div class="filter-chips" id="filterTags"></div>
         <div class="filter-count" id="filterCount"></div>
         <ul id="filterResults"></ul>`;
@@ -568,11 +577,11 @@ function initFilterPanel() {
 
     function runFilter() {
         listEl.innerHTML = '';
-        const anySelected = selectedSections.size > 0 || selectedTags.size > 0;
+        const anySelected = selectedSections.size > 0 || selectedStates.size > 0 || selectedTags.size > 0;
         btn.classList.toggle('active', anySelected);
 
         if (!anySelected) {
-            countEl.textContent = 'Pick a section and/or a tag.';
+            countEl.textContent = 'Pick a section, state and/or tag.';
             return;
         }
 
@@ -585,6 +594,12 @@ function initFilterPanel() {
             root.querySelectorAll('li').forEach(li => {
                 if (selectedTags.size && !selectedTags.has(li.id)) return;
 
+                const slide = li.closest('.slide-content');
+                const stateId = slide ? slide.dataset.id : null;
+
+                // Items outside a Watched/Watching/Next in cue block (e.g. Books) never match a state filter
+                if (selectedStates.size && !selectedStates.has(stateId)) return;
+
                 // Own text only (ignores popup content inside the li)
                 let text = Array.from(li.childNodes)
                     .filter(n => n.nodeType === 3)
@@ -593,8 +608,7 @@ function initFilterPanel() {
                 if (!text) text = li.textContent.replace(/\s+/g, ' ').trim();
                 if (!text) return;
 
-                const slide = li.closest('.slide-content');
-                const status = slide ? STATUS_LABELS[slide.dataset.id] : '';
+                const status = STATUS_LABELS[stateId] || '';
 
                 const item = document.createElement('li');
                 item.className = 'fres';
@@ -635,10 +649,12 @@ function initFilterPanel() {
     }
 
     addChips('filterSections', FILTER_SECTIONS, selectedSections);
+    addChips('filterStates', FILTER_STATES, selectedStates);
     addChips('filterTags', FILTER_TAGS, selectedTags);
 
     document.getElementById('filterClear').addEventListener('click', () => {
         selectedSections.clear();
+        selectedStates.clear();
         selectedTags.clear();
         panel.querySelectorAll('.filter-chips .fchip').forEach(c => c.classList.remove('on'));
         runFilter();
