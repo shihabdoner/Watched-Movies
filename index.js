@@ -318,7 +318,8 @@ function toggleInnerSlide(innerButton) {
     }
 
     // Auto-resize parent container
-    parentSlide.style.maxHeight = parentSlide.scrollHeight + "px";
+	parentSlide.style.maxHeight = "none";
+
 }
 /*Search function*/
 let lastVisibleSectionId = null;
