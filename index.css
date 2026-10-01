@@ -123,8 +123,8 @@ button {
   height: 100%;
   box-sizing: border-box;
 }
-
 .inner-slide {
+  flex-shrink: 0;   /* add this */
   overflow: hidden;
   max-height: 0;
   opacity: 0;
