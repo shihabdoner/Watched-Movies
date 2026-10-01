@@ -413,7 +413,6 @@ function findPreviousToggleButton(targetDiv, cls = null) {
 function isCollapsed(el) {
     return el.style.display === 'none' || getComputedStyle(el).display === 'none';
 }
-console.log("Clicking button to open:", toggleBtn?.textContent);
 
 // Core filter logic
 function filterList() {
