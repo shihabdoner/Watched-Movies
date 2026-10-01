@@ -519,3 +519,138 @@ function showPopupImage() {
         }, 500); // Match transition duration
     }, 1500); // 1000ms visible + 500ms fade in
 }
+
+/* ===== Filter panel ===== */
+const FILTER_SECTIONS = [
+    { id: 'TVShowsDIV', label: 'TV Shows' },
+    { id: 'MoviesDIV', label: 'Movies' },
+    { id: 'AnimeDIV', label: 'Anime' },
+    { id: 'DocumentsDIV', label: 'Documents' }
+];
+
+const FILTER_TAGS = [
+    { id: 'GOAT', label: 'Goat', style: 'color:#05f072;background:#1f1e1c;' },
+    { id: 'GOATbutADULT', label: 'Goat but R', style: 'color:#05f072;background:#1f1e1c;text-decoration:line-through dotted white;' },
+    { id: 'SUPERHERO', label: 'Super Hero', style: 'color:#02b0fa;background:#1f1e1c;' },
+    { id: 'ROMANCE', label: 'Romantic', style: 'color:#000;background:#ff0066;' },
+    { id: 'PSYCHOLOGICAL', label: 'Psychological', style: 'color:#000;background:#ff6b02;' },
+    { id: 'SciFIeandChild', label: 'PG-13', style: 'color:#00008b;background:#1f1e1c;' },
+    { id: 'BRAINDamaging', label: 'Brain Damaging', style: 'color:#ff0000;background:#1f1e1c;' },
+    { id: 'ADULT', label: 'RRR', style: 'color:#fff;background:#1f1e1c;text-decoration:line-through dotted white;' }
+];
+
+const STATUS_LABELS = { WatchedDIV: 'Watched', WatchingDIV: 'Watching', NextInCueDIV: 'Next in cue' };
+
+function initFilterPanel() {
+    const btn = document.getElementById('filterBtn');
+    const panel = document.getElementById('filterPanel');
+    if (!btn || !panel) return;
+
+    const selectedSections = new Set();
+    const selectedTags = new Set();
+    const tagById = Object.fromEntries(FILTER_TAGS.map(t => [t.id, t]));
+
+    panel.innerHTML = `
+        <div class="filter-head">
+            <strong>Filter</strong>
+            <button type="button" class="fchip on" id="filterClear">Clear</button>
+        </div>
+        <div class="filter-title">1. Sections</div>
+        <div class="filter-chips" id="filterSections"></div>
+        <div class="filter-title">2. Tags</div>
+        <div class="filter-chips" id="filterTags"></div>
+        <div class="filter-count" id="filterCount"></div>
+        <ul id="filterResults"></ul>`;
+
+    const countEl = document.getElementById('filterCount');
+    const listEl = document.getElementById('filterResults');
+
+    function runFilter() {
+        listEl.innerHTML = '';
+        const anySelected = selectedSections.size > 0 || selectedTags.size > 0;
+        btn.classList.toggle('active', anySelected);
+
+        if (!anySelected) {
+            countEl.textContent = 'Pick a section and/or a tag.';
+            return;
+        }
+
+        let total = 0;
+        FILTER_SECTIONS.forEach(sec => {
+            if (selectedSections.size && !selectedSections.has(sec.id)) return;
+            const root = document.getElementById(sec.id);
+            if (!root) return;
+
+            root.querySelectorAll('li').forEach(li => {
+                if (selectedTags.size && !selectedTags.has(li.id)) return;
+
+                // Own text only (ignores popup content inside the li)
+                let text = Array.from(li.childNodes)
+                    .filter(n => n.nodeType === 3)
+                    .map(n => n.textContent).join('')
+                    .replace(/\s+/g, ' ').trim();
+                if (!text) text = li.textContent.replace(/\s+/g, ' ').trim();
+                if (!text) return;
+
+                const slide = li.closest('.slide-content');
+                const status = slide ? STATUS_LABELS[slide.dataset.id] : '';
+
+                const item = document.createElement('li');
+                item.className = 'fres';
+                const tag = tagById[li.id];
+                if (tag) item.style.cssText = tag.style;
+
+                const name = document.createElement('span');
+                name.textContent = text;
+                const meta = document.createElement('span');
+                meta.className = 'fmeta';
+                meta.textContent = sec.label + (status ? ' · ' + status : '');
+
+                item.append(name, meta);
+                listEl.appendChild(item);
+                total++;
+            });
+        });
+
+        countEl.textContent = total + (total === 1 ? ' result' : ' results');
+    }
+
+    function addChips(containerId, items, selected) {
+        const box = document.getElementById(containerId);
+        items.forEach(item => {
+            const chip = document.createElement('button');
+            chip.type = 'button';
+            chip.className = 'fchip';
+            chip.textContent = item.label;
+            if (item.style) chip.style.cssText = item.style;
+            chip.addEventListener('click', () => {
+                if (selected.has(item.id)) selected.delete(item.id);
+                else selected.add(item.id);
+                chip.classList.toggle('on', selected.has(item.id));
+                runFilter();
+            });
+            box.appendChild(chip);
+        });
+    }
+
+    addChips('filterSections', FILTER_SECTIONS, selectedSections);
+    addChips('filterTags', FILTER_TAGS, selectedTags);
+
+    document.getElementById('filterClear').addEventListener('click', () => {
+        selectedSections.clear();
+        selectedTags.clear();
+        panel.querySelectorAll('.filter-chips .fchip').forEach(c => c.classList.remove('on'));
+        runFilter();
+    });
+
+    btn.addEventListener('click', () => { panel.hidden = !panel.hidden; });
+
+    // Close when clicking outside the search area
+    document.addEventListener('click', e => {
+        if (!panel.hidden && !e.target.closest('#Searchbox')) panel.hidden = true;
+    });
+
+    runFilter();
+}
+
+document.addEventListener('DOMContentLoaded', initFilterPanel);
