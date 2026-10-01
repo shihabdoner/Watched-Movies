@@ -432,6 +432,7 @@ function filterList() {
     const suggestions = [];
 
     elements.forEach(el => {
+        if (el.closest('#filterPanel, #filterBtn')) return;
         if (el.children.length === 0 && el.textContent.trim()) {
             const text = el.textContent;
             const index = text.toLowerCase().indexOf(input);
