@@ -348,35 +348,54 @@ function clearHighlights() {
 }
 
 
-// Open all necessary parent containers of a match
-function openAllParents(el) {
-    const mainSections = ['TVShowsDIV', 'MoviesDIV', 'AnimeDIV', 'DocumentsDIV', 'FreecomicsDIV',
-        'WatchedDIV', 'WatchingDIV', 'NextInCueDIV', 'AnimeMoviesDIV', 'AnimeInGeneralWithMoviesDIV'];
+function openAllParents(el, done) {
+    // Ancestors from outermost to innermost
+    const chain = [];
+    for (let p = el; p && p !== document.body; p = p.parentElement) chain.unshift(p);
 
-    let parent = el;
-
-    while (parent && parent !== document.body) {
-        const targetId = parent.dataset.id || parent.id;
-        if (mainSections.includes(targetId)) {
-
-            // Handle top-level sections
-            if (['TVShowsDIV', 'MoviesDIV', 'AnimeDIV', 'DocumentsDIV'].includes(parent.id)) {
-                document.getElementById(parent.id).style.display = 'block';
-            }
-
-            // Trigger toggle buttons for inner IDs
-            const toggleBtn = document.querySelector(`button[data-target="${targetId}"]`);
-            if (toggleBtn) toggleBtn.click();
+    const steps = [];
+    chain.forEach(node => {
+        if (['TVShowsDIV', 'MoviesDIV', 'AnimeDIV', 'DocumentsDIV'].includes(node.id)) {
+            steps.push(() => {
+                if (node.style.display !== 'block') toggleSection(node.id);
+            });
+        } else if (node.parentElement && node.parentElement.id === 'BeneathDocumentParrentButtons') {
+            steps.push(() => {
+                if (node.style.display === 'block') return;
+                const btn = document.querySelector(
+                    `#Buttons-in-document-section button[onclick*="'${node.id}'"]`);
+                toggleDocumentSubSection(node.id, btn);
+            });
+        } else if (node.classList.contains('slide-content') || node.classList.contains('inner-slide')) {
+            steps.push(() => {
+                if (node.classList.contains('open')) return;
+                const btn = node.previousElementSibling; // the button right above this div
+                if (btn && btn.tagName === 'BUTTON') btn.click();
+            });
         }
-        // 2. Trigger Free Comics
-        if (parent.id === 'FreecomicsDIV') {
-            const toggleBtn = document.querySelector('button[onclick="toggleFreeComics()"]');
-            if (toggleBtn) toggleBtn.click();
-        }
+    });
 
-        parent = parent.parentNode;
-    }
+    // Run one step at a time so each section is visible before the next opens
+    steps.forEach((fn, i) => setTimeout(fn, i * 80));
+    setTimeout(() => { if (done) done(); }, steps.length * 80 + 450);
 }
+function getLocationLabel(el) {
+    const tops = { TVShowsDIV: 'TV Shows', MoviesDIV: 'Movies', AnimeDIV: 'Anime', DocumentsDIV: 'Documents' };
+    const states = { WatchedDIV: 'Watched', WatchingDIV: 'Watching', NextInCueDIV: 'Next in cue' };
+    const docs = {
+        FreecomicsDIV: 'Free Comics', BooksDIV: 'Books', NewsPapersDIV: 'News Papers',
+        MangasDIV: 'Mangas', ManhwaDIV: 'Manhwa', NotFreeComicsDIV: 'Not Free Comics'
+    };
+    const parts = [];
+    const top = el.closest('#TVShowsDIV, #MoviesDIV, #AnimeDIV, #DocumentsDIV');
+    if (top) parts.push(tops[top.id]);
+    const sub = el.closest('#BeneathDocumentParrentButtons > div');
+    if (sub && docs[sub.id]) parts.push(docs[sub.id]);
+    const slide = el.closest('.slide-content');
+    if (slide && states[slide.dataset.id]) parts.push(states[slide.dataset.id]);
+    return parts.join(' · ');
+}
+
 function scrollToMatch(el) {
     el.scrollIntoView({ behavior: "smooth", block: "center" });
     el.style.backgroundColor = "yellow";
@@ -421,12 +440,7 @@ function filterList() {
     suggestionBox.innerHTML = "";
     clearHighlights();
 
-    if (input === "") {
-        restorePreviousState();
-        return;
-    }
-
-    if (!lastVisibleSectionId) storeCurrentState();
+    if (input === "") return;
 
     const elements = document.querySelectorAll("h1, h2, h3, p, span, button, li, div");
     const suggestions = [];
@@ -444,9 +458,14 @@ function filterList() {
 
     suggestions.slice(0, 8).forEach((s, i) => {
         const div = document.createElement("div");
-        div.textContent = s.text;
         div.className = "suggestion";
         div.style.cursor = "pointer";
+
+        const label = document.createElement("small");
+        label.style.cssText = "display:block; opacity:0.7; font-size:0.75em;";
+        label.textContent = getLocationLabel(s.element);
+        div.append(document.createTextNode(s.text), label);
+
         div.onclick = () => {
             clearHighlights();
 
@@ -460,16 +479,15 @@ function filterList() {
 
             el.innerHTML = `${before}<span id="${highlightId}" class="highlighted-word">${match}</span>${after}`;
 
-            openAllParents(el);
-
-            setTimeout(() => {
-                const highlightEl = document.getElementById(highlightId);
-                if (highlightEl) highlightEl.scrollIntoView({ behavior: "smooth", block: "center" });
-            }, 200);
+            openAllParents(el, () => {
+                const h = document.getElementById(highlightId);
+                if (h) h.scrollIntoView({ behavior: "smooth", block: "center" });
+            });
         };
         suggestionBox.appendChild(div);
     });
 }
+
 
 // Stacking Dynamic
 function updateStickyOffsets() {
