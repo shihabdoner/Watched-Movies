@@ -956,6 +956,7 @@
 
         <div id="DocumentsDIV" style="display:none;" class="preview-box">
             <h1 class="Blues" id="document-h1">Documents</h1>
+            <!--Buttons - Documents-->
             <div id="Buttons-in-document-section">
                 <button onclick="toggleDocumentSubSection('FreecomicsDIV', this)">Free Comics</button>
                 <button onclick="toggleDocumentSubSection('BooksDIV', this)">Books</button>
@@ -965,7 +966,9 @@
                 <button onclick="toggleDocumentSubSection('NotFreeComicsDIV', this)">Not Free Comics</button>
                 
             </div>
+            <!--Contents - Documents-->
             <div id="BeneathDocumentParrentButtons">
+                <!--Contents - FreeComics-->
                 <div id="FreecomicsDIV" style="display:none;">
                     <h2 id="Headings-in-document-section">Free Comics</h2>
                     <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; justify-content:center;">
@@ -1006,26 +1009,39 @@
                         </div>
                     </div>
                 </div>
+                <!--Contents - Books-->
                 <div id="BooksDIV" style="display:none;">
                     <h2 id="Headings-in-document-section">Books</h2>
                     <div class="book-list-container">
                       <ol>
-                          <li>গৃহদাহ - শরৎচন্দ্র চট্টোপাধ্যায়</li>
+                          <li>গৃহদাহ - শরৎচন্দ্র চট্টোপাধ্যায়</li>
                           <li>
-                              <div class="book-item">
-                                  <img src="Almost-Paradise.jpg" alt="Book Cover">
-                                  <div class="book-details">
-                                      <span class="book-name">Almost Paradise</span>
-                                      <span class="author-name">Susan Isaacs</span>
-                                  </div>
-                              </div>
-                          </li>
+                            <div class="book-item">
+                                <img src="Almost-Paradise.jpg" alt="Book Cover">
+                                <div class="book-details">
+                                    <span class="book-name">Almost Paradise</span>
+                                    <span class="author-name">Susan Isaacs</span>
+                                </div>
+                            </div>
+                    		</li>
+                        
+                        	<li>
+                              	<div class="book-item">
+                                  	<img src="গাভী_বিত্তান্ত.jpg" alt="Book Cover">
+                                  	<div class="book-details">
+                                      	<span class="book-name">গাভী বিত্তান্ত</span>
+                                      	<span class="author-name">Ahmed Sofa</span>
+                                  	</div>
+                              	</div>
+                        	</li>
                       </ol>
                     </div>            
                 </div>
+                <!--Contents - NewsPaper-->
                 <div id="NewsPapersDIV" style="display:none;">
                     <h2 id="Headings-in-document-section">News Papers</h2>
                 </div>
+                <!--Contents - Manhwa-->
                 <div id="ManhwaDIV" style="display:none;">
                     <h2 id="Headings-in-document-section">Manhwa</h2>
                     <div style="display: flex; gap: 20px; align-items: flex-start; flex-wrap: wrap; justify-content:center;">
@@ -1047,9 +1063,11 @@
                         </div>
                     </div>
                 </div>
+                <!--Contents - Mangas-->
                 <div id="MangasDIV" style="display:none;">
                     <h2 id="Headings-in-document-section">Mangas</h2>
                 </div>
+                <!--Contents - Not FreeComics-->
                 <div id="NotFreeComicsDIV" style="display:none;">
                     <h2 id="Headings-in-document-section">Not Free Comics</h2>
                     <div>
