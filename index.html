@@ -25,9 +25,13 @@
         <img id="mascot" src="character.png" alt="">
 	    <form class="example" onsubmit="return false;">
         	<div class="search-row">
-        	    <button type="button" id="filterBtn">☰ Filter</button>
-       	     <input type="text" placeholder="Search.." id="searchInput" onkeyup="filterList()">
-      	  </div>
+    			<button type="button" id="filterBtn">☰ Filter</button>
+    			<div class="input-wrap">
+        			<input type="text" placeholder="Search.." id="searchInput" onkeyup="filterList()">
+        			<button type="button" id="clearBtn" aria-label="Clear search" hidden>✕</button>
+    			</div>
+			</div>
+
      	   <div id="suggestionBox"
     	        style="background:rgb(12, 70, 11); max-height:200px; overflow:auto; position:relative; z-index:10;">
    	     </div>
