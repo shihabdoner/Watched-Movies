@@ -30,7 +30,9 @@
       	      </div>
      	       <div class="input-wrap">
     	            <input type="text" placeholder="Search.." id="searchInput" onkeyup="filterList()">
-   	             <button type="button" id="clearBtn" aria-label="Clear search" hidden>✕</button>
+   	             <button type="button" id="clearBtn" aria-label="Clear search"
+  					onclick="var i=document.getElementById('searchInput'); i.value=''; document.getElementById('suggestionBox').innerHTML=''; filterList(); i.focus();">✕</button>
+
   	          </div>
  	       </div>
 	
