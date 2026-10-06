@@ -689,18 +689,20 @@ function initFilterPanel() {
 }
 
 document.addEventListener('DOMContentLoaded', initFilterPanel);
+document.addEventListener("DOMContentLoaded", () => {
+    const searchInput = document.getElementById("searchInput");
+    const clearBtn = document.getElementById("clearBtn");
+    if (!searchInput || !clearBtn) return;
 
-const searchInput = document.getElementById("searchInput");
-const clearBtn = document.getElementById("clearBtn");
+    searchInput.addEventListener("input", () => {
+        clearBtn.hidden = searchInput.value === "";
+    });
 
-searchInput.addEventListener("input", () => {
-    clearBtn.hidden = searchInput.value === "";
-});
-
-clearBtn.addEventListener("click", () => {
-    searchInput.value = "";
-    clearBtn.hidden = true;
-    document.getElementById("suggestionBox").innerHTML = "";
-    filterList();          // refresh the list with an empty search
-    searchInput.focus();
+    clearBtn.addEventListener("click", () => {
+        searchInput.value = "";
+        clearBtn.hidden = true;
+        document.getElementById("suggestionBox").innerHTML = "";
+        filterList();
+        searchInput.focus();
+    });
 });
