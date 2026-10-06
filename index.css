@@ -1032,6 +1032,30 @@ img[alt]:not([src])::after {
 .fres .fmeta { font-size: 0.75em; color: #999; white-space: nowrap; }
 
 
+#Searchbox {
+    position: relative;
+    padding-top: 70px; /* room for the character above */
+}
+
+#mascot {
+    position: absolute;
+    width: 56px;
+    height: 56px;
+    font-size: 48px;
+    pointer-events: none;
+    animation: patrol 8s ease-in-out infinite;
+}
+
+@keyframes patrol {
+    0%   { top: 0;                left: 0;                transform: scaleX(1); }   /* top-left */
+    25%  { top: 0;                left: calc(100% - 56px); transform: scaleX(1); }  /* top-right */
+    50%  { top: calc(100% - 56px); left: calc(100% - 56px); transform: scaleX(-1); } /* bottom-right */
+    75%  { top: calc(100% - 56px); left: 0;                transform: scaleX(-1); } /* bottom-left */
+    100% { top: 0;                left: 0;                transform: scaleX(1); }
+}
+
+
+
 
 
 
