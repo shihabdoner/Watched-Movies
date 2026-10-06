@@ -1037,6 +1037,7 @@ img[alt]:not([src])::after {
   gap: 8px;
   margin-bottom: 2%;
 }
+#searchInput:placeholder-shown + #clearBtn { display: none; }
 
 .input-wrap { position: relative; flex: 1; min-width: 0; }
 
