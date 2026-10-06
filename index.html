@@ -22,23 +22,26 @@
     <h1 class="Fronttext"> Here are some things I remember</h1>
     <!-- Search Box Division -->
     <div id="Searchbox">
-        <img id="mascot" src="character.png" alt="">
-	    <form class="example" onsubmit="return false;">
+    	<form class="example" onsubmit="return false;">
         	<div class="search-row">
-    			<button type="button" id="filterBtn">☰ Filter</button>
-    			<div class="input-wrap">
-        			<input type="text" placeholder="Search.." id="searchInput" onkeyup="filterList()">
-        			<button type="button" id="clearBtn" aria-label="Clear search" hidden>✕</button>
-    			</div>
-			</div>
-
-     	   <div id="suggestionBox"
-    	        style="background:rgb(12, 70, 11); max-height:200px; overflow:auto; position:relative; z-index:10;">
-   	     </div>
-  	  </form>
- 	   <div id="filterPanel" hidden></div>
+         	   <div class="filter-wrap">
+        	        <div id="mascot"><img src="character.png" alt=""></div>
+       	         <button type="button" id="filterBtn">☰ Filter</button>
+      	      </div>
+     	       <div class="input-wrap">
+    	            <input type="text" placeholder="Search.." id="searchInput" onkeyup="filterList()">
+   	             <button type="button" id="clearBtn" aria-label="Clear search" hidden>✕</button>
+  	          </div>
+ 	       </div>
+	
+       	 <div id="suggestionBox"
+      	       style="background:rgb(12, 70, 11); max-height:200px; overflow:auto; position:relative; z-index:10;">
+     	   </div>
+    	</form>
+    	<div id="filterPanel" hidden></div>
 	</div>
 
+		
     <!-- Parent Button Division -->
     <div id="ParentButtons">
         <button onclick="toggleSection('TVShowsDIV')">TVShows</button>
