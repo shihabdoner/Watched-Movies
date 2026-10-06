@@ -1032,33 +1032,72 @@ img[alt]:not([src])::after {
 .fres .fmeta { font-size: 0.75em; color: #999; white-space: nowrap; }
 
 
-#Searchbox {
+.input-wrap {
     position: relative;
-    padding-top: 70px; /* room for the character above */
+    flex: 1; /* keeps the input stretching like before */
+}
+
+.input-wrap input {
+    width: 100%;
+    box-sizing: border-box;
+    padding-right: 34px; /* room for the cross */
+}
+
+#clearBtn {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #999;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 4px;
+}
+
+#clearBtn:hover { color: #fff; }
+
+
+.search-row { display: flex; align-items: center; gap: 8px; }
+
+.filter-wrap {
+    position: relative;
+    padding: 40px;          /* the ring the mascot walks in */
 }
 
 #mascot {
     position: absolute;
-    width: 56px;
-    height: 56px;
-    font-size: 48px;
+    width: 36px;
+    height: 36px;
     pointer-events: none;
-    animation: patrol 8s ease-in-out infinite;
+    animation:
+        patrol 6s steps(12) infinite,   /* jerky, pixel-style movement */
+        facing 6s step-end infinite;    /* flips to face its direction */
+}
+
+#mascot img {
+    width: 100%;
+    height: 100%;
+    image-rendering: pixelated;
+    animation: waddle .4s steps(1) infinite;  /* 2-frame Among Us bob */
 }
 
 @keyframes patrol {
-    0%   { top: 0;                left: 0;                transform: scaleX(1); }   /* top-left */
-    25%  { top: 0;                left: calc(100% - 56px); transform: scaleX(1); }  /* top-right */
-    50%  { top: calc(100% - 56px); left: calc(100% - 56px); transform: scaleX(-1); } /* bottom-right */
-    75%  { top: calc(100% - 56px); left: 0;                transform: scaleX(-1); } /* bottom-left */
-    100% { top: 0;                left: 0;                transform: scaleX(1); }
+    0%   { top: 0;                  left: 0; }
+    25%  { top: 0;                  left: calc(100% - 36px); }
+    50%  { top: calc(100% - 36px);  left: calc(100% - 36px); }
+    75%  { top: calc(100% - 36px);  left: 0; }
+    100% { top: 0;                  left: 0; }
 }
 
+@keyframes facing {
+    0%   { scale: 1 1; }
+    50%  { scale: -1 1; }
+}
 
-
-
-
-
-
-
-
+@keyframes waddle {
+    0%   { transform: translateY(0)    rotate(-5deg); }
+    50%  { transform: translateY(-4px) rotate(5deg); }
+    100% { transform: translateY(0)    rotate(-5deg); }
+}
