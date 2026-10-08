@@ -710,17 +710,54 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
     const mascot = document.getElementById("mascot");
+    const wrap = document.querySelector(".filter-wrap");
     const panel = document.getElementById("filterPanel");
-    if (!mascot || !panel) return;
+    if (!mascot || !wrap) return;
 
-    // Hide the mascot whenever the filter panel is open
-    const sync = () => mascot.classList.toggle("away", !panel.hidden);
+    const SIZE = 28, GAP = 4;   // mascot size, distance from button
+    const STEP = 6, TICK = 90;  // px per jump, ms between jumps
+    let dist = 0, timer = null;
+
+    function place() {
+        const left = -SIZE - GAP, top = -SIZE - GAP;
+        const right = wrap.offsetWidth + GAP;
+        const bottom = wrap.offsetHeight + GAP;
+        const W = right - left, H = bottom - top;
+        const d = dist % (2 * (W + H));
+        let x, y, dir;
+
+        if (d < W)               { x = left + d;            y = top;                   dir = 1;  }
+        else if (d < W + H)      { x = right;               y = top + (d - W);         dir = 1;  }
+        else if (d < 2 * W + H)  { x = right - (d - W - H); y = bottom;                dir = -1; }
+        else                     { x = left;                y = bottom - (d - 2*W - H); dir = -1; }
+
+        const hop = Math.round(dist / STEP) % 2 ? -3 : 0;   // 2-frame waddle
+        const tilt = hop ? 5 : -5;
+        mascot.style.transform =
+            `translate(${x}px, ${y + hop}px) rotate(${tilt}deg) scaleX(${dir})`;
+    }
+
+    function start() {
+        if (!timer) timer = setInterval(() => { dist += STEP; place(); }, TICK);
+    }
+    function stop() {
+        clearInterval(timer);
+        timer = null;
+    }
+    function sync() {
+        const open = panel && !panel.hidden;
+        mascot.classList.toggle("away", open);
+        open ? stop() : start();
+    }
+
+    place();
     sync();
-
-    // Watches the panel's open/closed state, so it works for every way of opening or closing it
-    new MutationObserver(sync).observe(panel, {
-        attributes: true,
-        attributeFilter: ["hidden"]
-    });
+    if (panel) {
+        new MutationObserver(sync).observe(panel, {
+            attributes: true,
+            attributeFilter: ["hidden"]
+        });
+    }
 });
+
 
