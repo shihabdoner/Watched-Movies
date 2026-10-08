@@ -1096,3 +1096,8 @@ img[alt]:not([src])::after {
 
 #mascot.away { visibility: hidden; }
 
+.filter-wrap { margin: 57px 50px; }
+#mascot { width: 46px; height: 53px; }
+#mascot svg { display: block; width: 100%; height: 100%; }
+
+
