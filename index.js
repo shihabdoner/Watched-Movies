@@ -714,12 +714,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const panel = document.getElementById("filterPanel");
     if (!mascot || !wrap) return;
 
-    const SIZE = 28, GAP = 4;   // mascot size, distance from button
+    const SIZE = 46, SIZE_H = 53, GAP = 4;   // mascot size, distance from button
     const STEP = 6, TICK = 90;  // px per jump, ms between jumps
     let dist = 0, timer = null;
 
     function place() {
-        const left = -SIZE - GAP, top = -SIZE - GAP;
+        const left = -SIZE - GAP, top = -SIZE_H - GAP;
         const right = wrap.offsetWidth + GAP;
         const bottom = wrap.offsetHeight + GAP;
         const W = right - left, H = bottom - top;
