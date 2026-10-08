@@ -1090,20 +1090,9 @@ img[alt]:not([src])::after {
   animation-play-state: paused;
 }
 
-#mascot {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 28px;
-  height: 28px;
-  pointer-events: none;
-  animation: none;
-}
-#mascot svg {
-  display: block;
-  width: 100%;
-  height: 100%;
-  animation: none;
-}
+#mascot { width: 36px; height: 36px; }
+#mascot svg { display: block; width: 100%; height: 100%; }
+
+
 #mascot.away { visibility: hidden; }
 
