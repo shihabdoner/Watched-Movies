@@ -706,3 +706,21 @@ document.addEventListener("DOMContentLoaded", () => {
         searchInput.focus();
     });
 });
+
+
+document.addEventListener("DOMContentLoaded", () => {
+    const mascot = document.getElementById("mascot");
+    const panel = document.getElementById("filterPanel");
+    if (!mascot || !panel) return;
+
+    // Hide the mascot whenever the filter panel is open
+    const sync = () => mascot.classList.toggle("away", !panel.hidden);
+    sync();
+
+    // Watches the panel's open/closed state, so it works for every way of opening or closing it
+    new MutationObserver(sync).observe(panel, {
+        attributes: true,
+        attributeFilter: ["hidden"]
+    });
+});
+
